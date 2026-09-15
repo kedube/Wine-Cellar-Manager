@@ -51,7 +51,7 @@ def _get_client_and_model(hass: HomeAssistant) -> tuple[Any, str]:
     from google import genai
     options = _get_config_entry_options(hass)
     api_key = options.get(OPTION_GEMINI_API_KEY, "")
-    model_name = options.get(OPTION_GEMINI_MODEL, "gemini-2.5-flash")
+    model_name = options.get(OPTION_GEMINI_MODEL, "gemini-3.6-flash")
     
     if not api_key:
         raise ValueError("Gemini API key is not configured in integration options.")

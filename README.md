@@ -30,7 +30,7 @@ Since this integration is not yet part of the HACS default store, you must add i
 4. The integration proposes default paths for label images which should not be changed without reason. 
 5. Enter your Gemini API key and the Gemini model name when requested (see below).
 
-Lastly, it asks for the name of the Gemini model. For now, `gemini-2.5-flash` is the most robust, offers free daily tokens (sufficient to build a reasonable cellar) and is more effective than newer models which only offer free tiers in their "lite" modes (which are not as effective). For now, the integration doesn't do anything with a different model, so just leave it as is.
+Lastly, it asks for the name of the Gemini model. For now, `gemini-3.6-flash` is the most robust, offers free daily tokens (sufficient to build a reasonable cellar) and is more effective than newer models which only offer free tiers in their "lite" modes (which are not as effective). For now, the integration doesn't do anything with a different model, so just leave it as is.
 
 ### Step 3: Add the Lovelace Card
 Once the integration is installed, create a new dashboard with a Panel (1 card) layout view, click Add Card, select Manual Card, switch to the YAML editor, and simply paste:
@@ -43,7 +43,7 @@ Save and Wine Cellar Manager will be ready for you!
 
 ### Obtaining a Gemini API Key
 
-A Gemini API key can be used regardless of the model selected, but some may require payment information. Using `gemini-2.5-flash` is free but has daily limits. It's sufficient for Wine Cellar Manager and, as such, I did not implement any other AI option. Note that `gemini-2.5-flash`, like any AI, is far from perfect and can hallucinate or pull erroneous information. For most things it's reliable, but use with caution.
+A Gemini API key can be used regardless of the model selected, but some may require payment information. Using `gemini-3.6-flash` is free but has daily limits. It's sufficient for Wine Cellar Manager and, as such, I did not implement any other AI option. Note that `gemini-3.6-flash`, like any AI, is far from perfect and can hallucinate or pull erroneous information. For most things it's reliable, but use with caution.
 
 Getting a Gemini API key is completely free and takes just a few minutes using Google AI Studio.
 

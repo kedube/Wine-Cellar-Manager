@@ -20,7 +20,7 @@ DEFAULT_IMAGE_BASE_PATH = "/local/wine_labels"
 DEFAULT_IMAGE_UPLOAD_DIR = "www/wine_labels"
 DEFAULT_DEMO_ENRICHMENT = True
 DEFAULT_GEMINI_API_KEY = ""
-DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
+DEFAULT_GEMINI_MODEL = "gemini-3.6-flash"
 
 WS_TYPE_GET_DATA = f"{DOMAIN}/data"
 WS_TYPE_SAVE_CELLAR = f"{DOMAIN}/save_cellar"
