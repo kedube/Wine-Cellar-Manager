@@ -131,26 +131,6 @@ class WineCellarCard extends HTMLElement {
     return this._data || { cellars: [], bottles: [], consumed_bottles: [] };
   }
 
-  async _ensureScannerLibrary() {
-    if (window.Html5Qrcode) return;
-
-    if (window.__wineCellarScannerLoading) {
-      await window.__wineCellarScannerLoading;
-      return;
-    }
-
-    window.__wineCellarScannerLoading = new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      script.src = "https://unpkg.com";
-      script.async = true;
-      script.onload = () => resolve();
-      script.onerror = () => reject(new Error("Failed to load barcode scanner library"));
-      document.head.appendChild(script);
-    });
-
-    await window.__wineCellarScannerLoading;
-  }
-
   _escape(value) {
     return String(value == null ? "" : value).replace(/[&<>"]/g, function (s) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[s];
@@ -571,7 +551,9 @@ class WineCellarCard extends HTMLElement {
           aging_start_year: b.aging_start_year != null ? Math.trunc(Number(b.aging_start_year)) : null,
           aging_end_year: b.aging_end_year != null ? Math.trunc(Number(b.aging_end_year)) : null,
           rating: b.rating != null ? Math.trunc(Number(b.rating)) : null,
-          notes: String(b.notes || "").trim()
+          notes: String(b.notes || "").trim(),
+          serving_temp: b.serving_temp != null ? Number(b.serving_temp) : null,
+          alcohol_pct: b.alcohol_pct != null ? Number(b.alcohol_pct) : null
         };
 
         // Application de la nouvelle chaîne harmonisée sur le champ concerné
@@ -617,7 +599,9 @@ class WineCellarCard extends HTMLElement {
             aging_start_year: b.aging_start_year != null ? Math.trunc(Number(b.aging_start_year)) : null,
             aging_end_year: b.aging_end_year != null ? Math.trunc(Number(b.aging_end_year)) : null,
             rating: b.rating != null ? Math.trunc(Number(b.rating)) : null,
-            notes: String(b.notes || "").trim()
+            notes: String(b.notes || "").trim(),
+            serving_temp: b.serving_temp != null ? Number(b.serving_temp) : null,
+            alcohol_pct: b.alcohol_pct != null ? Number(b.alcohol_pct) : null
           };
 
           payload[item.field] = item.selectedValue;
@@ -2524,7 +2508,9 @@ class WineCellarCard extends HTMLElement {
 
   async render(force) {
     if (!this.shadowRoot || !this._hass) return;
-    
+
+    var isFr = ((this._hass && this._hass.language) || "en").startsWith("fr");
+
     // Sauvegarde persistante dans le navigateur pour survivre aux rafraîchissements globaux
     var scrollContainer = this.shadowRoot.querySelector(".main-scroll-content");
     if (scrollContainer) {

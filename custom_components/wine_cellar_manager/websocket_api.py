@@ -255,13 +255,13 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
         if b_type not in allowed_types:
             b_type = "other"
             
-        if start_y and end_y:
+        if start_y is not None and end_y is not None:
             try:
                 for y in range(int(start_y), int(end_y) + 1):
                     ystr = str(y)
                     if ystr in taste_window:
                         taste_window[ystr][b_type] += 1
-            except (ValueError, TypeError):
+            except (ValueError, TypeError, OverflowError):
                 pass
 
     avg_age = round(total_age_years / bottles_with_vintage, 1) if bottles_with_vintage > 0 else 0
@@ -294,7 +294,9 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
 async def ws_save_cellar(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle save cellar command."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: return
+    if not entries:
+        connection.send_error(msg["id"], "no_entry", "Integration entry not found")
+        return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
     
@@ -316,33 +318,16 @@ async def ws_save_cellar(hass: HomeAssistant, connection: websocket_api.ActiveCo
 async def ws_delete_cellar(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle delete cellar command."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: return
+    if not entries:
+        connection.send_error(msg["id"], "no_entry", "Integration entry not found")
+        return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
     
     target_cellar_id = str(msg["cellar_id"])
     
     try:
-        # 1. Charger l'état actuel de la base de données du disque
-        current_data = await store.async_load()
-        
-        # 2. Filtrer la liste des bouteilles actives pour purger celles du cellier ciblé
-        if "bottles" in current_data and isinstance(current_data["bottles"], list):
-            initial_count = len(current_data["bottles"])
-            current_data["bottles"] = [
-                b for b in current_data["bottles"] 
-                if str(b.get("cellar_id")) != target_cellar_id
-            ]
-            purged_count = initial_count - len(current_data["bottles"])
-            if purged_count > 0:
-                _LOGGER.info("Wine Cellar Cascade: %d bouteille(s) orpheline(s) purgée(s) du stockage.", purged_count)
-                
-        # 3. Sauvegarder la base de données filtrée
-        await store.async_save(current_data)
-        
-        # 4. Appeler la routine native de suppression structurelle du cellier
         await store.async_delete_cellar(target_cellar_id)
-        
         connection.send_result(msg["id"], {"status": "success"})
     except Exception as err:
         _LOGGER.error("Erreur lors de la suppression en cascade du cellier : %r", err)
@@ -423,7 +408,9 @@ async def ws_save_bottle(hass: HomeAssistant, connection: websocket_api.ActiveCo
 async def ws_consume_bottle(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle consume bottle command."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: return
+    if not entries:
+        connection.send_error(msg["id"], "no_entry", "Integration entry not found")
+        return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
     try:
@@ -436,7 +423,9 @@ async def ws_consume_bottle(hass: HomeAssistant, connection: websocket_api.Activ
 async def ws_delete_bottle(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle delete bottle command."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: return
+    if not entries:
+        connection.send_error(msg["id"], "no_entry", "Integration entry not found")
+        return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
     try:
@@ -609,7 +598,9 @@ async def ws_find_label_duplicates(
 async def ws_upload_label_image(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle image upload command."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: return
+    if not entries:
+        connection.send_error(msg["id"], "no_entry", "Integration entry not found")
+        return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
     try:
@@ -647,10 +638,12 @@ async def ws_unified_analyze(
         from .storage import async_get_store
 
         if image_path and not barcode and "temp_barcode_" in image_path:
-            barcode_result = await async_extract_barcode_from_image(hass, image_path)
-            extracted = barcode_result.get("barcode", "")
             store = async_get_store(hass)
-            await store.async_delete_image(image_path)
+            try:
+                barcode_result = await async_extract_barcode_from_image(hass, image_path)
+                extracted = barcode_result.get("barcode", "")
+            finally:
+                await store.async_delete_image(image_path)
 
             if not extracted:
                 connection.send_result(

@@ -31,6 +31,16 @@ def _utcnow() -> str:
     return datetime.now().isoformat(timespec="seconds")
 
 
+def _remove_file_if_exists(path: str) -> None:
+    """Delete a file, ignoring the case where it is already gone."""
+    import os
+
+    try:
+        os.unlink(path)
+    except FileNotFoundError:
+        pass
+
+
 def _default_data() -> dict[str, Any]:
     """Return default storage structure."""
     return {
@@ -60,16 +70,6 @@ class WineCellarStore:
         self._store = Store(hass, STORAGE_VERSION, STORAGE_KEY)
 
     async def async_load(self) -> dict[str, Any]:
-        # NETTOYAGE TEMPORAIRE - À RETIRER APRÈS UN REDÉMARRAGE
-        import os
-        old_file = self.hass.config.path(".storage", "wine_cellar_manager")
-        if os.path.exists(old_file):
-            try:
-                os.remove(old_file)
-                _LOGGER.warning("Ancien fichier obsolète supprimé avec succès.")
-            except Exception as err:
-                _LOGGER.error("Impossible de supprimer l'ancien fichier : %r", err)
-
         """Load stored data."""
         try:
             data = await self._store.async_load()
@@ -173,37 +173,13 @@ class WineCellarStore:
                 )
 
         def migrate_bottle(item: dict[str, Any]) -> dict[str, Any]:
-            cellar_id = str(item.get("cellar_id") or "")
-            row = int(item.get("row", 1) or 1)
-        return {
-            "id": str(item.get("id") or uuid.uuid4().hex),
-            "cellar_id": str(item.get("cellar_id") or ""),
-            "shelf_id": str(item.get("shelf_id") or ""),
-            "lane": lane,
-            "position": max(1, int(item.get("position", 1) or 1)),
-            "wine_name": str(item.get("wine_name") or ""),
-            "producer": str(item.get("producer") or ""),
-            "region": str(item.get("region") or ""),
-            "country": str(item.get("country") or ""),
-            "varietal": str(item.get("varietal") or ""),
-            "vintage": self._safe_int(item.get("vintage")),
-            "wine_year": self._safe_int(item.get("wine_year")),
-            "wine_type": wine_type,
-            "price": self._safe_float(item.get("price")),
-            "image_path": str(item.get("image_path") or ""),
-            "barcode": str(item.get("barcode") or ""),
-            "saq_url": str(item.get("saq_url")).strip() if item.get("saq_url") is not None else None,
-            "aging_start_year": self._safe_int(item.get("aging_start_year")),
-            "aging_end_year": self._safe_int(item.get("aging_end_year")),
-            "rating": rating,
-            "notes": str(item.get("notes") or ""),
-            "created_at": str(item.get("created_at") or _utcnow()),
-            "updated_at": str(item.get("updated_at") or _utcnow()),
-            "consumed_at": str(item.get("consumed_at") or ""),
-            "serving_temp": self._safe_float(item.get("serving_temp")),
-            "alcohol_pct": self._safe_float(item.get("alcohol_pct")),
-            "original_bottle_id": str(item.get("original_bottle_id") or ""),
-        }
+            migrated = dict(item)
+            if not migrated.get("shelf_id"):
+                cellar_id = str(migrated.get("cellar_id") or "")
+                row = max(1, int(migrated.get("row", 1) or 1))
+                migrated["shelf_id"] = f"{cellar_id}_shelf_{row}"
+            migrated["lane"] = LANE_FRONT
+            return self._normalize_bottle(migrated)
 
         raw_bottles = data.get("bottles", [])
         if isinstance(raw_bottles, list):
@@ -225,7 +201,7 @@ class WineCellarStore:
                     continue
                 shelves.append(self._normalize_shelf(shelf, shelf_index))
 
-            return {
+        return {
             "id": cellar_id,
             "name": str(item.get("name") or ""),
             "display_order": int(item.get("display_order", index) or index),
@@ -659,13 +635,14 @@ class WineCellarStore:
                 # Si l'image actuelle était un fichier temporaire issu d'un nouvel upload, on le nettoie pour ne pas saturer le disque
                 if current_image_path != existing_shared_path and current_image_path.startswith("/local/wine_labels/"):
                     current_local_path = self._normalize_local_path(current_image_path)
-                    if os.path.exists(current_local_path):
-                        try:
-                            # On ne supprime le fichier physique que s'il n'est pas utilisé ailleurs
-                            if not self._is_image_referenced_elsewhere(data, image_path=current_image_path, exclude_ids={existing_bottle_id}):
-                                os.path.unlink(current_local_path)
-                        except Exception as img_err:
-                            _LOGGER.debug("Nettoyage du doublon d'image ignoré : %r", img_err)
+                    try:
+                        # On ne supprime le fichier physique que s'il n'est pas utilisé ailleurs
+                        if not self._is_image_referenced_elsewhere(data, image_path=current_image_path, exclude_ids={existing_bottle_id}):
+                            await self.hass.async_add_executor_job(
+                                _remove_file_if_exists, current_local_path
+                            )
+                    except Exception as img_err:
+                        _LOGGER.debug("Nettoyage du doublon d'image ignoré : %r", img_err)
                 
                 _LOGGER.info("Wine Cellar Manager : Mutualisation de l'image détectée pour le vin '%s'", wine_name)
                 image_path = existing_shared_path
@@ -680,11 +657,14 @@ class WineCellarStore:
                 _, ext = os.path.splitext(current_local_path)
                 ext = ext.lower() if ext else ".jpg"
 
-                new_filename = f"{clean_wine_name}_{int(time.time())}{ext}"
+                new_filename = f"{clean_wine_name}_{int(time.time())}_{uuid.uuid4().hex[:8]}{ext}"
                 new_local_path = os.path.join(self.hass.config.path("www", "wine_labels"), new_filename)
                 new_image_path_url = f"/local/wine_labels/{new_filename}"
 
-                if os.path.exists(current_local_path) and current_local_path != new_local_path:
+                source_exists = await self.hass.async_add_executor_job(
+                    os.path.exists, current_local_path
+                )
+                if source_exists and current_local_path != new_local_path:
                     try:
                         if self._is_image_referenced_elsewhere(data, image_path=current_image_path, exclude_ids={existing_bottle_id}):
                             import shutil
@@ -896,8 +876,11 @@ class WineCellarStore:
         dest_id: str,
     ) -> None:
         """Swap the physical locations of two bottles atomically."""
+        if source_id == dest_id:
+            raise ValueError("Cannot swap a bottle with itself")
+
         data = await self.async_load()
-        
+
         source_bottle = None
         dest_bottle = None
         

@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 
 from homeassistant.core import HomeAssistant
 from .websocket_api import _get_config_entry_options
-from .const import OPTION_GEMINI_API_KEY, OPTION_GEMINI_MODEL
+from .const import DEFAULT_GEMINI_MODEL, OPTION_GEMINI_API_KEY, OPTION_GEMINI_MODEL
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ def _get_client_and_model(hass: HomeAssistant) -> tuple[Any, str]:
     from google import genai
     options = _get_config_entry_options(hass)
     api_key = options.get(OPTION_GEMINI_API_KEY, "")
-    model_name = options.get(OPTION_GEMINI_MODEL, "gemini-3.6-flash")
+    model_name = options.get(OPTION_GEMINI_MODEL, DEFAULT_GEMINI_MODEL)
     
     if not api_key:
         raise ValueError("Gemini API key is not configured in integration options.")
@@ -132,13 +132,9 @@ async def async_analyze_wine_with_gemini(
     try:
         raw_json = await hass.async_add_executor_job(_sync_vision_analysis)
         from .websocket_api import _normalize_label_suggestion
-        
-        # LOGS DE DIAGNOSTIC - Ajout temporaire pour inspecter le contenu du transfert
-        _LOGGER.error("DIAGNOSTIC - Réponse brute Gemini : %s", json.dumps(raw_json))
-        
+
         normalized = _normalize_label_suggestion(raw_json, image_path)
-        _LOGGER.error("DIAGNOSTIC - Données normalisées : %s", json.dumps(normalized))
-        
+
         return {
             "suggestion": normalized,
             "official_image_url": None
@@ -175,4 +171,4 @@ async def async_extract_barcode_from_image(
         return {"barcode": raw_json.get("barcode")}
     except Exception as err:
         _LOGGER.error("Gemini barcode scanning failed: %r", err)
-        return {"barcode": None}
+        raise RuntimeError(f"Gemini API call failed: {str(err)}")

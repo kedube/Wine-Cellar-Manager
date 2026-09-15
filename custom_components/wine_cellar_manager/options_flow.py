@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 import voluptuous as vol
-from homeassistant.config_entries import OptionsFlowWithReload
+from homeassistant.config_entries import OptionsFlow
 
 from .const import (
     DEFAULT_DEMO_ENRICHMENT,
@@ -19,7 +19,7 @@ from .const import (
 )
 
 
-class WineCellarManagerOptionsFlowHandler(OptionsFlowWithReload):
+class WineCellarManagerOptionsFlowHandler(OptionsFlow):
     async def async_step_init(self, user_input: dict[str, Any] | None = None):
         if user_input is not None:
             raw_key = str(user_input.get(OPTION_GEMINI_API_KEY, "") or "").strip()
