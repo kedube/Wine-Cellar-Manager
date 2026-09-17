@@ -480,6 +480,10 @@ class WineCellarStore:
         bg_color: str = "",
     ) -> str:
         """Create or update a cellar."""
+        name = str(name or "").strip()
+        if not name:
+            raise ValueError("Cellar name is required")
+
         data = await self.async_load()
         cellars = data["cellars"]
 

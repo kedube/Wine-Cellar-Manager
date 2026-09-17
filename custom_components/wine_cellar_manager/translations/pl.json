@@ -1,0 +1,33 @@
+{
+  "title": "Menedżer piwnicy win",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Skonfiguruj menedżera piwnicy win",
+        "data": {
+          "title": "Tytuł integracji"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Menedżer piwnicy win jest już skonfigurowany."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje menedżera piwnicy win",
+        "data": {
+          "image_base_path": "Domyślna ścieżka bazowa obrazów",
+          "image_upload_dir": "Folder wgrywania na serwerze w /config",
+          "demo_enrichment": "Włącz hooki wzbogacania demo",
+          "ai_provider": "Dostawca sztucznej inteligencji",
+          "gemini_api_key": "Klucz API Gemini",
+          "gemini_model": "Model Gemini",
+          "perplexity_api_key": "Klucz API Perplexity Pro",
+          "perplexity_model": "Model Perplexity"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Wijnkelderbeheer",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wijnkelderbeheer instellen",
+        "data": {
+          "title": "Naam van de integratie"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Wijnkelderbeheer is al geconfigureerd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opties voor wijnkelderbeheer",
+        "data": {
+          "image_base_path": "Standaard basispad voor afbeeldingen",
+          "image_upload_dir": "Uploadmap op de server onder /config",
+          "demo_enrichment": "Demo-verrijkingshooks inschakelen",
+          "ai_provider": "AI-provider",
+          "gemini_api_key": "Gemini API-sleutel",
+          "gemini_model": "Gemini-model",
+          "perplexity_api_key": "Perplexity Pro API-sleutel",
+          "perplexity_model": "Perplexity-model"
+        }
+      }
+    }
+  }
+}

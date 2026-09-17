@@ -1,3 +1,1370 @@
+const WCM_TRANSLATIONS = {
+  "en": {
+    "cellars": "Cellars",
+    "compact": "Compact",
+    "all_bottles": "All Bottles",
+    "stats": "Stats",
+    "add_cellar": "Add Cellar",
+    "add_bottle": "Add Bottle",
+    "edit_bottle": "Edit Bottle",
+    "ready_to_drink": "Ready to Drink",
+    "all_types": "All Types",
+    "all_countries": "All Countries",
+    "wine_name": "Wine name",
+    "producer": "Producer",
+    "varietal": "Varietal",
+    "region": "Region",
+    "country": "Country",
+    "vintage": "Vintage",
+    "type": "Type",
+    "price": "Price",
+    "rating": "Rating",
+    "notes": "Notes",
+    "aging_start": "Aging start year",
+    "aging_end": "Aging end year",
+    "shelf": "Shelf",
+    "lane": "Lane",
+    "position": "Position",
+    "front": "Front",
+    "back": "Back",
+    "consume": "Consume",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "search_history": "Search previous bottles",
+    "taste_window_title": "Optimal Drinking Window",
+    "serving_temp": "Serving temperature",
+    "alcohol_pct": "Alcohol level",
+    "empty_slots": "Empty",
+    "not_specified": "Not Specified",
+    "cleanup_btn": "Clean-Up",
+    "cleanup_title": "Duplicate Search & Clean-Up Tool",
+    "cleanup_search_btn": "Search for Duplicates",
+    "cleanup_merge_all": "Merge All",
+    "cleanup_no_duplicates": "No syntax duplicates detected!",
+    "cleanup_searching": "Analyzing cellar data...",
+    "cleanup_welcome": "Click the button above to start the search and analyze your cellar data.",
+    "updating_field": "Updating field...",
+    "update_failed": "Update failed: ",
+    "merging_all_selections": "Merging all selections...",
+    "global_error": "Error: ",
+    "bottle_s": "bottle(s)",
+    "cellar_name_required": "Cellar name is required.",
+    "search_placeholder": "Search wine, producer, region...",
+    "add_cellar_short": "+ Cellar",
+    "all_ages": "All ages",
+    "drink_now": "Drink now",
+    "red": "Red",
+    "white": "White",
+    "rose": "Rosé",
+    "sparkling": "Sparkling",
+    "orange": "Orange",
+    "sweet": "Sweet",
+    "other": "Other",
+    "wine": "Wine",
+    "region_varietal": "Region/Varietal",
+    "aging": "Aging",
+    "total_bottles": "Total Bottles",
+    "different_wines": "Different Wines",
+    "average_age": "Average Age",
+    "years": "years",
+    "total_value": "Total Value",
+    "distribution_by_type": "Distribution by Type",
+    "top_countries_of_origin": "Top Countries of Origin",
+    "bottles_ready_to_drink_by_year": "Bottles Ready to Drink by Year",
+    "not_rated": "Not rated",
+    "unnamed_wine": "Unnamed Wine",
+    "not_available": "N/A",
+    "drinking_window": "Drinking Window",
+    "from_prefix": "From ",
+    "to_infix": " to ",
+    "no_data": "No data",
+    "physical_location": "Physical Location",
+    "no_label_image": "No label image",
+    "copy": "Copy",
+    "edit": "Edit",
+    "wine_acquisition_identification": "Wine Acquisition & Identification",
+    "upload_barcode_saq_only": "📁 Upload Barcode (SAQ Only)",
+    "upload_label_photo": "📁 Upload Label Photo",
+    "barcode_number_14_digits": "Barcode Number (14 digits)",
+    "scan_result_or_manual_entry": "Scan result or manual entry",
+    "label_image_path": "Label Image Path",
+    "analyze": "Analyze",
+    "image_not_reachable": "Image not reachable",
+    "search_history_placeholder": "Wine name, producer, region...",
+    "saq_com_url": "SAQ.com URL",
+    "cellar": "Cellar",
+    "view": "View",
+    "shelf_name": "Shelf Name",
+    "order": "Order",
+    "front_capacity": "Front capacity",
+    "back_capacity": "Back capacity",
+    "remove": "Remove",
+    "shelf_1": "Shelf 1",
+    "edit_cellar": "Edit cellar",
+    "cellar_name": "Name",
+    "display_order": "Display order",
+    "background_color": "Background Color",
+    "default_ha_theme": "Default (HA Theme)",
+    "bordeaux_red": "Bordeaux Red",
+    "oak_brown": "Oak Brown",
+    "olive_green": "Olive Green",
+    "azur_blue": "Azur Blue",
+    "slate_gray": "Slate Gray",
+    "off_white": "Off White",
+    "shelves": "Shelves",
+    "add_shelf": "Add shelf",
+    "details_and_label_applied": "✨ Wine details and label applied automatically!",
+    "select_barcode_photo": "Select barcode photo...",
+    "reading_barcode_photo": "Reading barcode photo...",
+    "sending_photo_to_ai": "Sending photo to AI...",
+    "ai_extracting_barcode": "AI extracting barcode...",
+    "barcode_detected_and_applied": "Barcode detected and applied!",
+    "no_barcode_found": "No barcode found.",
+    "barcode_extraction_failed": "Barcode extraction failed.",
+    "select_label_photo": "Select label photo...",
+    "confirm_reanalyze": "This wine has already been analyzed successfully. Overwrite the data and run the analysis again?",
+    "provide_barcode_or_label": "Please provide a barcode (digits) or upload a label image before running the analysis.",
+    "starting_smart_analysis": "Starting smart analysis...",
+    "analysis_completed": "✨ Analysis completed successfully! Details applied.",
+    "no_result_found": "No result found.",
+    "analysis_failed": "Analysis failed: ",
+    "confirm_merge_all": "Do you want to merge and standardize all listed syntaxes?",
+    "scanner_error": "Scanner error: ",
+    "upload_label_first": "Please upload or capture a label image first.",
+    "analyzing_label": "Analyzing label...",
+    "label_suggestion_applied": "Label suggestion applied to empty fields.",
+    "no_label_result": "No label result found.",
+    "label_analysis_failed": "Label analysis failed: ",
+    "no_file_selected": "No file selected.",
+    "file_not_image": "Selected file is not an image.",
+    "reading_label_image": "Reading label image...",
+    "uploading_label_image": "Uploading label image...",
+    "label_upload_failed": "Label upload failed: ",
+    "select_location_before_copy": "Select cellar, shelf, lane, and position before copying.",
+    "copying_bottle": "Copying existing bottle into current slot...",
+    "copy_bottle_failed": "Copy bottle failed: ",
+    "source_bottle_not_found": "Could not find source bottle.",
+    "bottle_details_copied": "Existing bottle details copied into the form. Review and save.",
+    "bottle_save_failed": "Bottle save failed: ",
+    "shelf_front_capacity_min": "Each shelf must have a front capacity of at least 1.",
+    "add_at_least_one_shelf": "Add at least one shelf.",
+    "cellar_save_failed": "Cellar save failed: ",
+    "confirm_delete_bottle": "Permanently delete this bottle? This cannot be undone.",
+    "confirm_consume_bottle": "Mark this bottle as consumed and move it to history?",
+    "confirm_delete_cellar": "Delete this cellar and all its bottles?",
+    "bottle_copied_to_memory": "Bottle copied to memory. Click an empty slot to paste.",
+    "cellar_needs_shelf": "A cellar must have at least one shelf.",
+    "unknown_error": "unknown error",
+    "bottle_search_failed": "Bottle search failed: ",
+    "bottles_found_suffix": " bottle(s) found.",
+    "similar_bottles_total": "{n} similar bottles total",
+    "only_bottle_of_kind": "Only bottle of this kind",
+    "duplicate_warning": "⚠️ Warning: You already have {n} identical bottle(s) in your cellar.",
+    "wine_details": "Wine details",
+    "cellar_editor": "Cellar editor",
+    "bottle_editor": "Bottle editor",
+    "unknown_cellar": "Unknown cellar"
+  },
+  "fr": {
+    "cellars": "Celliers",
+    "compact": "Compact",
+    "all_bottles": "Toutes les bouteilles",
+    "stats": "Statistiques",
+    "add_cellar": "Ajouter un cellier",
+    "add_bottle": "Ajouter une bouteille",
+    "edit_bottle": "Modifier la bouteille",
+    "ready_to_drink": "Prêt à boire",
+    "all_types": "Tous les types",
+    "all_countries": "Tous les pays",
+    "wine_name": "Nom du vin",
+    "producer": "Vignoble",
+    "varietal": "Cépage",
+    "region": "Région",
+    "country": "Pays",
+    "vintage": "Millésime",
+    "type": "Type",
+    "price": "Prix",
+    "rating": "Évaluation",
+    "notes": "Notes",
+    "aging_start": "Début de l'apogée",
+    "aging_end": "Fin de l'apogée",
+    "shelf": "Tablette",
+    "lane": "Rang",
+    "position": "Position",
+    "front": "Avant",
+    "back": "Arrière",
+    "consume": "Consommer",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "search_history": "Rechercher dans l'historique",
+    "taste_window_title": "Fenêtre de dégustation",
+    "serving_temp": "Température de service",
+    "alcohol_pct": "Degré d'alcool",
+    "empty_slots": "Vide",
+    "not_specified": "Non spécifié",
+    "cleanup_btn": "Nettoyage",
+    "cleanup_title": "Outil de recherche et nettoyage de doublons",
+    "cleanup_search_btn": "Rechercher les doublons",
+    "cleanup_merge_all": "Fusionner tout",
+    "cleanup_no_duplicates": "Aucun doublon de syntaxe détecté !",
+    "cleanup_searching": "Analyse de la cave en cours...",
+    "cleanup_welcome": "Cliquez sur le bouton ci-dessus pour lancer la recherche et l'analyse de votre cave.",
+    "updating_field": "Mise à jour du champ en cours...",
+    "update_failed": "Erreur lors de la mise à jour : ",
+    "merging_all_selections": "Fusion de tous les choix en cours...",
+    "global_error": "Erreur globale : ",
+    "bottle_s": "bouteille(s)",
+    "cellar_name_required": "Le nom du cellier est requis.",
+    "search_placeholder": "Rechercher vin, vignoble, région...",
+    "add_cellar_short": "+ Cellier",
+    "all_ages": "Tous les âges",
+    "drink_now": "Boire maintenant",
+    "red": "Rouge",
+    "white": "Blanc",
+    "rose": "Rosé",
+    "sparkling": "Mousseux",
+    "orange": "Orange",
+    "sweet": "Sucré",
+    "other": "Autre",
+    "wine": "Vin",
+    "region_varietal": "Région / Cépage",
+    "aging": "Apogée",
+    "total_bottles": "Bouteilles au total",
+    "different_wines": "Vins différents",
+    "average_age": "Âge moyen",
+    "years": "ans",
+    "total_value": "Valeur totale",
+    "distribution_by_type": "Distribution par type",
+    "top_countries_of_origin": "Top des pays d'origine",
+    "bottles_ready_to_drink_by_year": "Bouteilles prêtes à boire par année",
+    "not_rated": "Non évalué",
+    "unnamed_wine": "Nom inconnu",
+    "not_available": "Inconnu",
+    "drinking_window": "Apogée",
+    "from_prefix": "De ",
+    "to_infix": " à ",
+    "no_data": "Pas d'information",
+    "physical_location": "Emplacement physique",
+    "no_label_image": "Aucune image",
+    "copy": "Copier",
+    "edit": "Modifier",
+    "wine_acquisition_identification": "Acquisition et identification du vin",
+    "upload_barcode_saq_only": "📁 Charger code-barres (SAQ seulement)",
+    "upload_label_photo": "📁 Charger photo étiquette",
+    "barcode_number_14_digits": "Numéro du code-barres (14 chiffres)",
+    "scan_result_or_manual_entry": "Résultat du scan ou entrée manuelle",
+    "label_image_path": "Chemin de l'image de l'étiquette",
+    "analyze": "Analyser",
+    "image_not_reachable": "Image non accessible",
+    "search_history_placeholder": "Nom du vin, vignoble, région...",
+    "saq_com_url": "Lien SAQ.com",
+    "cellar": "Cellier",
+    "view": "Voir",
+    "shelf_name": "Nom de la tablette",
+    "order": "Ordre",
+    "front_capacity": "Capacité avant",
+    "back_capacity": "Capacité arrière",
+    "remove": "Supprimer",
+    "shelf_1": "Tablette 1",
+    "edit_cellar": "Modifier le cellier",
+    "cellar_name": "Nom du cellier",
+    "display_order": "Ordre d'affichage",
+    "background_color": "Couleur d'arrière-plan",
+    "default_ha_theme": "Par défaut (Thème HA)",
+    "bordeaux_red": "Rouge Bordeaux",
+    "oak_brown": "Brun Chêne",
+    "olive_green": "Vert Olive",
+    "azur_blue": "Bleu Azur",
+    "slate_gray": "Gris Ardoise",
+    "off_white": "Blanc cassée",
+    "shelves": "Tablettes",
+    "add_shelf": "+ Ajouter",
+    "details_and_label_applied": "✨ Caractéristiques et étiquette appliquées automatiquement !",
+    "select_barcode_photo": "Sélectionnez la photo du code-barres...",
+    "reading_barcode_photo": "Lecture de la photo du code-barres...",
+    "sending_photo_to_ai": "Envoi de la photo à l'IA...",
+    "ai_extracting_barcode": "L'IA extrait le code-barres...",
+    "barcode_detected_and_applied": "Code-barres détecté et appliqué !",
+    "no_barcode_found": "Aucun code-barres trouvé.",
+    "barcode_extraction_failed": "L'extraction du code-barres a échoué.",
+    "select_label_photo": "Sélectionnez la photo de l'étiquette...",
+    "confirm_reanalyze": "Ce vin a déjà été analysé avec succès. Voulez-vous écraser les données et relancer l'analyse ?",
+    "provide_barcode_or_label": "Veuillez fournir un code-barres (chiffres) ou téléverser une étiquette avant de lancer l'analyse.",
+    "starting_smart_analysis": "Lancement de l'analyse intelligente...",
+    "analysis_completed": "✨ Analyse complétée avec succès ! Caractéristiques appliquées.",
+    "no_result_found": "Aucun résultat trouvé.",
+    "analysis_failed": "L'analyse a échoué : ",
+    "confirm_merge_all": "Voulez-vous fusionner et uniformiser toutes les syntaxes listées ?",
+    "scanner_error": "Erreur du lecteur : ",
+    "upload_label_first": "Veuillez d'abord téléverser ou photographier une étiquette.",
+    "analyzing_label": "Analyse de l'étiquette...",
+    "label_suggestion_applied": "Suggestion de l'étiquette appliquée aux champs vides.",
+    "no_label_result": "Aucun résultat pour l'étiquette.",
+    "label_analysis_failed": "L'analyse de l'étiquette a échoué : ",
+    "no_file_selected": "Aucun fichier sélectionné.",
+    "file_not_image": "Le fichier sélectionné n'est pas une image.",
+    "reading_label_image": "Lecture de l'image de l'étiquette...",
+    "uploading_label_image": "Téléversement de l'image de l'étiquette...",
+    "label_upload_failed": "Le téléversement de l'étiquette a échoué : ",
+    "select_location_before_copy": "Sélectionnez le cellier, la tablette, le rang et la position avant de copier.",
+    "copying_bottle": "Copie de la bouteille existante dans l'emplacement actuel...",
+    "copy_bottle_failed": "La copie de la bouteille a échoué : ",
+    "source_bottle_not_found": "Bouteille source introuvable.",
+    "bottle_details_copied": "Détails de la bouteille copiés dans le formulaire. Vérifiez puis enregistrez.",
+    "bottle_save_failed": "L'enregistrement de la bouteille a échoué : ",
+    "shelf_front_capacity_min": "Chaque tablette doit avoir une capacité avant d'au moins 1.",
+    "add_at_least_one_shelf": "Ajoutez au moins une tablette.",
+    "cellar_save_failed": "L'enregistrement du cellier a échoué : ",
+    "confirm_delete_bottle": "Supprimer définitivement cette bouteille ? Cette action est irréversible.",
+    "confirm_consume_bottle": "Marquer cette bouteille comme consommée et la déplacer dans l'historique ?",
+    "confirm_delete_cellar": "Supprimer ce cellier et toutes ses bouteilles ?",
+    "bottle_copied_to_memory": "Bouteille copiée en mémoire. Cliquez sur un emplacement vide pour la coller.",
+    "cellar_needs_shelf": "Un cellier doit avoir au moins une tablette.",
+    "unknown_error": "erreur inconnue",
+    "bottle_search_failed": "La recherche de bouteilles a échoué : ",
+    "bottles_found_suffix": " bouteille(s) trouvée(s).",
+    "similar_bottles_total": "{n} bouteilles semblables au total",
+    "only_bottle_of_kind": "Seule bouteille de ce type",
+    "duplicate_warning": "⚠️ Attention : Vous possédez déjà {n} bouteille(s) identique(s) dans votre cellier.",
+    "wine_details": "Détails du vin",
+    "cellar_editor": "Éditeur de cellier",
+    "bottle_editor": "Éditeur de bouteille",
+    "unknown_cellar": "Cellier inconnu"
+  },
+  "de": {
+    "cellars": "Weinkeller",
+    "compact": "Kompakt",
+    "all_bottles": "Alle Flaschen",
+    "stats": "Statistik",
+    "add_cellar": "Keller hinzufügen",
+    "add_bottle": "Flasche hinzufügen",
+    "edit_bottle": "Flasche bearbeiten",
+    "ready_to_drink": "Trinkreif",
+    "all_types": "Alle Sorten",
+    "all_countries": "Alle Länder",
+    "wine_name": "Weinname",
+    "producer": "Erzeuger",
+    "varietal": "Rebsorte",
+    "region": "Region",
+    "country": "Land",
+    "vintage": "Jahrgang",
+    "type": "Typ",
+    "price": "Preis",
+    "rating": "Bewertung",
+    "notes": "Notizen",
+    "aging_start": "Trinkreife ab (Jahr)",
+    "aging_end": "Trinkreife bis (Jahr)",
+    "shelf": "Regal",
+    "lane": "Reihe",
+    "position": "Position",
+    "front": "Vorne",
+    "back": "Hinten",
+    "consume": "Trinken",
+    "delete": "Löschen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "search_history": "Frühere Flaschen durchsuchen",
+    "taste_window_title": "Optimales Trinkfenster",
+    "serving_temp": "Serviertemperatur",
+    "alcohol_pct": "Alkoholgehalt",
+    "empty_slots": "Leer",
+    "not_specified": "Nicht angegeben",
+    "cleanup_btn": "Bereinigen",
+    "cleanup_title": "Duplikatsuche und Bereinigung",
+    "cleanup_search_btn": "Duplikate suchen",
+    "cleanup_merge_all": "Alle zusammenführen",
+    "cleanup_no_duplicates": "Keine Schreibweisen-Duplikate gefunden!",
+    "cleanup_searching": "Kellerdaten werden analysiert...",
+    "cleanup_welcome": "Klicken Sie oben auf die Schaltfläche, um die Suche zu starten und Ihre Kellerdaten zu analysieren.",
+    "updating_field": "Feld wird aktualisiert...",
+    "update_failed": "Aktualisierung fehlgeschlagen: ",
+    "merging_all_selections": "Alle Auswahlen werden zusammengeführt...",
+    "global_error": "Fehler: ",
+    "bottle_s": "Flasche(n)",
+    "cellar_name_required": "Der Kellername ist erforderlich.",
+    "search_placeholder": "Wein, Erzeuger, Region suchen...",
+    "add_cellar_short": "+ Keller",
+    "all_ages": "Alle Jahrgänge",
+    "drink_now": "Jetzt trinken",
+    "red": "Rot",
+    "white": "Weiß",
+    "rose": "Rosé",
+    "sparkling": "Schaumwein",
+    "orange": "Orange",
+    "sweet": "Süß",
+    "other": "Sonstige",
+    "wine": "Wein",
+    "region_varietal": "Region/Rebsorte",
+    "aging": "Trinkreife",
+    "total_bottles": "Flaschen gesamt",
+    "different_wines": "Verschiedene Weine",
+    "average_age": "Durchschnittsalter",
+    "years": "Jahre",
+    "total_value": "Gesamtwert",
+    "distribution_by_type": "Verteilung nach Typ",
+    "top_countries_of_origin": "Top-Herkunftsländer",
+    "bottles_ready_to_drink_by_year": "Trinkreife Flaschen nach Jahr",
+    "not_rated": "Nicht bewertet",
+    "unnamed_wine": "Unbenannter Wein",
+    "not_available": "k. A.",
+    "drinking_window": "Trinkfenster",
+    "from_prefix": "Von ",
+    "to_infix": " bis ",
+    "no_data": "Keine Daten",
+    "physical_location": "Lagerort",
+    "no_label_image": "Kein Etikettenbild",
+    "copy": "Kopieren",
+    "edit": "Bearbeiten",
+    "wine_acquisition_identification": "Weinerfassung und Identifikation",
+    "upload_barcode_saq_only": "📁 Barcode hochladen (nur SAQ)",
+    "upload_label_photo": "📁 Etikettenfoto hochladen",
+    "barcode_number_14_digits": "Barcodenummer (14 Ziffern)",
+    "scan_result_or_manual_entry": "Scanergebnis oder manuelle Eingabe",
+    "label_image_path": "Pfad zum Etikettenbild",
+    "analyze": "Analysieren",
+    "image_not_reachable": "Bild nicht erreichbar",
+    "search_history_placeholder": "Weinname, Erzeuger, Region...",
+    "saq_com_url": "SAQ.com-URL",
+    "cellar": "Keller",
+    "view": "Ansehen",
+    "shelf_name": "Regalname",
+    "order": "Reihenfolge",
+    "front_capacity": "Kapazität vorne",
+    "back_capacity": "Kapazität hinten",
+    "remove": "Entfernen",
+    "shelf_1": "Regal 1",
+    "edit_cellar": "Keller bearbeiten",
+    "cellar_name": "Name",
+    "display_order": "Anzeigereihenfolge",
+    "background_color": "Hintergrundfarbe",
+    "default_ha_theme": "Standard (HA-Design)",
+    "bordeaux_red": "Bordeauxrot",
+    "oak_brown": "Eichenbraun",
+    "olive_green": "Olivgrün",
+    "azur_blue": "Azurblau",
+    "slate_gray": "Schiefergrau",
+    "off_white": "Cremeweiß",
+    "shelves": "Regale",
+    "add_shelf": "Regal hinzufügen",
+    "details_and_label_applied": "✨ Weindetails und Etikett automatisch übernommen!",
+    "select_barcode_photo": "Barcodefoto auswählen...",
+    "reading_barcode_photo": "Barcodefoto wird gelesen...",
+    "sending_photo_to_ai": "Foto wird an die KI gesendet...",
+    "ai_extracting_barcode": "KI liest den Barcode...",
+    "barcode_detected_and_applied": "Barcode erkannt und übernommen!",
+    "no_barcode_found": "Kein Barcode gefunden.",
+    "barcode_extraction_failed": "Barcode-Erkennung fehlgeschlagen.",
+    "select_label_photo": "Etikettenfoto auswählen...",
+    "confirm_reanalyze": "Dieser Wein wurde bereits erfolgreich analysiert. Daten überschreiben und Analyse erneut ausführen?",
+    "provide_barcode_or_label": "Bitte geben Sie einen Barcode (Ziffern) ein oder laden Sie ein Etikettenbild hoch, bevor Sie die Analyse starten.",
+    "starting_smart_analysis": "Intelligente Analyse wird gestartet...",
+    "analysis_completed": "✨ Analyse erfolgreich abgeschlossen! Details übernommen.",
+    "no_result_found": "Kein Ergebnis gefunden.",
+    "analysis_failed": "Analyse fehlgeschlagen: ",
+    "confirm_merge_all": "Möchten Sie alle aufgeführten Schreibweisen zusammenführen und vereinheitlichen?",
+    "scanner_error": "Scannerfehler: ",
+    "upload_label_first": "Bitte laden Sie zuerst ein Etikettenbild hoch oder nehmen Sie eines auf.",
+    "analyzing_label": "Etikett wird analysiert...",
+    "label_suggestion_applied": "Etikettenvorschlag auf leere Felder angewendet.",
+    "no_label_result": "Kein Etikettenergebnis gefunden.",
+    "label_analysis_failed": "Etikettenanalyse fehlgeschlagen: ",
+    "no_file_selected": "Keine Datei ausgewählt.",
+    "file_not_image": "Die ausgewählte Datei ist kein Bild.",
+    "reading_label_image": "Etikettenbild wird gelesen...",
+    "uploading_label_image": "Etikettenbild wird hochgeladen...",
+    "label_upload_failed": "Hochladen des Etiketts fehlgeschlagen: ",
+    "select_location_before_copy": "Wählen Sie Keller, Regal, Reihe und Position aus, bevor Sie kopieren.",
+    "copying_bottle": "Vorhandene Flasche wird in den aktuellen Platz kopiert...",
+    "copy_bottle_failed": "Kopieren der Flasche fehlgeschlagen: ",
+    "source_bottle_not_found": "Quellflasche nicht gefunden.",
+    "bottle_details_copied": "Flaschendetails ins Formular kopiert. Prüfen und speichern.",
+    "bottle_save_failed": "Speichern der Flasche fehlgeschlagen: ",
+    "shelf_front_capacity_min": "Jedes Regal braucht vorne eine Kapazität von mindestens 1.",
+    "add_at_least_one_shelf": "Fügen Sie mindestens ein Regal hinzu.",
+    "cellar_save_failed": "Speichern des Kellers fehlgeschlagen: ",
+    "confirm_delete_bottle": "Diese Flasche endgültig löschen? Dies kann nicht rückgängig gemacht werden.",
+    "confirm_consume_bottle": "Diese Flasche als getrunken markieren und in den Verlauf verschieben?",
+    "confirm_delete_cellar": "Diesen Keller und alle seine Flaschen löschen?",
+    "bottle_copied_to_memory": "Flasche zwischengespeichert. Klicken Sie auf einen leeren Platz zum Einfügen.",
+    "cellar_needs_shelf": "Ein Keller muss mindestens ein Regal haben.",
+    "unknown_error": "unbekannter Fehler",
+    "bottle_search_failed": "Flaschensuche fehlgeschlagen: ",
+    "bottles_found_suffix": " Flasche(n) gefunden.",
+    "similar_bottles_total": "{n} ähnliche Flaschen insgesamt",
+    "only_bottle_of_kind": "Einzige Flasche dieser Art",
+    "duplicate_warning": "⚠️ Achtung: Sie haben bereits {n} identische Flasche(n) in Ihrem Keller.",
+    "wine_details": "Weindetails",
+    "cellar_editor": "Keller-Editor",
+    "bottle_editor": "Flaschen-Editor",
+    "unknown_cellar": "Unbekannter Keller"
+  },
+  "es": {
+    "cellars": "Bodegas",
+    "compact": "Compacto",
+    "all_bottles": "Todas las botellas",
+    "stats": "Estadísticas",
+    "add_cellar": "Añadir bodega",
+    "add_bottle": "Añadir botella",
+    "edit_bottle": "Editar botella",
+    "ready_to_drink": "Listo para beber",
+    "all_types": "Todos los tipos",
+    "all_countries": "Todos los países",
+    "wine_name": "Nombre del vino",
+    "producer": "Productor",
+    "varietal": "Variedad",
+    "region": "Región",
+    "country": "País",
+    "vintage": "Añada",
+    "type": "Tipo",
+    "price": "Precio",
+    "rating": "Valoración",
+    "notes": "Notas",
+    "aging_start": "Inicio de madurez (año)",
+    "aging_end": "Fin de madurez (año)",
+    "shelf": "Estante",
+    "lane": "Fila",
+    "position": "Posición",
+    "front": "Delante",
+    "back": "Detrás",
+    "consume": "Consumir",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "search_history": "Buscar botellas anteriores",
+    "taste_window_title": "Ventana óptima de consumo",
+    "serving_temp": "Temperatura de servicio",
+    "alcohol_pct": "Graduación alcohólica",
+    "empty_slots": "Vacío",
+    "not_specified": "No especificado",
+    "cleanup_btn": "Limpieza",
+    "cleanup_title": "Herramienta de búsqueda y limpieza de duplicados",
+    "cleanup_search_btn": "Buscar duplicados",
+    "cleanup_merge_all": "Fusionar todo",
+    "cleanup_no_duplicates": "¡No se detectaron duplicados de sintaxis!",
+    "cleanup_searching": "Analizando los datos de la bodega...",
+    "cleanup_welcome": "Haga clic en el botón de arriba para iniciar la búsqueda y analizar los datos de su bodega.",
+    "updating_field": "Actualizando campo...",
+    "update_failed": "Error al actualizar: ",
+    "merging_all_selections": "Fusionando todas las selecciones...",
+    "global_error": "Error: ",
+    "bottle_s": "botella(s)",
+    "cellar_name_required": "El nombre de la bodega es obligatorio.",
+    "search_placeholder": "Buscar vino, productor, región...",
+    "add_cellar_short": "+ Bodega",
+    "all_ages": "Todas las edades",
+    "drink_now": "Beber ahora",
+    "red": "Tinto",
+    "white": "Blanco",
+    "rose": "Rosado",
+    "sparkling": "Espumoso",
+    "orange": "Naranja",
+    "sweet": "Dulce",
+    "other": "Otro",
+    "wine": "Vino",
+    "region_varietal": "Región/Variedad",
+    "aging": "Madurez",
+    "total_bottles": "Botellas totales",
+    "different_wines": "Vinos diferentes",
+    "average_age": "Edad media",
+    "years": "años",
+    "total_value": "Valor total",
+    "distribution_by_type": "Distribución por tipo",
+    "top_countries_of_origin": "Principales países de origen",
+    "bottles_ready_to_drink_by_year": "Botellas listas para beber por año",
+    "not_rated": "Sin valorar",
+    "unnamed_wine": "Vino sin nombre",
+    "not_available": "N/D",
+    "drinking_window": "Ventana de consumo",
+    "from_prefix": "De ",
+    "to_infix": " a ",
+    "no_data": "Sin datos",
+    "physical_location": "Ubicación física",
+    "no_label_image": "Sin imagen de etiqueta",
+    "copy": "Copiar",
+    "edit": "Editar",
+    "wine_acquisition_identification": "Adquisición e identificación del vino",
+    "upload_barcode_saq_only": "📁 Subir código de barras (solo SAQ)",
+    "upload_label_photo": "📁 Subir foto de la etiqueta",
+    "barcode_number_14_digits": "Número de código de barras (14 dígitos)",
+    "scan_result_or_manual_entry": "Resultado del escaneo o entrada manual",
+    "label_image_path": "Ruta de la imagen de la etiqueta",
+    "analyze": "Analizar",
+    "image_not_reachable": "Imagen no accesible",
+    "search_history_placeholder": "Nombre del vino, productor, región...",
+    "saq_com_url": "URL de SAQ.com",
+    "cellar": "Bodega",
+    "view": "Ver",
+    "shelf_name": "Nombre del estante",
+    "order": "Orden",
+    "front_capacity": "Capacidad delantera",
+    "back_capacity": "Capacidad trasera",
+    "remove": "Quitar",
+    "shelf_1": "Estante 1",
+    "edit_cellar": "Editar bodega",
+    "cellar_name": "Nombre",
+    "display_order": "Orden de visualización",
+    "background_color": "Color de fondo",
+    "default_ha_theme": "Predeterminado (tema de HA)",
+    "bordeaux_red": "Rojo burdeos",
+    "oak_brown": "Marrón roble",
+    "olive_green": "Verde oliva",
+    "azur_blue": "Azul celeste",
+    "slate_gray": "Gris pizarra",
+    "off_white": "Blanco roto",
+    "shelves": "Estantes",
+    "add_shelf": "Añadir estante",
+    "details_and_label_applied": "✨ ¡Detalles del vino y etiqueta aplicados automáticamente!",
+    "select_barcode_photo": "Seleccione la foto del código de barras...",
+    "reading_barcode_photo": "Leyendo la foto del código de barras...",
+    "sending_photo_to_ai": "Enviando la foto a la IA...",
+    "ai_extracting_barcode": "La IA está extrayendo el código de barras...",
+    "barcode_detected_and_applied": "¡Código de barras detectado y aplicado!",
+    "no_barcode_found": "No se encontró ningún código de barras.",
+    "barcode_extraction_failed": "Error al extraer el código de barras.",
+    "select_label_photo": "Seleccione la foto de la etiqueta...",
+    "confirm_reanalyze": "Este vino ya se analizó correctamente. ¿Desea sobrescribir los datos y volver a ejecutar el análisis?",
+    "provide_barcode_or_label": "Introduzca un código de barras (dígitos) o suba una imagen de la etiqueta antes de iniciar el análisis.",
+    "starting_smart_analysis": "Iniciando el análisis inteligente...",
+    "analysis_completed": "✨ ¡Análisis completado con éxito! Detalles aplicados.",
+    "no_result_found": "No se encontró ningún resultado.",
+    "analysis_failed": "El análisis falló: ",
+    "confirm_merge_all": "¿Desea fusionar y estandarizar todas las sintaxis listadas?",
+    "scanner_error": "Error del escáner: ",
+    "upload_label_first": "Primero suba o capture una imagen de la etiqueta.",
+    "analyzing_label": "Analizando la etiqueta...",
+    "label_suggestion_applied": "Sugerencia de la etiqueta aplicada a los campos vacíos.",
+    "no_label_result": "No se encontró ningún resultado para la etiqueta.",
+    "label_analysis_failed": "El análisis de la etiqueta falló: ",
+    "no_file_selected": "No se seleccionó ningún archivo.",
+    "file_not_image": "El archivo seleccionado no es una imagen.",
+    "reading_label_image": "Leyendo la imagen de la etiqueta...",
+    "uploading_label_image": "Subiendo la imagen de la etiqueta...",
+    "label_upload_failed": "Error al subir la etiqueta: ",
+    "select_location_before_copy": "Seleccione bodega, estante, fila y posición antes de copiar.",
+    "copying_bottle": "Copiando la botella existente en la posición actual...",
+    "copy_bottle_failed": "Error al copiar la botella: ",
+    "source_bottle_not_found": "No se encontró la botella de origen.",
+    "bottle_details_copied": "Detalles de la botella copiados en el formulario. Revise y guarde.",
+    "bottle_save_failed": "Error al guardar la botella: ",
+    "shelf_front_capacity_min": "Cada estante debe tener una capacidad delantera de al menos 1.",
+    "add_at_least_one_shelf": "Añada al menos un estante.",
+    "cellar_save_failed": "Error al guardar la bodega: ",
+    "confirm_delete_bottle": "¿Eliminar esta botella de forma permanente? Esta acción no se puede deshacer.",
+    "confirm_consume_bottle": "¿Marcar esta botella como consumida y moverla al historial?",
+    "confirm_delete_cellar": "¿Eliminar esta bodega y todas sus botellas?",
+    "bottle_copied_to_memory": "Botella copiada en memoria. Haga clic en una posición vacía para pegar.",
+    "cellar_needs_shelf": "Una bodega debe tener al menos un estante.",
+    "unknown_error": "error desconocido",
+    "bottle_search_failed": "Error en la búsqueda de botellas: ",
+    "bottles_found_suffix": " botella(s) encontrada(s).",
+    "similar_bottles_total": "{n} botellas similares en total",
+    "only_bottle_of_kind": "Única botella de este tipo",
+    "duplicate_warning": "⚠️ Atención: Ya tiene {n} botella(s) idéntica(s) en su bodega.",
+    "wine_details": "Detalles del vino",
+    "cellar_editor": "Editor de bodega",
+    "bottle_editor": "Editor de botella",
+    "unknown_cellar": "Bodega desconocida"
+  },
+  "it": {
+    "cellars": "Cantine",
+    "compact": "Compatto",
+    "all_bottles": "Tutte le bottiglie",
+    "stats": "Statistiche",
+    "add_cellar": "Aggiungi cantina",
+    "add_bottle": "Aggiungi bottiglia",
+    "edit_bottle": "Modifica bottiglia",
+    "ready_to_drink": "Pronto da bere",
+    "all_types": "Tutti i tipi",
+    "all_countries": "Tutti i paesi",
+    "wine_name": "Nome del vino",
+    "producer": "Produttore",
+    "varietal": "Vitigno",
+    "region": "Regione",
+    "country": "Paese",
+    "vintage": "Annata",
+    "type": "Tipo",
+    "price": "Prezzo",
+    "rating": "Valutazione",
+    "notes": "Note",
+    "aging_start": "Inizio maturità (anno)",
+    "aging_end": "Fine maturità (anno)",
+    "shelf": "Ripiano",
+    "lane": "Fila",
+    "position": "Posizione",
+    "front": "Davanti",
+    "back": "Dietro",
+    "consume": "Consuma",
+    "delete": "Elimina",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "search_history": "Cerca bottiglie precedenti",
+    "taste_window_title": "Finestra ottimale di consumo",
+    "serving_temp": "Temperatura di servizio",
+    "alcohol_pct": "Gradazione alcolica",
+    "empty_slots": "Vuoto",
+    "not_specified": "Non specificato",
+    "cleanup_btn": "Pulizia",
+    "cleanup_title": "Strumento di ricerca e pulizia duplicati",
+    "cleanup_search_btn": "Cerca duplicati",
+    "cleanup_merge_all": "Unisci tutto",
+    "cleanup_no_duplicates": "Nessun duplicato di sintassi rilevato!",
+    "cleanup_searching": "Analisi dei dati della cantina...",
+    "cleanup_welcome": "Fai clic sul pulsante qui sopra per avviare la ricerca e analizzare i dati della tua cantina.",
+    "updating_field": "Aggiornamento del campo...",
+    "update_failed": "Aggiornamento non riuscito: ",
+    "merging_all_selections": "Unione di tutte le selezioni...",
+    "global_error": "Errore: ",
+    "bottle_s": "bottiglia/e",
+    "cellar_name_required": "Il nome della cantina è obbligatorio.",
+    "search_placeholder": "Cerca vino, produttore, regione...",
+    "add_cellar_short": "+ Cantina",
+    "all_ages": "Tutte le età",
+    "drink_now": "Da bere ora",
+    "red": "Rosso",
+    "white": "Bianco",
+    "rose": "Rosato",
+    "sparkling": "Spumante",
+    "orange": "Orange",
+    "sweet": "Dolce",
+    "other": "Altro",
+    "wine": "Vino",
+    "region_varietal": "Regione/Vitigno",
+    "aging": "Maturità",
+    "total_bottles": "Bottiglie totali",
+    "different_wines": "Vini diversi",
+    "average_age": "Età media",
+    "years": "anni",
+    "total_value": "Valore totale",
+    "distribution_by_type": "Distribuzione per tipo",
+    "top_countries_of_origin": "Principali paesi di origine",
+    "bottles_ready_to_drink_by_year": "Bottiglie pronte da bere per anno",
+    "not_rated": "Non valutato",
+    "unnamed_wine": "Vino senza nome",
+    "not_available": "N/D",
+    "drinking_window": "Finestra di consumo",
+    "from_prefix": "Dal ",
+    "to_infix": " al ",
+    "no_data": "Nessun dato",
+    "physical_location": "Posizione fisica",
+    "no_label_image": "Nessuna immagine dell'etichetta",
+    "copy": "Copia",
+    "edit": "Modifica",
+    "wine_acquisition_identification": "Acquisizione e identificazione del vino",
+    "upload_barcode_saq_only": "📁 Carica codice a barre (solo SAQ)",
+    "upload_label_photo": "📁 Carica foto dell'etichetta",
+    "barcode_number_14_digits": "Numero del codice a barre (14 cifre)",
+    "scan_result_or_manual_entry": "Risultato della scansione o inserimento manuale",
+    "label_image_path": "Percorso dell'immagine dell'etichetta",
+    "analyze": "Analizza",
+    "image_not_reachable": "Immagine non raggiungibile",
+    "search_history_placeholder": "Nome del vino, produttore, regione...",
+    "saq_com_url": "URL SAQ.com",
+    "cellar": "Cantina",
+    "view": "Visualizza",
+    "shelf_name": "Nome del ripiano",
+    "order": "Ordine",
+    "front_capacity": "Capacità anteriore",
+    "back_capacity": "Capacità posteriore",
+    "remove": "Rimuovi",
+    "shelf_1": "Ripiano 1",
+    "edit_cellar": "Modifica cantina",
+    "cellar_name": "Nome",
+    "display_order": "Ordine di visualizzazione",
+    "background_color": "Colore di sfondo",
+    "default_ha_theme": "Predefinito (tema HA)",
+    "bordeaux_red": "Rosso bordeaux",
+    "oak_brown": "Marrone quercia",
+    "olive_green": "Verde oliva",
+    "azur_blue": "Blu azzurro",
+    "slate_gray": "Grigio ardesia",
+    "off_white": "Bianco sporco",
+    "shelves": "Ripiani",
+    "add_shelf": "Aggiungi ripiano",
+    "details_and_label_applied": "✨ Dettagli del vino ed etichetta applicati automaticamente!",
+    "select_barcode_photo": "Seleziona la foto del codice a barre...",
+    "reading_barcode_photo": "Lettura della foto del codice a barre...",
+    "sending_photo_to_ai": "Invio della foto all'IA...",
+    "ai_extracting_barcode": "L'IA sta estraendo il codice a barre...",
+    "barcode_detected_and_applied": "Codice a barre rilevato e applicato!",
+    "no_barcode_found": "Nessun codice a barre trovato.",
+    "barcode_extraction_failed": "Estrazione del codice a barre non riuscita.",
+    "select_label_photo": "Seleziona la foto dell'etichetta...",
+    "confirm_reanalyze": "Questo vino è già stato analizzato con successo. Sovrascrivere i dati ed eseguire di nuovo l'analisi?",
+    "provide_barcode_or_label": "Inserisci un codice a barre (cifre) o carica un'immagine dell'etichetta prima di avviare l'analisi.",
+    "starting_smart_analysis": "Avvio dell'analisi intelligente...",
+    "analysis_completed": "✨ Analisi completata con successo! Dettagli applicati.",
+    "no_result_found": "Nessun risultato trovato.",
+    "analysis_failed": "Analisi non riuscita: ",
+    "confirm_merge_all": "Vuoi unire e uniformare tutte le sintassi elencate?",
+    "scanner_error": "Errore dello scanner: ",
+    "upload_label_first": "Carica o scatta prima un'immagine dell'etichetta.",
+    "analyzing_label": "Analisi dell'etichetta...",
+    "label_suggestion_applied": "Suggerimento dell'etichetta applicato ai campi vuoti.",
+    "no_label_result": "Nessun risultato per l'etichetta.",
+    "label_analysis_failed": "Analisi dell'etichetta non riuscita: ",
+    "no_file_selected": "Nessun file selezionato.",
+    "file_not_image": "Il file selezionato non è un'immagine.",
+    "reading_label_image": "Lettura dell'immagine dell'etichetta...",
+    "uploading_label_image": "Caricamento dell'immagine dell'etichetta...",
+    "label_upload_failed": "Caricamento dell'etichetta non riuscito: ",
+    "select_location_before_copy": "Seleziona cantina, ripiano, fila e posizione prima di copiare.",
+    "copying_bottle": "Copia della bottiglia esistente nella posizione corrente...",
+    "copy_bottle_failed": "Copia della bottiglia non riuscita: ",
+    "source_bottle_not_found": "Bottiglia di origine non trovata.",
+    "bottle_details_copied": "Dettagli della bottiglia copiati nel modulo. Controlla e salva.",
+    "bottle_save_failed": "Salvataggio della bottiglia non riuscito: ",
+    "shelf_front_capacity_min": "Ogni ripiano deve avere una capacità anteriore di almeno 1.",
+    "add_at_least_one_shelf": "Aggiungi almeno un ripiano.",
+    "cellar_save_failed": "Salvataggio della cantina non riuscito: ",
+    "confirm_delete_bottle": "Eliminare definitivamente questa bottiglia? L'operazione non può essere annullata.",
+    "confirm_consume_bottle": "Segnare questa bottiglia come consumata e spostarla nella cronologia?",
+    "confirm_delete_cellar": "Eliminare questa cantina e tutte le sue bottiglie?",
+    "bottle_copied_to_memory": "Bottiglia copiata in memoria. Fai clic su una posizione vuota per incollare.",
+    "cellar_needs_shelf": "Una cantina deve avere almeno un ripiano.",
+    "unknown_error": "errore sconosciuto",
+    "bottle_search_failed": "Ricerca delle bottiglie non riuscita: ",
+    "bottles_found_suffix": " bottiglia/e trovata/e.",
+    "similar_bottles_total": "{n} bottiglie simili in totale",
+    "only_bottle_of_kind": "Unica bottiglia di questo tipo",
+    "duplicate_warning": "⚠️ Attenzione: hai già {n} bottiglia/e identica/che nella tua cantina.",
+    "wine_details": "Dettagli del vino",
+    "cellar_editor": "Editor cantina",
+    "bottle_editor": "Editor bottiglia",
+    "unknown_cellar": "Cantina sconosciuta"
+  },
+  "nl": {
+    "cellars": "Wijnkelders",
+    "compact": "Compact",
+    "all_bottles": "Alle flessen",
+    "stats": "Statistieken",
+    "add_cellar": "Kelder toevoegen",
+    "add_bottle": "Fles toevoegen",
+    "edit_bottle": "Fles bewerken",
+    "ready_to_drink": "Drinkklaar",
+    "all_types": "Alle soorten",
+    "all_countries": "Alle landen",
+    "wine_name": "Wijnnaam",
+    "producer": "Producent",
+    "varietal": "Druivensoort",
+    "region": "Regio",
+    "country": "Land",
+    "vintage": "Jaargang",
+    "type": "Type",
+    "price": "Prijs",
+    "rating": "Beoordeling",
+    "notes": "Notities",
+    "aging_start": "Drinkrijp vanaf (jaar)",
+    "aging_end": "Drinkrijp tot (jaar)",
+    "shelf": "Plank",
+    "lane": "Rij",
+    "position": "Positie",
+    "front": "Voor",
+    "back": "Achter",
+    "consume": "Drinken",
+    "delete": "Verwijderen",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "search_history": "Eerdere flessen zoeken",
+    "taste_window_title": "Optimaal drinkvenster",
+    "serving_temp": "Serveertemperatuur",
+    "alcohol_pct": "Alcoholpercentage",
+    "empty_slots": "Leeg",
+    "not_specified": "Niet opgegeven",
+    "cleanup_btn": "Opschonen",
+    "cleanup_title": "Duplicaten zoeken en opschonen",
+    "cleanup_search_btn": "Duplicaten zoeken",
+    "cleanup_merge_all": "Alles samenvoegen",
+    "cleanup_no_duplicates": "Geen schrijfwijze-duplicaten gevonden!",
+    "cleanup_searching": "Keldergegevens worden geanalyseerd...",
+    "cleanup_welcome": "Klik op de knop hierboven om de zoekopdracht te starten en uw keldergegevens te analyseren.",
+    "updating_field": "Veld wordt bijgewerkt...",
+    "update_failed": "Bijwerken mislukt: ",
+    "merging_all_selections": "Alle selecties worden samengevoegd...",
+    "global_error": "Fout: ",
+    "bottle_s": "fles(sen)",
+    "cellar_name_required": "De keldernaam is verplicht.",
+    "search_placeholder": "Zoek wijn, producent, regio...",
+    "add_cellar_short": "+ Kelder",
+    "all_ages": "Alle leeftijden",
+    "drink_now": "Nu drinken",
+    "red": "Rood",
+    "white": "Wit",
+    "rose": "Rosé",
+    "sparkling": "Mousserend",
+    "orange": "Oranje",
+    "sweet": "Zoet",
+    "other": "Overig",
+    "wine": "Wijn",
+    "region_varietal": "Regio/Druivensoort",
+    "aging": "Drinkrijpheid",
+    "total_bottles": "Totaal flessen",
+    "different_wines": "Verschillende wijnen",
+    "average_age": "Gemiddelde leeftijd",
+    "years": "jaar",
+    "total_value": "Totale waarde",
+    "distribution_by_type": "Verdeling per type",
+    "top_countries_of_origin": "Top landen van herkomst",
+    "bottles_ready_to_drink_by_year": "Drinkklare flessen per jaar",
+    "not_rated": "Niet beoordeeld",
+    "unnamed_wine": "Naamloze wijn",
+    "not_available": "n.v.t.",
+    "drinking_window": "Drinkvenster",
+    "from_prefix": "Van ",
+    "to_infix": " tot ",
+    "no_data": "Geen gegevens",
+    "physical_location": "Fysieke locatie",
+    "no_label_image": "Geen etiketafbeelding",
+    "copy": "Kopiëren",
+    "edit": "Bewerken",
+    "wine_acquisition_identification": "Wijnaanwinst en identificatie",
+    "upload_barcode_saq_only": "📁 Barcode uploaden (alleen SAQ)",
+    "upload_label_photo": "📁 Etiketfoto uploaden",
+    "barcode_number_14_digits": "Barcodenummer (14 cijfers)",
+    "scan_result_or_manual_entry": "Scanresultaat of handmatige invoer",
+    "label_image_path": "Pad naar etiketafbeelding",
+    "analyze": "Analyseren",
+    "image_not_reachable": "Afbeelding niet bereikbaar",
+    "search_history_placeholder": "Wijnnaam, producent, regio...",
+    "saq_com_url": "SAQ.com-URL",
+    "cellar": "Kelder",
+    "view": "Bekijken",
+    "shelf_name": "Planknaam",
+    "order": "Volgorde",
+    "front_capacity": "Capaciteit voor",
+    "back_capacity": "Capaciteit achter",
+    "remove": "Verwijderen",
+    "shelf_1": "Plank 1",
+    "edit_cellar": "Kelder bewerken",
+    "cellar_name": "Naam",
+    "display_order": "Weergavevolgorde",
+    "background_color": "Achtergrondkleur",
+    "default_ha_theme": "Standaard (HA-thema)",
+    "bordeaux_red": "Bordeauxrood",
+    "oak_brown": "Eikenbruin",
+    "olive_green": "Olijfgroen",
+    "azur_blue": "Azuurblauw",
+    "slate_gray": "Leigrijs",
+    "off_white": "Gebroken wit",
+    "shelves": "Planken",
+    "add_shelf": "Plank toevoegen",
+    "details_and_label_applied": "✨ Wijngegevens en etiket automatisch toegepast!",
+    "select_barcode_photo": "Selecteer de barcodefoto...",
+    "reading_barcode_photo": "Barcodefoto wordt gelezen...",
+    "sending_photo_to_ai": "Foto wordt naar de AI gestuurd...",
+    "ai_extracting_barcode": "AI leest de barcode uit...",
+    "barcode_detected_and_applied": "Barcode gedetecteerd en toegepast!",
+    "no_barcode_found": "Geen barcode gevonden.",
+    "barcode_extraction_failed": "Uitlezen van de barcode mislukt.",
+    "select_label_photo": "Selecteer de etiketfoto...",
+    "confirm_reanalyze": "Deze wijn is al succesvol geanalyseerd. Gegevens overschrijven en de analyse opnieuw uitvoeren?",
+    "provide_barcode_or_label": "Voer een barcode (cijfers) in of upload een etiketafbeelding voordat u de analyse start.",
+    "starting_smart_analysis": "Slimme analyse wordt gestart...",
+    "analysis_completed": "✨ Analyse succesvol voltooid! Gegevens toegepast.",
+    "no_result_found": "Geen resultaat gevonden.",
+    "analysis_failed": "Analyse mislukt: ",
+    "confirm_merge_all": "Wilt u alle vermelde schrijfwijzen samenvoegen en standaardiseren?",
+    "scanner_error": "Scannerfout: ",
+    "upload_label_first": "Upload of maak eerst een etiketafbeelding.",
+    "analyzing_label": "Etiket wordt geanalyseerd...",
+    "label_suggestion_applied": "Etiketsuggestie toegepast op lege velden.",
+    "no_label_result": "Geen etiketresultaat gevonden.",
+    "label_analysis_failed": "Etiketanalyse mislukt: ",
+    "no_file_selected": "Geen bestand geselecteerd.",
+    "file_not_image": "Het geselecteerde bestand is geen afbeelding.",
+    "reading_label_image": "Etiketafbeelding wordt gelezen...",
+    "uploading_label_image": "Etiketafbeelding wordt geüpload...",
+    "label_upload_failed": "Uploaden van etiket mislukt: ",
+    "select_location_before_copy": "Selecteer kelder, plank, rij en positie voordat u kopieert.",
+    "copying_bottle": "Bestaande fles wordt naar de huidige plaats gekopieerd...",
+    "copy_bottle_failed": "Kopiëren van fles mislukt: ",
+    "source_bottle_not_found": "Bronfles niet gevonden.",
+    "bottle_details_copied": "Flesgegevens naar het formulier gekopieerd. Controleer en sla op.",
+    "bottle_save_failed": "Opslaan van fles mislukt: ",
+    "shelf_front_capacity_min": "Elke plank moet een capaciteit voor van minimaal 1 hebben.",
+    "add_at_least_one_shelf": "Voeg minimaal één plank toe.",
+    "cellar_save_failed": "Opslaan van kelder mislukt: ",
+    "confirm_delete_bottle": "Deze fles definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+    "confirm_consume_bottle": "Deze fles markeren als gedronken en naar de geschiedenis verplaatsen?",
+    "confirm_delete_cellar": "Deze kelder en alle flessen erin verwijderen?",
+    "bottle_copied_to_memory": "Fles gekopieerd naar geheugen. Klik op een lege plaats om te plakken.",
+    "cellar_needs_shelf": "Een kelder moet minimaal één plank hebben.",
+    "unknown_error": "onbekende fout",
+    "bottle_search_failed": "Zoeken naar flessen mislukt: ",
+    "bottles_found_suffix": " fles(sen) gevonden.",
+    "similar_bottles_total": "{n} vergelijkbare flessen in totaal",
+    "only_bottle_of_kind": "Enige fles van dit soort",
+    "duplicate_warning": "⚠️ Let op: u heeft al {n} identieke fles(sen) in uw kelder.",
+    "wine_details": "Wijngegevens",
+    "cellar_editor": "Keldereditor",
+    "bottle_editor": "Fleseditor",
+    "unknown_cellar": "Onbekende kelder"
+  },
+  "pt": {
+    "cellars": "Adegas",
+    "compact": "Compacto",
+    "all_bottles": "Todas as garrafas",
+    "stats": "Estatísticas",
+    "add_cellar": "Adicionar adega",
+    "add_bottle": "Adicionar garrafa",
+    "edit_bottle": "Editar garrafa",
+    "ready_to_drink": "Pronto para beber",
+    "all_types": "Todos os tipos",
+    "all_countries": "Todos os países",
+    "wine_name": "Nome do vinho",
+    "producer": "Produtor",
+    "varietal": "Casta",
+    "region": "Região",
+    "country": "País",
+    "vintage": "Safra",
+    "type": "Tipo",
+    "price": "Preço",
+    "rating": "Avaliação",
+    "notes": "Notas",
+    "aging_start": "Início da maturidade (ano)",
+    "aging_end": "Fim da maturidade (ano)",
+    "shelf": "Prateleira",
+    "lane": "Fila",
+    "position": "Posição",
+    "front": "Frente",
+    "back": "Trás",
+    "consume": "Consumir",
+    "delete": "Excluir",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "search_history": "Pesquisar garrafas anteriores",
+    "taste_window_title": "Janela ideal de consumo",
+    "serving_temp": "Temperatura de serviço",
+    "alcohol_pct": "Teor alcoólico",
+    "empty_slots": "Vazio",
+    "not_specified": "Não especificado",
+    "cleanup_btn": "Limpeza",
+    "cleanup_title": "Ferramenta de busca e limpeza de duplicados",
+    "cleanup_search_btn": "Buscar duplicados",
+    "cleanup_merge_all": "Mesclar tudo",
+    "cleanup_no_duplicates": "Nenhum duplicado de sintaxe detectado!",
+    "cleanup_searching": "Analisando os dados da adega...",
+    "cleanup_welcome": "Clique no botão acima para iniciar a busca e analisar os dados da sua adega.",
+    "updating_field": "Atualizando campo...",
+    "update_failed": "Falha na atualização: ",
+    "merging_all_selections": "Mesclando todas as seleções...",
+    "global_error": "Erro: ",
+    "bottle_s": "garrafa(s)",
+    "cellar_name_required": "O nome da adega é obrigatório.",
+    "search_placeholder": "Pesquisar vinho, produtor, região...",
+    "add_cellar_short": "+ Adega",
+    "all_ages": "Todas as idades",
+    "drink_now": "Beber agora",
+    "red": "Tinto",
+    "white": "Branco",
+    "rose": "Rosé",
+    "sparkling": "Espumante",
+    "orange": "Laranja",
+    "sweet": "Doce",
+    "other": "Outro",
+    "wine": "Vinho",
+    "region_varietal": "Região/Casta",
+    "aging": "Maturidade",
+    "total_bottles": "Total de garrafas",
+    "different_wines": "Vinhos diferentes",
+    "average_age": "Idade média",
+    "years": "anos",
+    "total_value": "Valor total",
+    "distribution_by_type": "Distribuição por tipo",
+    "top_countries_of_origin": "Principais países de origem",
+    "bottles_ready_to_drink_by_year": "Garrafas prontas para beber por ano",
+    "not_rated": "Sem avaliação",
+    "unnamed_wine": "Vinho sem nome",
+    "not_available": "N/D",
+    "drinking_window": "Janela de consumo",
+    "from_prefix": "De ",
+    "to_infix": " a ",
+    "no_data": "Sem dados",
+    "physical_location": "Localização física",
+    "no_label_image": "Sem imagem do rótulo",
+    "copy": "Copiar",
+    "edit": "Editar",
+    "wine_acquisition_identification": "Aquisição e identificação do vinho",
+    "upload_barcode_saq_only": "📁 Enviar código de barras (somente SAQ)",
+    "upload_label_photo": "📁 Enviar foto do rótulo",
+    "barcode_number_14_digits": "Número do código de barras (14 dígitos)",
+    "scan_result_or_manual_entry": "Resultado da leitura ou entrada manual",
+    "label_image_path": "Caminho da imagem do rótulo",
+    "analyze": "Analisar",
+    "image_not_reachable": "Imagem inacessível",
+    "search_history_placeholder": "Nome do vinho, produtor, região...",
+    "saq_com_url": "URL do SAQ.com",
+    "cellar": "Adega",
+    "view": "Ver",
+    "shelf_name": "Nome da prateleira",
+    "order": "Ordem",
+    "front_capacity": "Capacidade frontal",
+    "back_capacity": "Capacidade traseira",
+    "remove": "Remover",
+    "shelf_1": "Prateleira 1",
+    "edit_cellar": "Editar adega",
+    "cellar_name": "Nome",
+    "display_order": "Ordem de exibição",
+    "background_color": "Cor de fundo",
+    "default_ha_theme": "Padrão (tema do HA)",
+    "bordeaux_red": "Vermelho bordô",
+    "oak_brown": "Marrom carvalho",
+    "olive_green": "Verde oliva",
+    "azur_blue": "Azul celeste",
+    "slate_gray": "Cinza ardósia",
+    "off_white": "Branco gelo",
+    "shelves": "Prateleiras",
+    "add_shelf": "Adicionar prateleira",
+    "details_and_label_applied": "✨ Detalhes do vinho e rótulo aplicados automaticamente!",
+    "select_barcode_photo": "Selecione a foto do código de barras...",
+    "reading_barcode_photo": "Lendo a foto do código de barras...",
+    "sending_photo_to_ai": "Enviando a foto para a IA...",
+    "ai_extracting_barcode": "A IA está extraindo o código de barras...",
+    "barcode_detected_and_applied": "Código de barras detectado e aplicado!",
+    "no_barcode_found": "Nenhum código de barras encontrado.",
+    "barcode_extraction_failed": "Falha ao extrair o código de barras.",
+    "select_label_photo": "Selecione a foto do rótulo...",
+    "confirm_reanalyze": "Este vinho já foi analisado com sucesso. Sobrescrever os dados e executar a análise novamente?",
+    "provide_barcode_or_label": "Informe um código de barras (dígitos) ou envie uma imagem do rótulo antes de iniciar a análise.",
+    "starting_smart_analysis": "Iniciando a análise inteligente...",
+    "analysis_completed": "✨ Análise concluída com sucesso! Detalhes aplicados.",
+    "no_result_found": "Nenhum resultado encontrado.",
+    "analysis_failed": "Falha na análise: ",
+    "confirm_merge_all": "Deseja mesclar e padronizar todas as sintaxes listadas?",
+    "scanner_error": "Erro do leitor: ",
+    "upload_label_first": "Envie ou capture primeiro uma imagem do rótulo.",
+    "analyzing_label": "Analisando o rótulo...",
+    "label_suggestion_applied": "Sugestão do rótulo aplicada aos campos vazios.",
+    "no_label_result": "Nenhum resultado para o rótulo.",
+    "label_analysis_failed": "Falha na análise do rótulo: ",
+    "no_file_selected": "Nenhum arquivo selecionado.",
+    "file_not_image": "O arquivo selecionado não é uma imagem.",
+    "reading_label_image": "Lendo a imagem do rótulo...",
+    "uploading_label_image": "Enviando a imagem do rótulo...",
+    "label_upload_failed": "Falha ao enviar o rótulo: ",
+    "select_location_before_copy": "Selecione adega, prateleira, fila e posição antes de copiar.",
+    "copying_bottle": "Copiando a garrafa existente para a posição atual...",
+    "copy_bottle_failed": "Falha ao copiar a garrafa: ",
+    "source_bottle_not_found": "Garrafa de origem não encontrada.",
+    "bottle_details_copied": "Detalhes da garrafa copiados para o formulário. Revise e salve.",
+    "bottle_save_failed": "Falha ao salvar a garrafa: ",
+    "shelf_front_capacity_min": "Cada prateleira deve ter capacidade frontal de pelo menos 1.",
+    "add_at_least_one_shelf": "Adicione pelo menos uma prateleira.",
+    "cellar_save_failed": "Falha ao salvar a adega: ",
+    "confirm_delete_bottle": "Excluir esta garrafa permanentemente? Isso não pode ser desfeito.",
+    "confirm_consume_bottle": "Marcar esta garrafa como consumida e movê-la para o histórico?",
+    "confirm_delete_cellar": "Excluir esta adega e todas as suas garrafas?",
+    "bottle_copied_to_memory": "Garrafa copiada para a memória. Clique em uma posição vazia para colar.",
+    "cellar_needs_shelf": "Uma adega deve ter pelo menos uma prateleira.",
+    "unknown_error": "erro desconhecido",
+    "bottle_search_failed": "Falha na busca de garrafas: ",
+    "bottles_found_suffix": " garrafa(s) encontrada(s).",
+    "similar_bottles_total": "{n} garrafas semelhantes no total",
+    "only_bottle_of_kind": "Única garrafa deste tipo",
+    "duplicate_warning": "⚠️ Atenção: você já tem {n} garrafa(s) idêntica(s) na sua adega.",
+    "wine_details": "Detalhes do vinho",
+    "cellar_editor": "Editor de adega",
+    "bottle_editor": "Editor de garrafa",
+    "unknown_cellar": "Adega desconhecida"
+  },
+  "pl": {
+    "cellars": "Piwnice",
+    "compact": "Kompaktowy",
+    "all_bottles": "Wszystkie butelki",
+    "stats": "Statystyki",
+    "add_cellar": "Dodaj piwnicę",
+    "add_bottle": "Dodaj butelkę",
+    "edit_bottle": "Edytuj butelkę",
+    "ready_to_drink": "Gotowe do picia",
+    "all_types": "Wszystkie rodzaje",
+    "all_countries": "Wszystkie kraje",
+    "wine_name": "Nazwa wina",
+    "producer": "Producent",
+    "varietal": "Szczep",
+    "region": "Region",
+    "country": "Kraj",
+    "vintage": "Rocznik",
+    "type": "Rodzaj",
+    "price": "Cena",
+    "rating": "Ocena",
+    "notes": "Notatki",
+    "aging_start": "Początek dojrzałości (rok)",
+    "aging_end": "Koniec dojrzałości (rok)",
+    "shelf": "Półka",
+    "lane": "Rząd",
+    "position": "Pozycja",
+    "front": "Przód",
+    "back": "Tył",
+    "consume": "Wypij",
+    "delete": "Usuń",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "close": "Zamknij",
+    "search_history": "Szukaj wcześniejszych butelek",
+    "taste_window_title": "Optymalne okno picia",
+    "serving_temp": "Temperatura podawania",
+    "alcohol_pct": "Zawartość alkoholu",
+    "empty_slots": "Puste",
+    "not_specified": "Nie określono",
+    "cleanup_btn": "Porządkowanie",
+    "cleanup_title": "Narzędzie wyszukiwania i porządkowania duplikatów",
+    "cleanup_search_btn": "Szukaj duplikatów",
+    "cleanup_merge_all": "Scal wszystko",
+    "cleanup_no_duplicates": "Nie wykryto duplikatów pisowni!",
+    "cleanup_searching": "Analizowanie danych piwnicy...",
+    "cleanup_welcome": "Kliknij przycisk powyżej, aby rozpocząć wyszukiwanie i przeanalizować dane piwnicy.",
+    "updating_field": "Aktualizowanie pola...",
+    "update_failed": "Aktualizacja nie powiodła się: ",
+    "merging_all_selections": "Scalanie wszystkich wyborów...",
+    "global_error": "Błąd: ",
+    "bottle_s": "butelka(-ki)",
+    "cellar_name_required": "Nazwa piwnicy jest wymagana.",
+    "search_placeholder": "Szukaj wina, producenta, regionu...",
+    "add_cellar_short": "+ Piwnica",
+    "all_ages": "Wszystkie roczniki",
+    "drink_now": "Pij teraz",
+    "red": "Czerwone",
+    "white": "Białe",
+    "rose": "Różowe",
+    "sparkling": "Musujące",
+    "orange": "Pomarańczowe",
+    "sweet": "Słodkie",
+    "other": "Inne",
+    "wine": "Wino",
+    "region_varietal": "Region/Szczep",
+    "aging": "Dojrzałość",
+    "total_bottles": "Łącznie butelek",
+    "different_wines": "Różnych win",
+    "average_age": "Średni wiek",
+    "years": "lat",
+    "total_value": "Łączna wartość",
+    "distribution_by_type": "Podział według rodzaju",
+    "top_countries_of_origin": "Najczęstsze kraje pochodzenia",
+    "bottles_ready_to_drink_by_year": "Butelki gotowe do picia według roku",
+    "not_rated": "Bez oceny",
+    "unnamed_wine": "Wino bez nazwy",
+    "not_available": "b.d.",
+    "drinking_window": "Okno picia",
+    "from_prefix": "Od ",
+    "to_infix": " do ",
+    "no_data": "Brak danych",
+    "physical_location": "Lokalizacja fizyczna",
+    "no_label_image": "Brak zdjęcia etykiety",
+    "copy": "Kopiuj",
+    "edit": "Edytuj",
+    "wine_acquisition_identification": "Pozyskanie i identyfikacja wina",
+    "upload_barcode_saq_only": "📁 Wgraj kod kreskowy (tylko SAQ)",
+    "upload_label_photo": "📁 Wgraj zdjęcie etykiety",
+    "barcode_number_14_digits": "Numer kodu kreskowego (14 cyfr)",
+    "scan_result_or_manual_entry": "Wynik skanowania lub wpis ręczny",
+    "label_image_path": "Ścieżka do zdjęcia etykiety",
+    "analyze": "Analizuj",
+    "image_not_reachable": "Obraz niedostępny",
+    "search_history_placeholder": "Nazwa wina, producent, region...",
+    "saq_com_url": "Adres URL SAQ.com",
+    "cellar": "Piwnica",
+    "view": "Pokaż",
+    "shelf_name": "Nazwa półki",
+    "order": "Kolejność",
+    "front_capacity": "Pojemność z przodu",
+    "back_capacity": "Pojemność z tyłu",
+    "remove": "Usuń",
+    "shelf_1": "Półka 1",
+    "edit_cellar": "Edytuj piwnicę",
+    "cellar_name": "Nazwa",
+    "display_order": "Kolejność wyświetlania",
+    "background_color": "Kolor tła",
+    "default_ha_theme": "Domyślny (motyw HA)",
+    "bordeaux_red": "Czerwień bordo",
+    "oak_brown": "Brąz dębowy",
+    "olive_green": "Zieleń oliwkowa",
+    "azur_blue": "Błękit lazurowy",
+    "slate_gray": "Szarość łupkowa",
+    "off_white": "Złamana biel",
+    "shelves": "Półki",
+    "add_shelf": "Dodaj półkę",
+    "details_and_label_applied": "✨ Dane wina i etykieta zastosowane automatycznie!",
+    "select_barcode_photo": "Wybierz zdjęcie kodu kreskowego...",
+    "reading_barcode_photo": "Odczytywanie zdjęcia kodu kreskowego...",
+    "sending_photo_to_ai": "Wysyłanie zdjęcia do AI...",
+    "ai_extracting_barcode": "AI odczytuje kod kreskowy...",
+    "barcode_detected_and_applied": "Kod kreskowy wykryty i zastosowany!",
+    "no_barcode_found": "Nie znaleziono kodu kreskowego.",
+    "barcode_extraction_failed": "Odczyt kodu kreskowego nie powiódł się.",
+    "select_label_photo": "Wybierz zdjęcie etykiety...",
+    "confirm_reanalyze": "To wino zostało już pomyślnie przeanalizowane. Nadpisać dane i uruchomić analizę ponownie?",
+    "provide_barcode_or_label": "Podaj kod kreskowy (cyfry) lub wgraj zdjęcie etykiety przed uruchomieniem analizy.",
+    "starting_smart_analysis": "Uruchamianie inteligentnej analizy...",
+    "analysis_completed": "✨ Analiza zakończona pomyślnie! Dane zastosowane.",
+    "no_result_found": "Nie znaleziono wyników.",
+    "analysis_failed": "Analiza nie powiodła się: ",
+    "confirm_merge_all": "Czy chcesz scalić i ujednolicić wszystkie wymienione pisownie?",
+    "scanner_error": "Błąd skanera: ",
+    "upload_label_first": "Najpierw wgraj lub zrób zdjęcie etykiety.",
+    "analyzing_label": "Analizowanie etykiety...",
+    "label_suggestion_applied": "Sugestia z etykiety zastosowana do pustych pól.",
+    "no_label_result": "Brak wyników dla etykiety.",
+    "label_analysis_failed": "Analiza etykiety nie powiodła się: ",
+    "no_file_selected": "Nie wybrano pliku.",
+    "file_not_image": "Wybrany plik nie jest obrazem.",
+    "reading_label_image": "Odczytywanie zdjęcia etykiety...",
+    "uploading_label_image": "Wgrywanie zdjęcia etykiety...",
+    "label_upload_failed": "Wgrywanie etykiety nie powiodło się: ",
+    "select_location_before_copy": "Przed kopiowaniem wybierz piwnicę, półkę, rząd i pozycję.",
+    "copying_bottle": "Kopiowanie istniejącej butelki do bieżącego miejsca...",
+    "copy_bottle_failed": "Kopiowanie butelki nie powiodło się: ",
+    "source_bottle_not_found": "Nie znaleziono butelki źródłowej.",
+    "bottle_details_copied": "Dane butelki skopiowane do formularza. Sprawdź i zapisz.",
+    "bottle_save_failed": "Zapisywanie butelki nie powiodło się: ",
+    "shelf_front_capacity_min": "Każda półka musi mieć pojemność z przodu co najmniej 1.",
+    "add_at_least_one_shelf": "Dodaj co najmniej jedną półkę.",
+    "cellar_save_failed": "Zapisywanie piwnicy nie powiodło się: ",
+    "confirm_delete_bottle": "Trwale usunąć tę butelkę? Tej operacji nie można cofnąć.",
+    "confirm_consume_bottle": "Oznaczyć tę butelkę jako wypitą i przenieść do historii?",
+    "confirm_delete_cellar": "Usunąć tę piwnicę i wszystkie jej butelki?",
+    "bottle_copied_to_memory": "Butelka skopiowana do pamięci. Kliknij puste miejsce, aby wkleić.",
+    "cellar_needs_shelf": "Piwnica musi mieć co najmniej jedną półkę.",
+    "unknown_error": "nieznany błąd",
+    "bottle_search_failed": "Wyszukiwanie butelek nie powiodło się: ",
+    "bottles_found_suffix": " znaleziona(-e) butelka(-ki).",
+    "similar_bottles_total": "Łącznie {n} podobnych butelek",
+    "only_bottle_of_kind": "Jedyna butelka tego rodzaju",
+    "duplicate_warning": "⚠️ Uwaga: masz już {n} identyczną(-e) butelkę(-ki) w swojej piwnicy.",
+    "wine_details": "Szczegóły wina",
+    "cellar_editor": "Edytor piwnicy",
+    "bottle_editor": "Edytor butelki",
+    "unknown_cellar": "Nieznana piwnica"
+  }
+};
+
+let _wcmLang = "en";
+
+function _wcmSetLang(lang) {
+  _wcmLang = String(lang || "en");
+}
+
+function _T(key, vars) {
+  var lang = _wcmLang.toLowerCase();
+  var table = WCM_TRANSLATIONS[lang] || WCM_TRANSLATIONS[lang.split(/[-_]/)[0]] || WCM_TRANSLATIONS.en;
+  var text = table[key];
+  if (text === undefined) text = WCM_TRANSLATIONS.en[key];
+  if (text === undefined) return key;
+  if (vars) {
+    Object.keys(vars).forEach(function (name) {
+      text = text.split("{" + name + "}").join(String(vars[name]));
+    });
+  }
+  return text;
+}
+
 class WineCellarCard extends HTMLElement {
   constructor() {
     super();
@@ -33,59 +1400,8 @@ class WineCellarCard extends HTMLElement {
     this._duplicateManagerHasSearched = false; // Nouvelle variable pour savoir si l'analyse a été lancée
   }
 
-  _t(key) {
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
-
-    var translations = {
-      "cellars": isFr ? "Celliers" : "Cellars",
-      "compact": isFr ? "Compact" : "Compact",
-      "all_bottles": isFr ? "Toutes les bouteilles" : "All Bottles",
-      "stats": isFr ? "Statistiques" : "Stats",
-      "add_cellar": isFr ? "Ajouter un cellier" : "Add Cellar",
-      "add_bottle": isFr ? "Ajouter une bouteille" : "Add Bottle",
-      "edit_bottle": isFr ? "Modifier la bouteille" : "Edit Bottle",
-      "ready_to_drink": isFr ? "Prêt à boire" : "Ready to Drink",
-      "all_types": isFr ? "Tous les types" : "All Types",
-      "all_countries": isFr ? "Tous les pays" : "All Countries",
-      "wine_name": isFr ? "Nom du vin" : "Wine name",
-      "producer": isFr ? "Vignoble" : "Producer",
-      "varietal": isFr ? "Cépage" : "Varietal",
-      "region": isFr ? "Région" : "Region",
-      "country": isFr ? "Pays" : "Country",
-      "vintage": isFr ? "Millésime" : "Vintage",
-      "type": isFr ? "Type" : "Type",
-      "price": isFr ? "Prix" : "Price",
-      "rating": isFr ? "Évaluation" : "Rating",
-      "notes": isFr ? "Notes" : "Notes",
-      "aging_start": isFr ? "Début de l'apogée" : "Aging start year",
-      "aging_end": isFr ? "Fin de l'apogée" : "Aging end year",
-      "shelf": isFr ? "Tablette" : "Shelf",
-      "lane": isFr ? "Rang" : "Lane",
-      "position": isFr ? "Position" : "Position",
-      "front": isFr ? "Avant" : "Front",
-      "back": isFr ? "Arrière" : "Back",
-      "consume": isFr ? "Consommer" : "Consume",
-      "delete": isFr ? "Supprimer" : "Delete",
-      "save": isFr ? "Enregistrer" : "Save",
-      "cancel": isFr ? "Annuler" : "Cancel",
-      "close": isFr ? "Fermer" : "Close",
-      "search_history": isFr ? "Rechercher dans l'historique" : "Search previous bottles",
-      "taste_window_title": isFr ? "Fenêtre de dégustation" : "Optimal Drinking Window",
-      "serving_temp": isFr ? "Température de service" : "Serving temperature",
-      "alcohol_pct": isFr ? "Degré d'alcool" : "Alcohol level",
-      "empty_slots": isFr ? "Vide" : "Empty",
-      "not_specified": isFr ? "Non spécifié" : "Not Specified",
-      "cleanup_btn": isFr ? "Nettoyage" : "Clean-Up",
-      "cleanup_title": isFr ? "Outil de recherche et nettoyage de doublons" : "Duplicate Search & Clean-Up Tool",
-      "cleanup_search_btn": isFr ? "Rechercher les doublons" : "Search for Duplicates",
-      "cleanup_merge_all": isFr ? "Fusionner tout" : "Merge All",
-      "cleanup_no_duplicates": isFr ? "Aucun doublon de syntaxe détecté !" : "No syntax duplicates detected!",
-      "cleanup_searching": isFr ? "Analyse de la cave en cours..." : "Analyzing cellar data...",
-      "cleanup_welcome": isFr ? "Cliquez sur le bouton ci-dessus pour lancer la recherche et l'analyse de votre cave." : "Click the button above to start the search and analyze your cellar data."
-    };
-
-    return translations[key] || key;
+  _t(key, vars) {
+    return _T(key, vars);
   }
 
   setConfig(config) {
@@ -98,6 +1414,7 @@ class WineCellarCard extends HTMLElement {
 
   set hass(hass) {
     this._hass = hass;
+    _wcmSetLang(hass && hass.language);
     if (!this.shadowRoot || !this._hasRendered) {
       this.render(true);
     }
@@ -514,7 +1831,7 @@ class WineCellarCard extends HTMLElement {
       this._foundSyntaxDuplicates = duplicatesFound;
     } catch (err) {
       console.error("Syntax anomaly scanner crashed:", err);
-      this._setFormError("Scanner error: " + (err.message || err));
+      this._setFormError(_T("scanner_error") + (err.message || err));
     } finally {
       this._duplicateManagerSearching = false;
       this._duplicateManagerHasSearched = true; // L'analyse s'est terminée avec succès ou échec
@@ -525,7 +1842,7 @@ class WineCellarCard extends HTMLElement {
 
   async _executeSyntaxMerge(item) {
     try {
-      this._setActionMessage("Mise à jour du champ en cours...");
+      this._setActionMessage_T("updating_field");
       var bottlesToUpdate = item.selectedValue === item.valueA ? item.bottlesB : item.bottlesA;
 
       for (var b of bottlesToUpdate) {
@@ -566,13 +1883,13 @@ class WineCellarCard extends HTMLElement {
       await this._loadData(true);
       this.render(false);
     } catch(err) {
-      this._setFormError("Erreur lors de la mise à jour : " + (err.message || err));
+      this._setFormError(_T("update_failed") + (err.message || err));
     }
   }
 
   async _executeMergeAllSyntax() {
     try {
-      this._setActionMessage("Fusion de tous les choix en cours...");
+      this._setActionMessage_T("merging_all_selections");
       var items = [...this._foundSyntaxDuplicates];
       
       for (var item of items) {
@@ -614,7 +1931,7 @@ class WineCellarCard extends HTMLElement {
       await this._loadData(true);
       this.render(false);
     } catch(err) {
-      this._setFormError("Erreur globale : " + (err.message || err));
+      this._setFormError(_T("global_error") + (err.message || err));
     }
   }
 
@@ -622,14 +1939,12 @@ class WineCellarCard extends HTMLElement {
   _renderCleanUpModal() {
     if (!this._viewingDuplicateManager) return "";
     var self = this;
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
 
     var fieldLabels = {
-      "wine_name": isFr ? "Nom du vin" : "Wine name",
+      "wine_name": _T("wine_name"),
       "producer": self._t("producer"),
       "varietal": self._t("varietal"),
-      "region": isFr ? "Région" : "Region",
+      "region": _T("region"),
       "country": self._t("country")
     };
 
@@ -657,11 +1972,11 @@ class WineCellarCard extends HTMLElement {
             '    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px">',
             '      <button class="btn small-btn" data-select-variant-a="' + item.id + '" style="' + styleA + '; text-align:left; height:auto; padding:8px 12px; border-radius:8px; color:inherit" type="button">',
             '        <div style="font-size:0.95rem">' + self._escape(item.valueA) + '</div>',
-            '        <div style="font-size:0.75rem; color:var(--secondary-text-color); margin-top:2px">' + item.bottlesA.length + ' ' + (isFr ? "bouteille(s)" : "bottle(s)") + '</div>',
+            '        <div style="font-size:0.75rem; color:var(--secondary-text-color); margin-top:2px">' + item.bottlesA.length + ' ' + _T("bottle_s") + '</div>',
             '      </button>',
             '      <button class="btn small-btn" data-select-variant-b="' + item.id + '" style="' + styleB + '; text-align:left; height:auto; padding:8px 12px; border-radius:8px; color:inherit" type="button">',
             '        <div style="font-size:0.95rem">' + self._escape(item.valueB) + '</div>',
-            '        <div style="font-size:0.75rem; color:var(--secondary-text-color); margin-top:2px">' + item.bottlesB.length + ' ' + (isFr ? "bouteille(s)" : "bottle(s)") + '</div>',
+            '        <div style="font-size:0.75rem; color:var(--secondary-text-color); margin-top:2px">' + item.bottlesB.length + ' ' + _T("bottle_s") + '</div>',
             '      </button>',
             '    </div>',
             '  </div>',
@@ -742,8 +2057,7 @@ class WineCellarCard extends HTMLElement {
           
           self._copiedBottleData = bData; // Écrit dans la bonne variable globale
           
-          var currentLang = (self._hass && self._hass.language) || "en";
-          alert(currentLang.startsWith("fr") ? "Bouteille copiée ! Cliquez sur une case vide pour la coller." : "Bottle copied! Click on an empty slot to paste.");
+          alert(_T("bottle_copied_to_memory"));
           self._closeModal();
         };
       }
@@ -808,15 +2122,14 @@ class WineCellarCard extends HTMLElement {
   }
 
   _laneLabel(lane) {
-    var lang = (this._hass && this._hass.language) || "en";
-    if (lane === "back") return lang.startsWith("fr") ? "Arrière" : "Back";
-    return lang.startsWith("fr") ? "Avant" : "Front";
+    if (lane === "back") return _T("back");
+    return _T("front");
   }
 
   _formatBottleLocation(bottle) {
     var cellars = (this._data && this._data.cellars) ? this._data.cellars : [];
     var cellar = cellars.find(function(c) { return c.id === bottle.cellar_id; });
-    var cellarName = cellar ? (cellar.name || "Cellar") : "Unknown cellar";
+    var cellarName = cellar ? (cellar.name || "Cellar") : _T("unknown_cellar");
     var shelfName = this._getShelfName(bottle.cellar_id, bottle.shelf_id) || "Unknown shelf";
     return cellarName +
       " • " + shelfName +
@@ -1021,12 +2334,12 @@ class WineCellarCard extends HTMLElement {
     var imagePathEl = form.querySelector('[name="image_path"]');
     var imagePath = imagePathEl ? imagePathEl.value.trim() : "";
     if (!imagePath) {
-      this._setFormError("Please upload or capture a label image first.");
+      this._setFormError(_T("upload_label_first"));
       return;
     }
 
     this._clearFormError();
-    this._setActionMessage("Analyzing label...");
+    this._setActionMessage(_T("analyzing_label"));
 
     try {
       var result = await this._callWS({
@@ -1038,13 +2351,13 @@ class WineCellarCard extends HTMLElement {
       if (result) {
         var suggestion = result.suggestion || result;
         this._applySuggestionToBottleForm(form, suggestion, false);
-        this._setActionMessage("Label suggestion applied to empty fields.");
+        this._setActionMessage(_T("label_suggestion_applied"));
       } else {
-        this._setActionMessage("No label result found.");
+        this._setActionMessage(_T("no_label_result"));
       }
     } catch (err) {
       console.error("Label analysis failed", err);
-      this._setFormError("Label analysis failed: " + (err && err.message ? err.message : "unknown error"));
+      this._setFormError(_T("label_analysis_failed") + (err && err.message ? err.message : _T("unknown_error")));
       this._clearActionMessage();
     }
   }
@@ -1066,13 +2379,12 @@ class WineCellarCard extends HTMLElement {
       });
       // Le backend renvoyant directement le tableau, on valide le type Array
       this._searchResults = Array.isArray(result) ? result : [];
-      var lang = (this._hass && this._hass.language) || "en";
-      this._searchMessage = this._searchResults.length + (lang.startsWith("fr") ? " bouteille(s) trouvée(s)." : " bottle(s) found.");
+      this._searchMessage = this._searchResults.length + _T("bottles_found_suffix");
       this._updateSearchResultsPanel();
     } catch (err) {
       console.error("Bottle search failed", err);
       this._searchResults = [];
-      this._searchMessage = "Bottle search failed: " + (err && err.message ? err.message : "unknown error");
+      this._searchMessage = _T("bottle_search_failed") + (err && err.message ? err.message : _T("unknown_error"));
       this._updateSearchResultsPanel();
     }
   }
@@ -1163,23 +2475,23 @@ class WineCellarCard extends HTMLElement {
     } catch (err) {
       console.error("Duplicate detection failed", err);
       this._duplicateMatches = [];
-      this._duplicateMessage = "Duplicate detection failed: " + (err && err.message ? err.message : "unknown error");
+      this._duplicateMessage = "Duplicate detection failed: " + (err && err.message ? err.message : _T("unknown_error"));
     }
   }
 
   async _uploadLabelFile(file, form) {
     if (!file) {
-      this._setFormError("No file selected.");
+      this._setFormError(_T("no_file_selected"));
       return;
     }
 
     if (!file.type || !file.type.startsWith("image/")) {
-      this._setFormError("Selected file is not an image.");
+      this._setFormError(_T("file_not_image"));
       return;
     }
 
     this._clearFormError();
-    this._setActionMessage("Reading label image...");
+    this._setActionMessage(_T("reading_label_image"));
     this._clearDuplicateState();
 
     try {
@@ -1190,7 +2502,7 @@ class WineCellarCard extends HTMLElement {
         reader.readAsDataURL(file);
       });
 
-      this._setActionMessage("Uploading label image...");
+      this._setActionMessage(_T("uploading_label_image"));
 
       // Extraction de la chaîne Base64 pure en retirant l'en-tête "data:image/...;base64,"
       var base64Data = dataUrl.split(",")[1] || dataUrl;
@@ -1231,7 +2543,7 @@ class WineCellarCard extends HTMLElement {
     } catch (err) {
       console.error("Label upload failed", err);
 
-      let detail = "unknown error";
+      let detail = _T("unknown_error");
       if (typeof err === "string") {
         detail = err;
       } else if (err && typeof err.message === "string" && err.message) {
@@ -1246,7 +2558,7 @@ class WineCellarCard extends HTMLElement {
         }
       }
 
-      this._setFormError("Label upload failed: " + detail);
+      this._setFormError(_T("label_upload_failed") + detail);
       this._clearActionMessage();
     }
   }
@@ -1264,12 +2576,12 @@ class WineCellarCard extends HTMLElement {
       var position = positionEl ? Number(positionEl.value) : NaN;
 
       if (!cellarId || !shelfId || !lane || !Number.isInteger(position)) {
-        this._setFormError("Select cellar, shelf, lane, and position before copying.");
+        this._setFormError(_T("select_location_before_copy"));
         return;
       }
 
       this._clearFormError();
-      this._setActionMessage("Copying existing bottle into current slot...");
+      this._setActionMessage(_T("copying_bottle"));
 
       await this._callWS({
         type: "wine_cellar_manager/copy_bottle",
@@ -1284,7 +2596,7 @@ class WineCellarCard extends HTMLElement {
       await this._closeModal();
     } catch (err) {
       console.error("Copy bottle failed", err);
-      this._setFormError("Copy bottle failed: " + (err && err.message ? err.message : "unknown error"));
+      this._setFormError(_T("copy_bottle_failed") + (err && err.message ? err.message : _T("unknown_error")));
       this._clearActionMessage();
     }
   }
@@ -1297,7 +2609,7 @@ class WineCellarCard extends HTMLElement {
       source = this._searchResults.find(function (b) { return b.bottle_id === sourceBottleId; });
     }
     if (!source) {
-      this._setFormError("Could not find source bottle.");
+      this._setFormError(_T("source_bottle_not_found"));
       return;
     }
 
@@ -1321,7 +2633,7 @@ class WineCellarCard extends HTMLElement {
     if (barcodeEl) {
       barcodeEl.value = "";
     }
-    this._setActionMessage("Existing bottle details copied into the form. Review and save.");
+    this._setActionMessage(_T("bottle_details_copied"));
   }
 
   async _saveBottleFromForm(form) {
@@ -1394,7 +2706,7 @@ class WineCellarCard extends HTMLElement {
       }
     } catch (err) {
       console.error("Bottle save failed", err, payload);
-      this._setFormError("Bottle save failed: " + (err && err.message ? err.message : "unknown error"));
+      this._setFormError(_T("bottle_save_failed") + (err && err.message ? err.message : _T("unknown_error")));
     }
   }
 
@@ -1411,7 +2723,7 @@ class WineCellarCard extends HTMLElement {
       var back = this._intOrNull(backEl ? backEl.value : null);
 
       if (!Number.isInteger(front) || front < 1) {
-        throw new Error("Each shelf must have a front capacity of at least 1.");
+        throw new Error(_T("shelf_front_capacity_min"));
       }
       if (back === null || back < 0) {
         back = 0;
@@ -1428,7 +2740,7 @@ class WineCellarCard extends HTMLElement {
     });
 
     if (!shelves.length) {
-      throw new Error("Add at least one shelf.");
+      throw new Error(_T("add_at_least_one_shelf"));
     }
     return shelves;
   }
@@ -1437,6 +2749,18 @@ class WineCellarCard extends HTMLElement {
     var fd = new FormData(form);
 
     try {
+      var name = String(fd.get("name") || "").trim();
+      if (!name) {
+        var nameEl = form.querySelector('[name="name"]');
+        if (nameEl) {
+          nameEl.setCustomValidity_T("cellar_name_required");
+          nameEl.reportValidity();
+          nameEl.oninput = function () { nameEl.setCustomValidity(""); };
+        }
+        this._setFormError_T("cellar_name_required");
+        return;
+      }
+
       var shelves = this._parseShelvesFromForm(form);
 
       var bgColorEl = form.querySelector('[name="bg_color"]');
@@ -1445,7 +2769,7 @@ class WineCellarCard extends HTMLElement {
       await this._callWS({
         type: "wine_cellar_manager/save_cellar",
         cellar_id: fd.get("cellar_id") || undefined,
-        name: fd.get("name"),
+        name: name,
         shelves: shelves,
         display_order: Number(fd.get("display_order") || 0),
         bg_color: selectedBgColor
@@ -1455,12 +2779,12 @@ class WineCellarCard extends HTMLElement {
       await this._closeModal();
     } catch (err) {
       console.error("Cellar save failed", err);
-      this._setFormError("Cellar save failed: " + (err && err.message ? err.message : "unknown error"));
+      this._setFormError(_T("cellar_save_failed") + (err && err.message ? err.message : _T("unknown_error")));
     }
   }
 
   async _deleteBottle(id) {
-    if (!confirm("Permanently delete this bottle? This cannot be undone.")) return;
+    if (!confirm(_T("confirm_delete_bottle"))) return;
     await this._callWS({
       type: "wine_cellar_manager/delete_bottle",
       bottle_id: id
@@ -1470,7 +2794,7 @@ class WineCellarCard extends HTMLElement {
   }
 
   async _consumeBottle(id) {
-    if (!confirm("Mark this bottle as consumed and move it to history?")) return;
+    if (!confirm(_T("confirm_consume_bottle"))) return;
     await this._callWS({
       type: "wine_cellar_manager/consume_bottle",
       bottle_id: id
@@ -1480,7 +2804,7 @@ class WineCellarCard extends HTMLElement {
   }
 
   async _deleteCellar(id) {
-    if (!confirm("Delete this cellar and all its bottles?")) return;
+    if (!confirm(_T("confirm_delete_cellar"))) return;
     await this._callWS({
       type: "wine_cellar_manager/delete_cellar",
       cellar_id: id
@@ -1501,8 +2825,7 @@ class WineCellarCard extends HTMLElement {
     var uniqueCountries = Array.from(countriesSet).sort();
 
     // Détection de la langue pour la barre de recherche textuelle indicative
-    var lang = (this._hass && this._hass.language) || "en";
-    var searchPlaceholder = lang.startsWith("fr") ? "Rechercher vin, vignoble, région..." : "Search wine, producer, region...";
+    var searchPlaceholder = _T("search_placeholder");
 
     return [
       '<div class="toolbar">',
@@ -1514,7 +2837,7 @@ class WineCellarCard extends HTMLElement {
       '    <button class="btn' + (this._view === "list" ? " primary" : "") + '" type="button" data-view="list">' + self._t("all_bottles") + '</button>',
       '    <button class="btn' + (this._view === "stats" ? " primary" : "") + '" type="button" data-view="stats">' + self._t("stats") + '</button>',
       '    <button class="btn" type="button" data-open-cleanup-tool style="margin-left:auto; background:#2563eb; color:#fff; font-weight:600">' + self._t("cleanup_btn") + '</button>',
-      '    <button class="btn primary" type="button" data-add-cellar style="margin-left:8px">' + (lang.startsWith("fr") ? "+ Cellier" : "+ Cellar") + '</button>',
+      '    <button class="btn primary" type="button" data-add-cellar style="margin-left:8px">' + _T("add_cellar_short") + '</button>',
       '  </div>',
       
       '  <!-- ZONE DES FILTRES REECRITS VIA _T -->',
@@ -1522,19 +2845,19 @@ class WineCellarCard extends HTMLElement {
         '  <div class="toolbar-actions" style="margin-top:4px">',
         '    <input type="search" data-search placeholder="' + searchPlaceholder + '" value="' + this._escape(this._search || "") + '" style="flex:1; min-width:240px; background:var(--secondary-background-color); border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent); border-radius:12px; padding:10px; color:inherit; height:42px">',
         '    <select data-age-filter class="' + (this._filterReady ? "filter-active" : "") + '">',
-        '      <option value=""' + (this._filterReady === "" || this._filterReady === false ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Tous les âges" : "All ages") + '</option>',
+        '      <option value=""' + (this._filterReady === "" || this._filterReady === false ? " selected" : "") + '>' + _T("all_ages") + '</option>',
         '      <option value="ready"' + (this._filterReady === "ready" || this._filterReady === true ? " selected" : "") + '>' + self._t("ready_to_drink") + '</option>',
-        '      <option value="drink_now"' + (this._filterReady === "drink_now" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Boire maintenant" : "Drink now") + '</option>',
+        '      <option value="drink_now"' + (this._filterReady === "drink_now" ? " selected" : "") + '>' + _T("drink_now") + '</option>',
         '    </select>',
         '    <select data-type-filter class="' + (this._filterType ? "filter-active" : "") + '">',
         '      <option value="">' + self._t("all_types") + '</option>',
-        '      <option value="red"' + (this._filterType === "red" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Rouge" : "Red") + '</option>',
-        '      <option value="white"' + (this._filterType === "white" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Blanc" : "White") + '</option>',
-        '      <option value="rosé"' + (this._filterType === "rosé" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Rosé" : "Rosé") + '</option>',
-        '      <option value="sparkling"' + (this._filterType === "sparkling" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Mousseux" : "Sparkling") + '</option>',
-        '      <option value="orange"' + (this._filterType === "orange" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Orange" : "Orange") + '</option>',
-        '      <option value="sweet"' + (this._filterType === "sweet" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Sucré" : "Sweet") + '</option>',
-        '      <option value="other"' + (this._filterType === "other" ? " selected" : "") + '>' + (lang.startsWith("fr") ? "Autre" : "Other") + '</option>',
+        '      <option value="red"' + (this._filterType === "red" ? " selected" : "") + '>' + _T("red") + '</option>',
+        '      <option value="white"' + (this._filterType === "white" ? " selected" : "") + '>' + _T("white") + '</option>',
+        '      <option value="rosé"' + (this._filterType === "rosé" ? " selected" : "") + '>' + _T("rose") + '</option>',
+        '      <option value="sparkling"' + (this._filterType === "sparkling" ? " selected" : "") + '>' + _T("sparkling") + '</option>',
+        '      <option value="orange"' + (this._filterType === "orange" ? " selected" : "") + '>' + _T("orange") + '</option>',
+        '      <option value="sweet"' + (this._filterType === "sweet" ? " selected" : "") + '>' + _T("sweet") + '</option>',
+        '      <option value="other"' + (this._filterType === "other" ? " selected" : "") + '>' + _T("other") + '</option>',
         '    </select>',
         '    <select data-country-filter class="' + (this._filterCountry ? "filter-active" : "") + '">',
         '      <option value="">' + self._t("all_countries") + '</option>' +
@@ -1757,28 +3080,27 @@ class WineCellarCard extends HTMLElement {
     }
 
     // 6. Construire le tableau HTML traduit dynamiquement via _t
-    var lang = (this._hass && this._hass.language) || "en";
     var typeLabels = {
-      "unset": lang.startsWith("fr") ? "Non spécifié" : "Not Specified",
-      "red": lang.startsWith("fr") ? "Rouge" : "Red",
-      "white": lang.startsWith("fr") ? "Blanc" : "White",
-      "rosé": "Rosé",
-      "sparkling": lang.startsWith("fr") ? "Mousseux" : "Sparkling",
+      "unset": _T("not_specified"),
+      "red": _T("red"),
+      "white": _T("white"),
+      "rosé": _T("rose"),
+      "sparkling": _T("sparkling"),
       "orange": "Orange",
-      "sweet": lang.startsWith("fr") ? "Sucré" : "Sweet",
-      "other": lang.startsWith("fr") ? "Autre" : "Other"
+      "sweet": _T("sweet"),
+      "other": _T("other")
     };
 
     var html = [];
     html.push('<div class="table-wrap"><table>');
     html.push('<thead><tr>');
-    html.push('<th data-sort="wine_name">' + (lang.startsWith("fr") ? "Vin" : "Wine") + sortIndicator("wine_name") + '</th>');
+    html.push('<th data-sort="wine_name">' + _T("wine") + sortIndicator("wine_name") + '</th>');
     html.push('<th data-sort="producer">' + self._t("producer") + sortIndicator("producer") + '</th>');
     html.push('<th data-sort="vintage">' + self._t("vintage") + sortIndicator("vintage") + '</th>');
-    html.push('<th data-sort="region_varietal">' + (lang.startsWith("fr") ? "Région / Cépage" : "Region/Varietal") + sortIndicator("region_varietal") + '</th>');
+    html.push('<th data-sort="region_varietal">' + _T("region_varietal") + sortIndicator("region_varietal") + '</th>');
     html.push('<th data-sort="rating">' + self._t("rating") + sortIndicator("rating") + '</th>');
-    html.push('<th data-sort="aging">' + (lang.startsWith("fr") ? "Apogée" : "Aging") + sortIndicator("aging") + '</th>');
-    html.push('<th data-sort="price">' + (lang.startsWith("fr") ? "Prix" : "Price") + sortIndicator("price") + '</th>');
+    html.push('<th data-sort="aging">' + _T("aging") + sortIndicator("aging") + '</th>');
+    html.push('<th data-sort="price">' + _T("price") + sortIndicator("price") + '</th>');
     html.push('</tr></thead><tbody>');
 
     // 7. Parcourir les groupes et ajouter les lignes
@@ -1848,17 +3170,15 @@ class WineCellarCard extends HTMLElement {
     var globalLegendHtml = []; // Pour le graphique du bas
 
     // Dictionnaire de traduction respectant les majuscules pour les statistiques
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
     var typeLabels = {
-      "unset": isFr ? "Non spécifié" : "Not Specified",
-      "red": isFr ? "Rouge" : "Red",
-      "white": isFr ? "Blanc" : "White",
-      "rosé": "Rosé",
-      "sparkling": isFr ? "Mousseux" : "Sparkling",
+      "unset": _T("not_specified"),
+      "red": _T("red"),
+      "white": _T("white"),
+      "rosé": _T("rose"),
+      "sparkling": _T("sparkling"),
       "orange": "Orange",
-      "sweet": isFr ? "Sucré" : "Sweet",
-      "other": isFr ? "Autre" : "Other"
+      "sweet": _T("sweet"),
+      "other": _T("other")
     };
 
     allowedTypes.forEach(function(t) {
@@ -1982,20 +3302,18 @@ class WineCellarCard extends HTMLElement {
       });
     });
 
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
 
     return [
       '<div class="stats-summary-grid">',
-      '  <div class="stats-card"><div class="stats-card-label">' + (isFr ? "Bouteilles au total" : "Total Bottles") + '</div><div class="stats-card-value">' + (st.total_bottles || 0) + '</div></div>',
-      '  <div class="stats-card"><div class="stats-card-label">' + (isFr ? "Vins différents" : "Different Wines") + '</div><div class="stats-card-value">' + (st.unique_wines_count || 0) + '</div></div>',
-      '  <div class="stats-card"><div class="stats-card-label">' + (isFr ? "Âge moyen" : "Average Age") + '</div><div class="stats-card-value">' + (st.average_age || 0) + ' <span style="font-size:0.9rem;font-weight:normal;color:var(--secondary-text-color)">' + (isFr ? "ans" : "years") + '</span></div></div>',
-      '  <div class="stats-card"><div class="stats-card-label">' + (isFr ? "Valeur totale" : "Total Value") + '</div><div class="stats-card-value">' + self._formatPrice(st.total_value || 0) + '</div></div>',
+      '  <div class="stats-card"><div class="stats-card-label">' + _T("total_bottles") + '</div><div class="stats-card-value">' + (st.total_bottles || 0) + '</div></div>',
+      '  <div class="stats-card"><div class="stats-card-label">' + _T("different_wines") + '</div><div class="stats-card-value">' + (st.unique_wines_count || 0) + '</div></div>',
+      '  <div class="stats-card"><div class="stats-card-label">' + _T("average_age") + '</div><div class="stats-card-value">' + (st.average_age || 0) + ' <span style="font-size:0.9rem;font-weight:normal;color:var(--secondary-text-color)">' + _T("years") + '</span></div></div>',
+      '  <div class="stats-card"><div class="stats-card-label">' + _T("total_value") + '</div><div class="stats-card-value">' + self._formatPrice(st.total_value || 0) + '</div></div>',
       '</div>',
       
       '<div class="stats-charts-split">',
       '  <div class="stats-panel">',
-      '    <h4>' + (isFr ? "Distribution par type" : "Distribution by Type") + '</h4>',
+      '    <h4>' + _T("distribution_by_type") + '</h4>',
       '    <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding:10px 0">',
       '      <svg width="160" height="160" viewBox="0 0 160 160">',
                donutSegmentsHtml.join(""),
@@ -2008,13 +3326,13 @@ class WineCellarCard extends HTMLElement {
       '    </div>',
       '  </div>',
       '  <div class="stats-panel">',
-      '    <h4>' + (isFr ? "Top des pays d'origine" : "Top Countries of Origin") + '</h4>',
+      '    <h4>' + _T("top_countries_of_origin") + '</h4>',
       '    <div style="padding:4px 0">' + countriesHtml + '</div>',
       '  </div>',
       '</div>',
 
       '<div class="stats-panel chart-full-width">',
-      '  <h4>' + self._t("taste_window_title") + ' (' + (isFr ? "Bouteilles prêtes à boire par année" : "Bottles Ready to Drink by Year") + ')</h4>',
+      '  <h4>' + self._t("taste_window_title") + ' (' + _T("bottles_ready_to_drink_by_year") + ')</h4>',
       '  <div style="width:100%;overflow-x:auto;padding-top:4px;margin-bottom:12px">',
       '    <svg width="' + svgWidth + '" height="' + svgHeight + '" viewBox="0 0 ' + svgWidth + ' ' + svgHeight + '" style="display:block;margin:0 auto">',
              svgContent.join(""),
@@ -2071,22 +3389,20 @@ class WineCellarCard extends HTMLElement {
   _renderBottleViewModal(data) {
     var bottle = (this._modal && this._modal.bottle) || {};
     var self = this;
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
 
     var imagePath = bottle.image_path ? this._normalizeImagePath(bottle.image_path) : "";
     var bgColor = this._wineSurfaceColor(bottle.wine_type);
     var textColor = this._wineTextColor(bottle.wine_type);
 
     var typeLabels = {
-      "unset": isFr ? "Non spécifié" : "Not Specified",
-      "red": isFr ? "Rouge" : "Red",
-      "white": isFr ? "Blanc" : "White",
-      "rosé": "Rosé",
-      "sparkling": isFr ? "Mousseux" : "Sparkling",
+      "unset": _T("not_specified"),
+      "red": _T("red"),
+      "white": _T("white"),
+      "rosé": _T("rose"),
+      "sparkling": _T("sparkling"),
       "orange": "Orange",
-      "sweet": isFr ? "Sucré" : "Sweet",
-      "other": isFr ? "Autre" : "Other"
+      "sweet": _T("sweet"),
+      "other": _T("other")
     };
     var rawType = bottle.wine_type || "";
     var formattedRawType = rawType ? rawType.charAt(0).toUpperCase() + rawType.slice(1) : "";
@@ -2097,23 +3413,23 @@ class WineCellarCard extends HTMLElement {
       var r = Math.max(0, Math.min(5, Number(bottle.rating)));
       ratingHtml = '<span style="color:var(--accent-color, #f59e0b);font-size:1.6rem;letter-spacing:4px;line-height:1">' + "★".repeat(r) + '<span style="color:var(--secondary-text-color);opacity:0.25">' + "★".repeat(5 - r) + "</span></span>";
     } else {
-      ratingHtml = '<span style="color:var(--accent-color, #2563eb);font-size:1.25rem;font-weight:700;line-height:1">' + (isFr ? "Non évalué" : "Not rated") + '</span>';
+      ratingHtml = '<span style="color:var(--accent-color, #2563eb);font-size:1.25rem;font-weight:700;line-height:1">' + _T("not_rated") + '</span>';
     }
 
     // Calcul dynamique du nombre de bouteilles semblables en stock
     var similarCount = this._countSimilarBottles(bottle);
-    var similarText = isFr
-      ? (similarCount > 1 ? similarCount + " bouteilles semblables au total" : "Seule bouteille de ce type")
-      : (similarCount > 1 ? similarCount + " similar bottles total" : "Only bottle of this kind");
+    var similarText = similarCount > 1
+      ? _T("similar_bottles_total", { n: similarCount })
+      : _T("only_bottle_of_kind");
 
     return [
       '<div class="modal-backdrop" data-close-modal>',
-      '  <div class="modal wine-view-modal" role="dialog" aria-modal="true" aria-label="Wine details">',
+      '  <div class="modal wine-view-modal" role="dialog" aria-modal="true" aria-label="' + _T("wine_details") + '">',
       
       '    <div class="modal-banner" style="background:' + bgColor + ';color:' + textColor + ';display:flex;align-items:center;justify-content:flex-start;padding:16px 20px;border-top-left-radius:14px;border-top-right-radius:14px;gap:12px;text-align:left">',
       '      <span class="wine-badge" style="background:rgba(255,255,255,0.25);color:' + textColor + ';padding:4px 10px;border-radius:20px;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;border:none">' + wineTypeLabel + '</span>',
       '      <div style="flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; text-align:left">',
-      '        <h2 class="modal-banner-title" style="margin:0;font-size:1.35rem;font-weight:700;color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%">' + this._escape(bottle.wine_name || (isFr ? "Nom inconnu" : "Unnamed Wine")) + '</h2>',
+      '        <h2 class="modal-banner-title" style="margin:0;font-size:1.35rem;font-weight:700;color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%">' + this._escape(bottle.wine_name || _T("unnamed_wine")) + '</h2>',
       '        <div class="modal-banner-sub" style="margin-top:2px;font-size:0.82rem;opacity:0.85;color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%">' + this._escape(similarText) + '</div>',
       '      </div>',
       '      <button class="icon-btn" type="button" data-close-modal style="color:' + textColor + ';font-size:1.6rem;background:none;border:none;cursor:pointer;margin-left:12px;flex-shrink:0;align-self:center">×</button>',
@@ -2128,18 +3444,18 @@ class WineCellarCard extends HTMLElement {
       '        <div class="detail-grid">',
       '          <div class="meta-item"><strong>' + self._t("producer") + '</strong><div>' + this._escape(bottle.producer || "—") + '</div></div>',
       '          <div class="meta-item"><strong>' + self._t("varietal") + '</strong><div>' + this._escape(bottle.varietal || "—") + '</div></div>',
-      '          <div class="meta-item"><strong>' + (isFr ? "Région" : "Region") + '</strong><div>' + this._escape(bottle.region || "—") + '</div></div>',
+      '          <div class="meta-item"><strong>' + _T("region") + '</strong><div>' + this._escape(bottle.region || "—") + '</div></div>',
       '          <div class="meta-item"><strong>' + self._t("country") + '</strong><div>' + this._escape(bottle.country || "—") + '</div></div>',
-          '          <div class="meta-item"><strong>' + self._t("vintage") + '</strong><div>' + (bottle.vintage || (isFr ? "Inconnu" : "N/A")) + '</div></div>',
-          '          <div class="meta-item"><strong>' + (isFr ? "Prix" : "Price") + '</strong><div>' + this._formatPrice(bottle.price || 0) + '</div></div>',
+          '          <div class="meta-item"><strong>' + self._t("vintage") + '</strong><div>' + (bottle.vintage || _T("not_available")) + '</div></div>',
+          '          <div class="meta-item"><strong>' + _T("price") + '</strong><div>' + this._formatPrice(bottle.price || 0) + '</div></div>',
           '          <div class="meta-item"><strong>' + self._t("serving_temp") + '</strong><div>' + (bottle.serving_temp != null ? bottle.serving_temp + " °C" : "—") + '</div></div>',
           '          <div class="meta-item"><strong>' + self._t("alcohol_pct") + '</strong><div>' + (bottle.alcohol_pct != null ? bottle.alcohol_pct + " %" : "—") + '</div></div>',
           '        </div>',
           '        <div class="detail-grid" style="margin-top:14px;border-top:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);padding-top:14px">',
-      '          <div class="meta-item" style="grid-column:span 2"><strong>' + (isFr ? "Apogée" : "Drinking Window") + '</strong><div style="font-size:0.95rem;margin-top:2px">' + 
+      '          <div class="meta-item" style="grid-column:span 2"><strong>' + _T("drinking_window") + '</strong><div style="font-size:0.95rem;margin-top:2px">' + 
                   ((bottle.aging_start_year && bottle.aging_end_year) 
-                    ? (isFr ? "De " : "From ") + bottle.aging_start_year + (isFr ? " à " : " to ") + bottle.aging_end_year 
-                    : '<span style="color:var(--secondary-text-color);font-size:0.88rem">' + (isFr ? "Pas d'information" : "No data") + '</span>') + 
+                    ? _T("from_prefix") + bottle.aging_start_year + _T("to_infix") + bottle.aging_end_year 
+                    : '<span style="color:var(--secondary-text-color);font-size:0.88rem">' + _T("no_data") + '</span>') + 
       '          </div></div>',
       '        </div>',
       bottle.notes ? '        <div class="notes-box" style="margin-top:14px"><div class="detail-label"><strong>' + self._t("notes") + '</strong></div><div class="notes-text" style="margin-top:4px">' + this._escape(bottle.notes) + '</div></div>' : '',
@@ -2154,28 +3470,28 @@ class WineCellarCard extends HTMLElement {
           '        </div>'
         ].join("") : ""),
         '        <div style="margin-top:14px;font-size:0.88rem;color:var(--secondary-text-color);display:flex;flex-direction:column;gap:4px">',
-        '          <span style="font-size:0.75rem;text-transform:uppercase;font-weight:700;color:var(--accent-color,#f59e0b);letter-spacing:0.05em">' + (isFr ? "Emplacement physique" : "Physical Location") + '</span>',
+        '          <span style="font-size:0.75rem;text-transform:uppercase;font-weight:700;color:var(--accent-color,#f59e0b);letter-spacing:0.05em">' + _T("physical_location") + '</span>',
         '          <div style="font-weight:600;color:var(--primary-text-color);background:color-mix(in srgb,var(--secondary-background-color) 40%,transparent);padding:8px 12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--primary-text-color) 6%,transparent);line-height:1.4">' + this._escape(this._formatBottleLocation(bottle).replace(/ • /g, " → ")) + '</div>',
         '        </div>'
       ].join(""),
       '      </div>',
       '      <div class="image-column">',
       imagePath
-        ? '        <div class="hero-image-frame"><img src="' + this._escape(imagePath) + '" alt="' + this._escape(bottle.wine_name || "Wine label") + '" class="hero-label-image" onerror="this.style.display=\'none\';this.parentElement.classList.add(\'placeholder\');this.parentElement.innerHTML=\'<span>' + (isFr ? "Aucune image" : "No label image") + '</span>\';"></div>'
-        : '        <div class="hero-image-frame placeholder"><span>' + (isFr ? "Aucune image" : "No label image") + '</span></div>',
+        ? '        <div class="hero-image-frame"><img src="' + this._escape(imagePath) + '" alt="' + this._escape(bottle.wine_name || "Wine label") + '" class="hero-label-image" onerror="this.style.display=\'none\';this.parentElement.classList.add(\'placeholder\');this.parentElement.innerHTML=\'<span>' + _T("no_label_image") + '</span>\';"></div>'
+        : '        <div class="hero-image-frame placeholder"><span>' + _T("no_label_image") + '</span></div>',
       '      </div>',
       '    </div>',
       
       '    <!-- SUPPRESSION DE L\'ATTRIBUT CONFLICTUEL DATA-EDIT-BOTTLE POUR RETROUVER LES COULEURS BLEUES -->',
       '    <div class="view-actions modal-actions" style="padding:16px 20px;border-top:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%">',
       '      <div class="left-actions" style="display:flex;gap:8px">',
-      '        <button class="btn warning" type="button" data-consume-bottle="' + bottle.id + '">' + (isFr ? "Consommer" : "Consume") + '</button>',
-      '        <button class="btn danger" type="button" data-delete-bottle="' + bottle.id + '">' + (isFr ? "Supprimer" : "Delete") + '</button>',
+      '        <button class="btn warning" type="button" data-consume-bottle="' + bottle.id + '">' + _T("consume") + '</button>',
+      '        <button class="btn danger" type="button" data-delete-bottle="' + bottle.id + '">' + _T("delete") + '</button>',
       '      </div>',
       '      <div class="right-actions" style="display:flex;gap:8px;margin-left:auto;align-items:center">',
-      '        <button class="btn primary" type="button" data-copy-memory-btn style="border:none !important;background:#2563eb !important;color:#ffffff !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + (isFr ? "Copier" : "Copy") + '</button>',
-      '        <button class="btn primary" type="button" data-enter-edit style="border:none !important;background:#7b2130 !important;color:#ffffff !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + (isFr ? "Modifier" : "Edit") + '</button>',
-      '        <button class="btn" type="button" data-close-modal style="border:1px solid color-mix(in srgb,var(--primary-text-color) 15%, transparent) !important;background:var(--secondary-background-color) !important;color:var(--primary-text-color) !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + (isFr ? "Fermer" : "Close") + '</button>',
+      '        <button class="btn primary" type="button" data-copy-memory-btn style="border:none !important;background:#2563eb !important;color:#ffffff !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + _T("copy") + '</button>',
+      '        <button class="btn primary" type="button" data-enter-edit style="border:none !important;background:#7b2130 !important;color:#ffffff !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + _T("edit") + '</button>',
+      '        <button class="btn" type="button" data-close-modal style="border:1px solid color-mix(in srgb,var(--primary-text-color) 15%, transparent) !important;background:var(--secondary-background-color) !important;color:var(--primary-text-color) !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + _T("close") + '</button>',
       '      </div>',
      '    </div>',
       '  </div>',
@@ -2229,12 +3545,10 @@ class WineCellarCard extends HTMLElement {
     var imagePath = v("image_path", "");
     var previewImagePath = this._normalizeImagePath(imagePath);
 
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
 
     return [
       '<div class="modal-backdrop" data-close-modal>',
-      '  <div class="modal" role="dialog" aria-modal="true" aria-label="Bottle editor">',
+      '  <div class="modal" role="dialog" aria-modal="true" aria-label="' + _T("bottle_editor") + '">',
       '    <div class="modal-head">',
       "      <h3>" + (bottle.id ? self._t("edit_bottle") : self._t("add_bottle")) + "</h3>",
       '      <button class="icon-btn" type="button" data-close-modal>×</button>',
@@ -2247,24 +3561,24 @@ class WineCellarCard extends HTMLElement {
       
       '      <!-- ZONE CAPTURE ET ANALYSE DE HAUT DE FORMULAIRE -->',
       '      <div class="analysis-top-panel" style="background:color-mix(in srgb, var(--secondary-background-color) 40%, transparent);padding:14px;border-radius:14px;display:grid;gap:12px;border:1px dashed color-mix(in srgb,var(--primary-text-color) 15%, transparent)">',
-      '        <div style="font-weight:700;font-size:0.95rem">' + (isFr ? "Acquisition et identification du vin" : "Wine Acquisition & Identification") + '</div>',
+      '        <div style="font-weight:700;font-size:0.95rem">' + _T("wine_acquisition_identification") + '</div>',
       '        <div class="grid2">',
-      '          <button class="btn small-btn" type="button" data-pick-barcode-btn>' + (isFr ? "📁 Charger code-barres (SAQ seulement)" : "📁 Upload Barcode (SAQ Only)") + '</button>',
-      '          <button class="btn small-btn" type="button" data-pick-label-btn>' + (isFr ? "📁 Charger photo étiquette" : "📁 Upload Label Photo") + '</button>',
+      '          <button class="btn small-btn" type="button" data-pick-barcode-btn>' + _T("upload_barcode_saq_only") + '</button>',
+      '          <button class="btn small-btn" type="button" data-pick-label-btn>' + _T("upload_label_photo") + '</button>',
       '          <input type="file" accept="image/*" data-barcode-file-input style="display:none">',
       '          <input type="file" accept="image/*" data-label-file-input style="display:none">',
       '        </div>',
       '        <div class="grid2">',
-      '          <label style="font-size:0.85rem">' + (isFr ? "Numéro du code-barres (14 chiffres)" : "Barcode Number (14 digits)") + '<input name="barcode" placeholder="' + (isFr ? "Résultat du scan ou entrée manuelle" : "Scan result or manual entry") + '" value="' + self._escape(v("barcode", "")) + '"></label>',
-      '          <label style="font-size:0.85rem">' + (isFr ? "Chemin de l'image de l'étiquette" : "Label Image Path") + '<input name="image_path" placeholder="/local/wine_labels/example.jpg" value="' + self._escape(imagePath) + '"></label>',
+      '          <label style="font-size:0.85rem">' + _T("barcode_number_14_digits") + '<input name="barcode" placeholder="' + _T("scan_result_or_manual_entry") + '" value="' + self._escape(v("barcode", "")) + '"></label>',
+      '          <label style="font-size:0.85rem">' + _T("label_image_path") + '<input name="image_path" placeholder="/local/wine_labels/example.jpg" value="' + self._escape(imagePath) + '"></label>',
       '        </div>',
-      '        <button class="btn primary" type="button" data-universal-analyze-btn style="height:40px;font-weight:700">🔍 ' + (isFr ? "Analyser" : "Analyze") + '</button>',
+      '        <button class="btn primary" type="button" data-universal-analyze-btn style="height:40px;font-weight:700">🔍 ' + _T("analyze") + '</button>',
       '      </div>',
 
-      previewImagePath ? '<div class="image-preview"><img src="' + this._escape(previewImagePath) + '" alt="Label image preview" onerror="this.style.display=\'none\';this.parentElement.innerHTML=\'<div class=&quot;empty-state&quot;>' + (isFr ? "Image non accessible" : "Image not reachable") + '</div>\';"></div>' : "",
+      previewImagePath ? '<div class="image-preview"><img src="' + this._escape(previewImagePath) + '" alt="Label image preview" onerror="this.style.display=\'none\';this.parentElement.innerHTML=\'<div class=&quot;empty-state&quot;>' + _T("image_not_reachable") + '</div>\';"></div>' : "",
       this._renderDuplicateMatches(),
 
-      '      <label style="margin-top:8px">' + self._t("search_history") + '<input name="history_search" type="search" placeholder="' + (isFr ? "Nom du vin, vignoble, région..." : "Wine name, producer, region...") + '" value="' + self._escape(this._historySearchValue || "") + '"></label>',
+      '      <label style="margin-top:8px">' + self._t("search_history") + '<input name="history_search" type="search" placeholder="' + _T("search_history_placeholder") + '" value="' + self._escape(this._historySearchValue || "") + '"></label>',
       '      <div data-history-results>' + this._renderSearchResultsMarkup() + '</div>',
       
       '      <label style="position:relative">' + self._t("wine_name") + '<input name="wine_name" value="' + self._escape(v("wine_name", "")) + '" autocomplete="off" required><div class="custom-autocomplete-panel" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper-dialog-background-color,var(--card-background-color));border:1px solid color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);margin-top:4px"></div></label>',
@@ -2280,20 +3594,8 @@ class WineCellarCard extends HTMLElement {
       '        <label>' + self._t("vintage") + '<input name="vintage" type="number" value="' + self._escape(v("vintage", "")) + '"></label>',
       '        <label>' + self._t("type") + '<select name="wine_type">' +
         ["unset", "red", "white", "rosé", "sparkling", "orange", "sweet", "other"].map(function (t) {
-          var lbl = t;
-          if (isFr) {
-            if (t === "unset") lbl = "Non spécifié";
-            else if (t === "red") lbl = "Rouge";
-            else if (t === "white") lbl = "Blanc";
-            else if (t === "rosé") lbl = "Rosé";
-            else if (t === "sparkling") lbl = "Mousseux";
-            else if (t === "orange") lbl = "Orange";
-            else if (t === "sweet") lbl = "Sucré";
-            else if (t === "other") lbl = "Autre";
-          } else {
-            // Sécurité pour l'anglais : force la première lettre en majuscule (ex: Red, Rosé, Orange)
-            lbl = t.charAt(0).toUpperCase() + t.slice(1);
-          }
+          var typeKeys = { "unset": "not_specified", "red": "red", "white": "white", "rosé": "rose", "sparkling": "sparkling", "orange": "orange", "sweet": "sweet", "other": "other" };
+          var lbl = _T(typeKeys[t] || t);
           return '<option value="' + t + '"' + (v("wine_type", "unset") === t ? " selected" : "") + ">" + lbl + "</option>";
         }).join("") +
       "</select></label>",
@@ -2315,11 +3617,11 @@ class WineCellarCard extends HTMLElement {
       '        <label>' + self._t("aging_end") + '<input name="aging_end_year" type="number" value="' + self._escape(v("aging_end_year", "")) + '"></label>',
       '      </div>',
       '      <label>' + self._t("notes") + '<textarea name="notes" rows="4" maxlength="500">' + this._escape(v("notes", "")) + '</textarea></label>',
-      '      <label style="margin-top:4px">' + (isFr ? "Lien SAQ.com" : "SAQ.com URL") + '<input name="saq_url" placeholder="https://saq.com..." value="' + self._escape(v("saq_url", bottle.url_saq || "")) + '"></label>',
+      '      <label style="margin-top:4px">' + _T("saq_com_url") + '<input name="saq_url" placeholder="https://saq.com..." value="' + self._escape(v("saq_url", bottle.url_saq || "")) + '"></label>',
       
       '      <!-- ZONE LOCALISATION DESCENTE TOUT EN BAS AVEC TRADUCTION -->',
       '      <div style="background:color-mix(in srgb, var(--secondary-background-color) 25%, transparent);padding:12px;border-radius:12px;display:grid;gap:10px;margin-top:4px">',
-      '        <label>' + (isFr ? "Cellier" : "Cellar") + '<select name="cellar_id" data-cellar-select>' +
+      '        <label>' + _T("cellar") + '<select name="cellar_id" data-cellar-select>' +
           cellars.map(function (c) {
             return '<option value="' + c.id + '"' + (String(currentCellarId) === c.id ? " selected" : "") + ">" + self._escape(c.name) + "</option>";
           }).join("") +
@@ -2337,7 +3639,7 @@ class WineCellarCard extends HTMLElement {
         ? '        <div class="left-actions"><button class="btn warning" type="button" data-consume-bottle="' + bottle.id + '">' + self._t("consume") + '</button><button class="btn danger" type="button" data-delete-bottle="' + bottle.id + '">' + self._t("delete") + '</button></div>'
         : "        <span></span>",
       '        <div class="right-actions">',
-      (bottle.id ? '          <button class="btn edit-btn" type="button" data-cancel-edit>' + (isFr ? "Voir" : "View") + '</button>' : '          <button class="btn" type="button" data-close-modal>' + self._t("cancel") + '</button>'),
+      (bottle.id ? '          <button class="btn edit-btn" type="button" data-cancel-edit>' + _T("view") + '</button>' : '          <button class="btn" type="button" data-close-modal>' + self._t("cancel") + '</button>'),
       '          <button class="btn primary" type="button" data-save-bottle-btn>' + self._t("save") + '</button>',
       '        </div>',
       '      </div>',
@@ -2348,22 +3650,20 @@ class WineCellarCard extends HTMLElement {
   }
   _renderShelfEditorRows(shelves) {
     var self = this;
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
 
     return shelves.map(function (s, idx) {
       return [
         '<div class="shelf-row" data-shelf-row style="border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);padding:14px;border-radius:12px;margin-bottom:10px;position:relative;background:color-mix(in srgb,var(--secondary-background-color) 30%, transparent);padding-top:34px">',
         '  <input type="hidden" name="shelf_id[]" value="' + self._escape(s.id || "") + '">',
         '  <div style="margin-bottom:6px">',
-        '    <label style="font-size:0.85rem">' + (isFr ? "Nom de la tablette" : "Shelf Name") + '<input type="text" name="shelf_name[]" value="' + self._escape(s.name || "") + '" style="padding:6px" required></label>',
+        '    <label style="font-size:0.85rem">' + _T("shelf_name") + '<input type="text" name="shelf_name[]" value="' + self._escape(s.name || "") + '" style="padding:6px" required></label>',
         '  </div>',
         '  <div class="grid3" style="gap:8px">',
-        '    <label style="font-size:0.85rem">' + (isFr ? "Ordre" : "Order") + '<input type="number" name="shelf_display_order[]" min="0" value="' + self._escape(s.display_order || 0) + '" style="padding:6px"></label>',
-        '    <label style="font-size:0.85rem">' + (isFr ? "Capacité avant" : "Front capacity") + '<input type="number" name="capacity_front[]" min="1" value="' + self._escape(s.capacity_front || 6) + '" style="padding:6px" required></label>',
-        '    <label style="font-size:0.85rem">' + (isFr ? "Capacité arrière" : "Back capacity") + '<input type="number" name="capacity_back[]" min="0" value="' + self._escape(s.capacity_back || 0) + '" style="padding:6px"></label>',
+        '    <label style="font-size:0.85rem">' + _T("order") + '<input type="number" name="shelf_display_order[]" min="0" value="' + self._escape(s.display_order || 0) + '" style="padding:6px"></label>',
+        '    <label style="font-size:0.85rem">' + _T("front_capacity") + '<input type="number" name="capacity_front[]" min="1" value="' + self._escape(s.capacity_front || 6) + '" style="padding:6px" required></label>',
+        '    <label style="font-size:0.85rem">' + _T("back_capacity") + '<input type="number" name="capacity_back[]" min="0" value="' + self._escape(s.capacity_back || 0) + '" style="padding:6px"></label>',
         '  </div>',
-        '  <button class="btn danger small-btn" type="button" data-remove-shelf style="position:absolute;top:10px;right:10px;padding:4px 8px;font-size:0.75rem">' + (isFr ? "Supprimer" : "Remove") + '</button>',
+        '  <button class="btn danger small-btn" type="button" data-remove-shelf style="position:absolute;top:10px;right:10px;padding:4px 8px;font-size:0.75rem">' + _T("remove") + '</button>',
         '</div>'
       ].join("");
     }).join("");
@@ -2388,36 +3688,34 @@ class WineCellarCard extends HTMLElement {
       })) + 1;
     }
 
-    var lang = (this._hass && this._hass.language) || "en";
-    var isFr = lang.startsWith("fr");
 
     var shelves = (cellar.shelves && cellar.shelves.length)
       ? self._getSortedShelves(cellar)
       : [
-          { id: "", name: isFr ? "Tablette 1" : "Shelf 1", display_order: 0, capacity_front: 6, capacity_back: 0, layout_mode: "single" }
+          { id: "", name: _T("shelf_1"), display_order: 0, capacity_front: 6, capacity_back: 0, layout_mode: "single" }
         ];
 
     return [
       '<div class="modal-backdrop" data-close-modal>',
-      '  <div class="modal small-modal" role="dialog" aria-modal="true" aria-label="Cellar editor">',
+      '  <div class="modal small-modal" role="dialog" aria-modal="true" aria-label="' + _T("cellar_editor") + '">',
       '    <div class="modal-head">',
-      "      <h3>" + (cellar.id ? (isFr ? "Modifier le cellier" : "Edit cellar") : (isFr ? "Ajouter un cellier" : "Add cellar")) + "</h3>",
+      "      <h3>" + (cellar.id ? _T("edit_cellar") : _T("add_cellar")) + "</h3>",
       '      <button class="icon-btn" type="button" data-close-modal>×</button>',
       "    </div>",
       '<div class="form-error"' + (this._formError ? '' : ' style="display:none"') + ' role="alert">' + this._escape(this._formError || "") + '</div>',
       '    <form class="modal-form" data-save-cellar>',
       '      <input type="hidden" name="cellar_id" value="' + self._escape(v("id", "")) + '">',
-      '      <label>' + (isFr ? "Nom du cellier" : "Name") + '<input name="name" value="' + self._escape(v("name", "")) + '" required></label>',
-      '      <label>' + (isFr ? "Ordre d'affichage" : "Display order") + '<input name="display_order" type="number" min="0" value="' + self._escape(v("display_order", nextDisplayOrder)) + '"></label>',
-      '      <label>' + (isFr ? "Couleur d'arrière-plan" : "Background Color") + '<select name="bg_color">' +
+      '      <label>' + _T("cellar_name") + '<input name="name" value="' + self._escape(v("name", "")) + '" required></label>',
+      '      <label>' + _T("display_order") + '<input name="display_order" type="number" min="0" value="' + self._escape(v("display_order", nextDisplayOrder)) + '"></label>',
+      '      <label>' + _T("background_color") + '<select name="bg_color">' +
                [
-                 { value: "", label: isFr ? "Par défaut (Thème HA)" : "Default (HA Theme)" },
-                 { value: "#7b2130", label: isFr ? "Rouge Bordeaux" : "Bordeaux Red" },
-                 { value: "#8c6239", label: isFr ? "Brun Chêne" : "Oak Brown" },
-                 { value: "#556b2f", label: isFr ? "Vert Olive" : "Olive Green" },
-                 { value: "#1e3a8a", label: isFr ? "Bleu Azur" : "Azur Blue" },
-                 { value: "#374151", label: isFr ? "Gris Ardoise" : "Slate Gray" },
-                 { value: "#fbfbfbff", label: isFr ? "Blanc cassée" : "Off White" }
+                 { value: "", label: _T("default_ha_theme") },
+                 { value: "#7b2130", label: _T("bordeaux_red") },
+                 { value: "#8c6239", label: _T("oak_brown") },
+                 { value: "#556b2f", label: _T("olive_green") },
+                 { value: "#1e3a8a", label: _T("azur_blue") },
+                 { value: "#374151", label: _T("slate_gray") },
+                 { value: "#fbfbfbff", label: _T("off_white") }
                ].map(function(opt) {
                  return '<option value="' + opt.value + '"' + (currentBgColor === opt.value ? " selected" : "") + '>' + opt.label + '</option>';
                }).join("") +
@@ -2425,16 +3723,16 @@ class WineCellarCard extends HTMLElement {
       '      <div class="shelf-editor">',
 
       '        <div class="shelf-editor-head">',
-      '          <strong>' + (isFr ? "Tablettes" : "Shelves") + '</strong>',
-      '          <button class="btn small-btn" type="button" data-add-shelf-row>' + (isFr ? "+ Ajouter" : "Add shelf") + '</button>',
+      '          <strong>' + _T("shelves") + '</strong>',
+      '          <button class="btn small-btn" type="button" data-add-shelf-row>' + _T("add_shelf") + '</button>',
       '        </div>',
       '        <div data-shelf-rows>',
       self._renderShelfEditorRows(shelves),
       '        </div>',
       '      </div>',
       '      <div class="modal-actions">',
-      cellar.id ? '        <button class="btn danger" type="button" data-delete-cellar="' + cellar.id + '">' + (isFr ? "Supprimer" : "Delete") + '</button>' : "        <span></span>",
-      '        <div class="right-actions"><button class="btn" type="button" data-close-modal>' + (isFr ? "Annuler" : "Cancel") + '</button><button class="btn primary" type="button" data-save-cellar-btn>' + (isFr ? "Enregistrer" : "Save") + '</button></div>',
+      cellar.id ? '        <button class="btn danger" type="button" data-delete-cellar="' + cellar.id + '">' + _T("delete") + '</button>' : "        <span></span>",
+      '        <div class="right-actions"><button class="btn" type="button" data-close-modal>' + _T("cancel") + '</button><button class="btn primary" type="button" data-save-cellar-btn>' + _T("save") + '</button></div>',
       "      </div>",
       '    </form>',
       '  </div>',
@@ -2509,7 +3807,6 @@ class WineCellarCard extends HTMLElement {
   async render(force) {
     if (!this.shadowRoot || !this._hass) return;
 
-    var isFr = ((this._hass && this._hass.language) || "en").startsWith("fr");
 
     // Sauvegarde persistante dans le navigateur pour survivre aux rafraîchissements globaux
     var scrollContainer = this.shadowRoot.querySelector(".main-scroll-content");
@@ -3052,7 +4349,7 @@ class WineCellarCard extends HTMLElement {
           delete self._copiedBottleData.position;
           self._copyTimestamp = Date.now(); // Initialisation indispensable du timestamp
           self._closeModal();
-          self._setActionMessage("Bottle copied to memory. Click an empty slot to paste.");
+          self._setActionMessage(_T("bottle_copied_to_memory"));
         };
       }
 
@@ -3110,12 +4407,9 @@ class WineCellarCard extends HTMLElement {
           };
           
           var count = self._countSimilarBottles(tempBottle);
-          var lang = (self._hass && self._hass.language) || "en";
           
           if (count > 0) {
-            var alertMsg = lang.startsWith("fr") 
-              ? "⚠️ Attention : Vous possédez déjà " + count + " bouteille(s) identique(s) dans votre cellier."
-              : "⚠️ Warning: You already have " + count + " identical bottle(s) in your cellar.";
+            var alertMsg = _T("duplicate_warning", { n: count });
             self._setActionMessage(alertMsg);
           } else {
             if (self._actionMessage && self._actionMessage.startsWith("⚠️")) {
@@ -3159,7 +4453,6 @@ class WineCellarCard extends HTMLElement {
               var selectSuggestion = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                var isFr = ((self._hass && self._hass.language) || "en").startsWith("fr");
                 var selectedName = item.getAttribute("data-value");
                 wineNameInp.value = selectedName;
                 autocompletePanel.style.display = "none";
@@ -3186,8 +4479,7 @@ class WineCellarCard extends HTMLElement {
                     self._modal.preset.image_path = match.image_path || "";
                     if (self._modal.bottle) self._modal.bottle.image_path = match.image_path || "";
                   }
-                  var isFr = ((self._hass && self._hass.language) || "en").startsWith("fr");
-                  self._setActionMessage(isFr ? "✨ Caractéristiques et étiquette appliquées automatiquement !" : "✨ Wine details and label applied automatically!");
+                  self._setActionMessage_T("details_and_label_applied");
                   checkTextDuplicates();
                   self.render(false);
                 }
@@ -3304,7 +4596,7 @@ class WineCellarCard extends HTMLElement {
         pickBarcodeBtn.onclick = function(e) {
           e.preventDefault(); e.stopPropagation();
           self._clearFormError();
-          self._setActionMessage(isFr ? "Sélectionnez la photo du code-barres..." : "Select barcode photo...");
+          self._setActionMessage_T("select_barcode_photo");
           barcodeFileInput.value = "";
           barcodeFileInput.click();
         };
@@ -3315,7 +4607,7 @@ class WineCellarCard extends HTMLElement {
           if (!file) return;
           
           self._clearFormError();
-          self._setActionMessage(isFr ? "Lecture de la photo du code-barres..." : "Reading barcode photo...");
+          self._setActionMessage_T("reading_barcode_photo");
           
           try {
             var dataUrl = await new Promise(function (resolve, reject) {
@@ -3325,7 +4617,7 @@ class WineCellarCard extends HTMLElement {
               reader.readAsDataURL(file);
             });
 
-            self._setActionMessage(isFr ? "Envoi de la photo à l'IA..." : "Sending photo to AI...");
+            self._setActionMessage_T("sending_photo_to_ai");
             var base64Data = dataUrl.split(",")[1] || dataUrl;
 
             // Téléversement temporaire sécurisé
@@ -3336,7 +4628,7 @@ class WineCellarCard extends HTMLElement {
             });
 
             if (uploadResult && uploadResult.image_path) {
-              self._setActionMessage(isFr ? "L'IA extrait le code-barres..." : "AI extracting barcode...");
+              self._setActionMessage_T("ai_extracting_barcode");
               // Déclenchement automatique de l'analyse unifiée sur cette image temporelle
               var analyzeResult = await self._callWS({
                 type: "wine_cellar_manager/unified_analyze",
@@ -3350,14 +4642,14 @@ class WineCellarCard extends HTMLElement {
                   var barcodeInp = bottleForm.querySelector('[name="barcode"]');
                   if (barcodeInp) barcodeInp.value = analyzeResult.suggestion.barcode;
                 }
-                self._setActionMessage(isFr ? "Code-barres détecté et appliqué !" : "Barcode detected and applied!");
+                self._setActionMessage_T("barcode_detected_and_applied");
               } else {
-                self._setActionMessage(analyzeResult.message || "Aucun code-barres trouvé.");
+                self._setActionMessage(analyzeResult.message || _T("no_barcode_found"));
               }
             }
           } catch(err) {
             console.error("Barcode image extraction failed", err);
-            self._setFormError(isFr ? "L'extraction du code-barres a échoué." : "Barcode extraction failed.");
+            self._setFormError_T("barcode_extraction_failed");
           }
         };
       }
@@ -3366,7 +4658,7 @@ class WineCellarCard extends HTMLElement {
         pickLabelBtn.onclick = function(e) {
           e.preventDefault(); e.stopPropagation();
           self._clearFormError();
-          self._setActionMessage("Sélectionnez la photo de l'étiquette...");
+          self._setActionMessage_T("select_label_photo");
           labelFileInput.value = "";
           labelFileInput.click();
         };
@@ -3384,10 +4676,10 @@ class WineCellarCard extends HTMLElement {
       if (universalAnalyzeBtn && bottleForm) {
         universalAnalyzeBtn.onclick = async function(e) {
           e.preventDefault(); e.stopPropagation();
-          
+
           var isAnalyzed = bottleForm.querySelector('[name="analyzed_flag"]').value === "true";
           if (isAnalyzed) {
-            if (!confirm("Ce vin a déjà été analysé avec succès. Voulez-vous écraser les données et relancer l'analyse ?")) {
+            if (!confirm_T("confirm_reanalyze")) {
               return;
             }
           }
@@ -3396,12 +4688,12 @@ class WineCellarCard extends HTMLElement {
           var labelVal = bottleForm.querySelector('[name="image_path"]').value.trim();
 
           if (!barcodeVal && !labelVal) {
-            self._setFormError("Veuillez fournir un code-barres (chiffres) ou téléverser une étiquette avant de lancer l'analyse.");
+            self._setFormError_T("provide_barcode_or_label");
             return;
           }
 
           self._clearFormError();
-          self._setActionMessage("Lancement de l'analyse intelligente...");
+          self._setActionMessage_T("starting_smart_analysis");
 
           try {
             var result = await self._callWS({
@@ -3418,16 +4710,15 @@ class WineCellarCard extends HTMLElement {
                 self._modal.preset = Object.assign({}, self._modal.preset, result.suggestion, { analyzed: true });
               }
 
-              var lang = (self._hass && self._hass.language) || "en";
-              self._setActionMessage(lang.startsWith("fr") ? "✨ Analyse complétée avec succès ! Caractéristiques appliquées." : "✨ Analysis completed successfully! Details applied.");
+              self._setActionMessage_T("analysis_completed");
               
               // Redessine le formulaire de manière sécurisée en conservant l'état mis à jour
               self.render(false);
             } else {
-              self._setActionMessage(result.message || "Aucun résultat trouvé.");
+              self._setActionMessage(result.message || _T("no_result_found"));
             }
           } catch(err) {
-            self._setFormError("L'analyse a échoué : " + (err.message || err));
+            self._setFormError(_T("analysis_failed") + (err.message || err));
           }
         };
       }
@@ -3495,7 +4786,7 @@ class WineCellarCard extends HTMLElement {
           var rowsWrap = root.querySelector("[data-shelf-rows]");
           var rows = rowsWrap ? rowsWrap.querySelectorAll("[data-shelf-row]") : [];
           if (rows.length <= 1) {
-            self._setFormError("A cellar must have at least one shelf.");
+            self._setFormError(_T("cellar_needs_shelf"));
             return;
           }
           var row = el.closest("[data-shelf-row]");
@@ -3596,7 +4887,7 @@ class WineCellarCard extends HTMLElement {
         if (mergeAllBtn) {
           mergeAllBtn.onclick = async function(e) {
             e.preventDefault(); e.stopPropagation();
-            if (confirm(isFr ? "Voulez-vous fusionner et uniformiser toutes les syntaxes listées ?" : "Do you want to merge and standardize all listed syntaxes?")) {
+            if (confirm_T("confirm_merge_all")) {
               await self._executeMergeAllSyntax();
             }
           };
@@ -3643,7 +4934,7 @@ class WineCellarCard extends HTMLElement {
 
     } catch (err) {
       console.error("Wine Cellar render failed", err);
-      var message = err && err.message ? err.message : "unknown error";
+      var message = err && err.message ? err.message : _T("unknown_error");
       this.shadowRoot.innerHTML =
         "<ha-card><div style='padding:16px;color:var(--error-color,#db4437)'>" +
         "<strong>Wine Cellar card error:</strong><br>" +

@@ -1,0 +1,33 @@
+{
+  "title": "Weinkeller-Manager",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Weinkeller-Manager einrichten",
+        "data": {
+          "title": "Name der Integration"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Weinkeller-Manager ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Weinkeller-Manager-Optionen",
+        "data": {
+          "image_base_path": "Standard-Basispfad für Bilder",
+          "image_upload_dir": "Server-Upload-Ordner unter /config",
+          "demo_enrichment": "Demo-Anreicherungs-Hooks aktivieren",
+          "ai_provider": "KI-Anbieter",
+          "gemini_api_key": "Gemini-API-Schlüssel",
+          "gemini_model": "Gemini-Modell",
+          "perplexity_api_key": "Perplexity-Pro-API-Schlüssel",
+          "perplexity_model": "Perplexity-Modell"
+        }
+      }
+    }
+  }
+}

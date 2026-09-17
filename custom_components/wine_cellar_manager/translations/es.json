@@ -1,0 +1,33 @@
+{
+  "title": "Gestor de bodega",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurar el gestor de bodega",
+        "data": {
+          "title": "Título de la integración"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "El gestor de bodega ya está configurado."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opciones del gestor de bodega",
+        "data": {
+          "image_base_path": "Ruta base predeterminada de las imágenes",
+          "image_upload_dir": "Carpeta de subida del servidor bajo /config",
+          "demo_enrichment": "Activar los hooks de enriquecimiento de demostración",
+          "ai_provider": "Proveedor de inteligencia artificial",
+          "gemini_api_key": "Clave de API de Gemini",
+          "gemini_model": "Modelo de Gemini",
+          "perplexity_api_key": "Clave de API de Perplexity Pro",
+          "perplexity_model": "Modelo de Perplexity"
+        }
+      }
+    }
+  }
+}

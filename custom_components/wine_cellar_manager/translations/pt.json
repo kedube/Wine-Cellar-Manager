@@ -1,0 +1,33 @@
+{
+  "title": "Gestor de adega",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurar o gestor de adega",
+        "data": {
+          "title": "Título da integração"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "O gestor de adega já está configurado."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opções do gestor de adega",
+        "data": {
+          "image_base_path": "Caminho base padrão das imagens",
+          "image_upload_dir": "Pasta de envio do servidor em /config",
+          "demo_enrichment": "Ativar hooks de enriquecimento de demonstração",
+          "ai_provider": "Provedor de inteligência artificial",
+          "gemini_api_key": "Chave de API do Gemini",
+          "gemini_model": "Modelo Gemini",
+          "perplexity_api_key": "Chave de API do Perplexity Pro",
+          "perplexity_model": "Modelo Perplexity"
+        }
+      }
+    }
+  }
+}

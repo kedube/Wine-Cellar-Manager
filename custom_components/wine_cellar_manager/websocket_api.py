@@ -629,7 +629,7 @@ async def ws_unified_analyze(
         connection.send_error(
             msg["id"],
             "missing_data",
-            "Veuillez fournir un code-barres ou téléverser une photo d'étiquette.",
+            "Please provide a barcode or upload a label photo.",
         )
         return
 
