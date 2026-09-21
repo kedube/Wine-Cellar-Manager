@@ -207,7 +207,7 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
         loaded_stored_data = await store.async_load()
         raw_data = store.async_export(loaded_stored_data)
     except Exception as err:
-        _LOGGER.error("Erreur lors du chargement des données pour l'export : %r", err)
+        _LOGGER.error("Error loading data for export: %r", err)
         raw_data = {}
 
     # Si les données sont enveloppées dans une clé racine "data"
@@ -648,14 +648,14 @@ async def ws_unified_analyze(
             if not extracted:
                 connection.send_result(
                     msg["id"],
-                    {"message": "Aucun code-barres fiable détecté.", "suggestion": None},
+                    {"message": "No reliable barcode detected.", "suggestion": None},
                 )
                 return
 
             connection.send_result(
                 msg["id"],
                 {
-                    "message": "Code-barres détecté.",
+                    "message": "Barcode detected.",
                     "suggestion": {"barcode": extracted},
                     "official_image_url": None,
                 },

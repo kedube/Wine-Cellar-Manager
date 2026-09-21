@@ -12,14 +12,14 @@ async def async_register_services(hass: HomeAssistant) -> None:
     async def handle_rebuild_ready(call: ServiceCall) -> None:
         entries = hass.config_entries.async_entries(DOMAIN)
         if not entries:
-            _LOGGER.warning("Impossible d'exécuter le service : aucune instance de configuration trouvée.")
+            _LOGGER.warning("Cannot execute service: no configuration entry found.")
             return
             
         entry = entries[0]
         # Récupération sécurisée du store alignée sur l'architecture de __init__.py
         store = hass.data[DOMAIN][entry.entry_id]["store"]
         
-        _LOGGER.info("Wine Cellar Manager: Reconstitution des données d'apogée initiée.")
+        _LOGGER.info("Wine Cellar Manager: Drinking-window data rebuild started.")
         # Force le rechargement rafraîchi du stockage pour recalculer l'état "ready_to_drink"
         await store.async_load()
 

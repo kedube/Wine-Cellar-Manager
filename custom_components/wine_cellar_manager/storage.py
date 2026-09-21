@@ -646,9 +646,9 @@ class WineCellarStore:
                                 _remove_file_if_exists, current_local_path
                             )
                     except Exception as img_err:
-                        _LOGGER.debug("Nettoyage du doublon d'image ignoré : %r", img_err)
+                        _LOGGER.debug("Skipped duplicate image cleanup: %r", img_err)
                 
-                _LOGGER.info("Wine Cellar Manager : Mutualisation de l'image détectée pour le vin '%s'", wine_name)
+                _LOGGER.info("Wine Cellar Manager: Reusing shared image for wine '%s'", wine_name)
                 image_path = existing_shared_path
 
             # Cas B : Aucun vin similaire trouvé -> On procède au renommage standard sécurisé de l'image
@@ -1087,12 +1087,12 @@ class WineCellarStore:
 
         try:
             await self.hass.async_add_executor_job(_sync_write_image)
-            _LOGGER.info("Wine Cellar Manager: Image enregistrée avec succès sous %s", target_path)
+            _LOGGER.info("Wine Cellar Manager: Image saved successfully to %s", target_path)
             return f"/local/wine_labels/{unique_filename}"
             
         except Exception as err:
-            _LOGGER.error("Échec de l'écriture de l'image sur le disque : %r", err)
-            raise ValueError(f"Impossible de sauvegarder l'image : {str(err)}")
+            _LOGGER.error("Failed to write image to disk: %r", err)
+            raise ValueError(f"Could not save the image: {str(err)}")
 
     async def async_download_external_image(self, image_url: str, filename_hint: str = "official_label.jpg") -> str:
         """Download an external image into /config/www/wine_labels and return a /local path."""
@@ -1140,9 +1140,9 @@ class WineCellarStore:
 
             await self.hass.async_add_executor_job(_sync_write_external)
 
-            _LOGGER.info("Wine Cellar Manager: image téléchargée avec succès sous %s", target_path)
+            _LOGGER.info("Wine Cellar Manager: Image downloaded successfully to %s", target_path)
             return f"/local/wine_labels/{unique_filename}"
 
         except Exception as err:
-            _LOGGER.error("Échec du téléchargement de l'image officielle : %r", err)
-            raise ValueError(f"Impossible de télécharger l'image officielle : {str(err)}")
+            _LOGGER.error("Failed to download official image: %r", err)
+            raise ValueError(f"Could not download the official image: {str(err)}")
