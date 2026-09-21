@@ -1,4 +1,4 @@
-# Wine Cellar Manager version 1.0.0
+# Wine Cellar Manager
 
 This integration offers a tool and dashboard card to manage several wine cellars locally.
 
