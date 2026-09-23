@@ -12,12 +12,6 @@ from homeassistant.core import HomeAssistant, callback
 
 from .const import (
     DOMAIN,
-    LANE_BACK,
-    LANE_FRONT,
-    LAYOUT_SINGLE,
-    LAYOUT_STAGGERED,
-    OPTION_GEMINI_API_KEY,
-    OPTION_GEMINI_MODEL,
     WS_TYPE_CONSUME_BOTTLE,
     WS_TYPE_COPY_BOTTLE,
     WS_TYPE_CLEANUP_TEMP_IMAGE,
@@ -30,10 +24,9 @@ from .const import (
     WS_TYPE_SAVE_CELLAR,
     WS_TYPE_SEARCH_BOTTLES,
     WS_TYPE_UNIFIED_ANALYZE,
+    WS_TYPE_SWAP_BOTTLES,
     WS_TYPE_UPLOAD_LABEL_IMAGE,
 )
-
-WS_TYPE_SWAP_BOTTLES = "wine_cellar_manager/swap_bottles"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -150,8 +143,11 @@ def _normalize_label_suggestion(payload: dict[str, Any], image_path: str) -> dic
         aging_start_year = None
         aging_end_year = None
 
-    # Extraction et nettoyage de l'URL SAQ optionnelle transmise par l'IA
+    # URL SAQ optionnelle transmise par l'IA : seuls les liens http(s) sont retenus,
+    # afin qu'un schéma « javascript: » ne puisse jamais atteindre la carte.
     saq_url = _safe_str(payload.get("saq_url")).strip()
+    if saq_url and not saq_url.lower().startswith(("http://", "https://")):
+        saq_url = ""
 
     return {
         "wine_name": wine_name,
@@ -202,10 +198,9 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
     
-    # Correction majeure : on charge d'abord les données réelles du disque avant d'exporter
+    # async_export travaille sur le cache mémoire et renvoie une copie autonome.
     try:
-        loaded_stored_data = await store.async_load()
-        raw_data = store.async_export(loaded_stored_data)
+        raw_data = await store.async_export_cached()
     except Exception as err:
         _LOGGER.error("Error loading data for export: %r", err)
         raw_data = {}
@@ -611,7 +606,7 @@ async def ws_upload_label_image(hass: HomeAssistant, connection: websocket_api.A
 
 
 @websocket_api.websocket_command({
-    vol.Required("type"): "wine_cellar_manager/unified_analyze",
+    vol.Required("type"): WS_TYPE_UNIFIED_ANALYZE,
     vol.Optional("barcode", default=""): str,
     vol.Optional("image_path", default=""): str,
 })
@@ -678,7 +673,7 @@ async def ws_unified_analyze(
         connection.send_error(msg["id"], "analyze_failed", error_msg)
 
 @websocket_api.websocket_command({
-    vol.Required("type"): "wine_cellar_manager/cleanup_temp_image",
+    vol.Required("type"): WS_TYPE_CLEANUP_TEMP_IMAGE,
     vol.Required("action"): str,
     vol.Optional("local_path", default=""): str,
     vol.Optional("official_path", default=""): str,

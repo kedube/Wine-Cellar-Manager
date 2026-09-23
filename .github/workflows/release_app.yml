@@ -12,6 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # dist/ is a published copy of the card served from the integration.
+      # Fail loudly rather than shipping a release where the two have drifted.
+      - name: Verify dist/ matches the integration frontend
+        run: |
+          diff -u custom_components/wine_cellar_manager/frontend/wine-cellar-card.js \
+                  dist/wine-cellar-card.js \
+            || { echo "::error::dist/wine-cellar-card.js is out of sync; re-copy it from custom_components/wine_cellar_manager/frontend/"; exit 1; }
+
       - name: ZIP custom_components
         run: |
           cd custom_components

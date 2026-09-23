@@ -10,18 +10,14 @@ async def async_register_services(hass: HomeAssistant) -> None:
     """Register custom services for Wine Cellar Manager."""
     
     async def handle_rebuild_ready(call: ServiceCall) -> None:
-        entries = hass.config_entries.async_entries(DOMAIN)
-        if not entries:
+        store = hass.data.get(DOMAIN, {}).get("store")
+        if store is None:
             _LOGGER.warning("Cannot execute service: no configuration entry found.")
             return
-            
-        entry = entries[0]
-        # Récupération sécurisée du store alignée sur l'architecture de __init__.py
-        store = hass.data[DOMAIN][entry.entry_id]["store"]
-        
-        _LOGGER.info("Wine Cellar Manager: Drinking-window data rebuild started.")
-        # Force le rechargement rafraîchi du stockage pour recalculer l'état "ready_to_drink"
-        await store.async_load()
+
+        _LOGGER.debug("Wine Cellar Manager: drinking-window data rebuild started.")
+        # Re-fire the change event so sensors recompute "ready_to_drink" for today.
+        await store.async_save(await store.async_load())
 
     hass.services.async_register(
         DOMAIN,
@@ -32,4 +28,5 @@ async def async_register_services(hass: HomeAssistant) -> None:
 
 async def async_unregister_services(hass: HomeAssistant) -> None:
     """Unregister custom services."""
-    hass.services.async_remove(DOMAIN, SERVICE_REBUILD_READY)
+    if hass.services.has_service(DOMAIN, SERVICE_REBUILD_READY):
+        hass.services.async_remove(DOMAIN, SERVICE_REBUILD_READY)

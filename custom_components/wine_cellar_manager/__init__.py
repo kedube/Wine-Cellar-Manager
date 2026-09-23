@@ -73,6 +73,25 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
     if unload_ok and DOMAIN in hass.data:
-        hass.data[DOMAIN].pop(entry.entry_id, None)
+        domain_data = hass.data[DOMAIN]
+        domain_data.pop(entry.entry_id, None)
+
+        # When the last entry goes away, drop the services and the shared store
+        # so a later setup starts from a clean state instead of a stale cache.
+        remaining = [
+            key
+            for key in domain_data
+            if key
+            not in {
+                "store",
+                "services_registered",
+                "websockets_registered",
+                "frontend_registered",
+            }
+        ]
+        if not remaining:
+            if domain_data.pop("services_registered", False):
+                await async_unregister_services(hass)
+            domain_data.pop("store", None)
 
     return unload_ok

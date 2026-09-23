@@ -35,6 +35,7 @@ WS_TYPE_MOVE_BOTTLE = f"{DOMAIN}/move_bottle"
 WS_TYPE_CONSUME_BOTTLE = f"{DOMAIN}/consume_bottle"
 WS_TYPE_UNIFIED_ANALYZE = f"{DOMAIN}/unified_analyze"
 WS_TYPE_CLEANUP_TEMP_IMAGE = f"{DOMAIN}/cleanup_temp_image"
+WS_TYPE_SWAP_BOTTLES = f"{DOMAIN}/swap_bottles"
 
 SERVICE_REBUILD_READY = "rebuild_ready"
 

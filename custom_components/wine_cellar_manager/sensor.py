@@ -6,7 +6,7 @@ from typing import Any
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 
@@ -44,21 +44,32 @@ class BaseWineCellarSensor(SensorEntity):
 
     async def async_added_to_hass(self) -> None:
         """Register callbacks when entity is added to Home Assistant."""
-        async def _on_data_changed(_):
-            """Triggered whenever bottles or cellars are saved/deleted."""
-            await self.async_update_ha_state(force_refresh=True)
+
+        @callback
+        def _on_data_changed(event) -> None:
+            """Triggered whenever bottles or cellars are saved/deleted.
+
+            The store puts the freshly saved payload on the event, so the
+            sensors can update straight from it instead of each re-reading
+            and re-normalizing the whole store.
+            """
+            payload = (event.data or {}).get("data") if event else None
+            if isinstance(payload, dict):
+                self._stored_data = payload
+                self.async_write_ha_state()
+                return
+
+            # No payload (older event shape): fall back to a refresh.
+            self.async_schedule_update_ha_state(force_refresh=True)
 
         self.async_on_remove(
             self.hass.bus.async_listen(EVENT_DATA_CHANGED, _on_data_changed)
         )
 
     async def async_update(self) -> None:
-        """Fetch fresh data from the persistent store."""
+        """Fetch fresh data from the store cache."""
         try:
-            # Charge les données réelles du disque
-            raw_data = await self.store.async_load()
-            # Utilise l'exportateur natif pour avoir les structures calculées
-            self._stored_data = self.store.async_export(raw_data)
+            self._stored_data = await self.store.async_get_cached()
         except Exception as err:
             _LOGGER.error("Failed to update wine cellar sensor data: %r", err)
 

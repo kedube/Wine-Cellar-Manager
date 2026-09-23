@@ -1,11 +1,13 @@
 """Storage layer for Wine Cellar Manager."""
 from __future__ import annotations
 
+import asyncio
 from copy import deepcopy
 import hashlib
 import logging
+import os
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -28,17 +30,55 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def _utcnow() -> str:
-    return datetime.now().isoformat(timespec="seconds")
+    """Return the current UTC time as an ISO-8601 string."""
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
 def _remove_file_if_exists(path: str) -> None:
-    """Delete a file, ignoring the case where it is already gone."""
-    import os
+    """Delete a file, ignoring the case where it is already gone.
 
+    Callers must pass a path already validated by ``_normalize_local_path``.
+    """
     try:
         os.unlink(path)
     except FileNotFoundError:
         pass
+    except OSError as err:
+        _LOGGER.warning("Could not delete image file %s: %r", path, err)
+
+
+ALLOWED_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+
+# Generous enough for a phone photo, small enough to bound memory and disk.
+MAX_IMAGE_BYTES = 12 * 1024 * 1024
+
+
+def _safe_external_url(value: Any) -> str | None:
+    """Return the URL only when it is a plain http(s) link, else None.
+
+    Values such as ``javascript:`` or ``data:`` URLs are rejected so they can
+    never be rendered into an href by the frontend card.
+    """
+    text = str(value or "").strip()
+    if not text:
+        return None
+    if not text.lower().startswith(("http://", "https://")):
+        _LOGGER.warning("Rejected non-http(s) URL: %s", text[:80])
+        return None
+    return text
+
+
+def _detect_image_mime(data: bytes) -> str | None:
+    """Return the image MIME type implied by the file's magic bytes, or None."""
+    if data.startswith(b"\xff\xd8\xff"):
+        return "image/jpeg"
+    if data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "image/png"
+    if data.startswith(b"GIF87a") or data.startswith(b"GIF89a"):
+        return "image/gif"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "image/webp"
+    return None
 
 
 def _default_data() -> dict[str, Any]:
@@ -68,33 +108,62 @@ class WineCellarStore:
         """Initialize store."""
         self.hass = hass
         self._store = Store(hass, STORAGE_VERSION, STORAGE_KEY)
+        # Authoritative in-memory copy. The on-disk JSON is only re-read once,
+        # on first access; every later read is served from here.
+        self._data: dict[str, Any] | None = None
+        # Serializes read-modify-write sequences so two concurrent mutations
+        # cannot each load, edit and save on top of one another.
+        self._lock = asyncio.Lock()
 
-    async def async_load(self) -> dict[str, Any]:
-        """Load stored data."""
+    async def _async_ensure_loaded(self) -> dict[str, Any]:
+        """Populate the in-memory cache from disk on first use."""
+        if self._data is not None:
+            return self._data
+
         try:
             data = await self._store.async_load()
         except Exception as err:
             _LOGGER.exception("Store load failed: %r", err)
-            return _default_data()
+            data = None
 
         if not isinstance(data, dict):
-            return _default_data()
+            self._data = _default_data()
+            return self._data
 
-        data = self._migrate_if_needed(data)
-        return self._normalize_data(data)
+        self._data = self._normalize_data(self._migrate_if_needed(data))
+        return self._data
+
+    async def async_load(self) -> dict[str, Any]:
+        """Return a private copy of the stored data, safe for the caller to mutate."""
+        data = await self._async_ensure_loaded()
+        return deepcopy(data)
 
     async def async_save(self, data: dict[str, Any]) -> None:
-        """Persist data."""
+        """Persist data and refresh the in-memory cache."""
         payload = self._normalize_data(data)
+        self._data = payload
         await self._store.async_save(payload)
-        self.hass.bus.async_fire(EVENT_DATA_CHANGED)
+        # Hand listeners the already-computed payload so sensors need not reload.
+        self.hass.bus.async_fire(EVENT_DATA_CHANGED, {"data": payload})
+
+    async def async_get_cached(self) -> dict[str, Any]:
+        """Return the shared cached data. Callers must not mutate the result."""
+        return await self._async_ensure_loaded()
+
+    async def async_export_cached(self) -> dict[str, Any]:
+        """Return an independent, enriched copy of the cached data."""
+        return self.async_export(await self._async_ensure_loaded())
 
     def async_export(self, data: dict[str, Any] | None = None) -> dict[str, Any]:
-        """Return normalized data for sensors and websocket consumers."""
-        payload = self._normalize_data(deepcopy(data) if data is not None else deepcopy(_default_data()))
+        """Return normalized data for sensors and websocket consumers.
 
-        if data is None:
-            pass
+        The input is already normalized by ``async_load``/``async_save``, so this
+        only deep-copies it once and layers the derived fields on top.
+        """
+        payload = deepcopy(data) if data is not None else _default_data()
+        payload.setdefault("bottles", [])
+        payload.setdefault("consumed_bottles", [])
+        payload.setdefault("cellars", [])
 
         current_year = datetime.now().year
 
@@ -265,7 +334,7 @@ class WineCellarStore:
             "price": self._safe_float(item.get("price")),
             "image_path": str(item.get("image_path") or ""),
             "barcode": str(item.get("barcode") or ""),
-            "saq_url": str(item.get("saq_url")).strip() if item.get("saq_url") is not None else None,
+            "saq_url": _safe_external_url(item.get("saq_url")),
             "aging_start_year": self._safe_int(item.get("aging_start_year")),
             "aging_end_year": self._safe_int(item.get("aging_end_year")),
             "rating": rating,
@@ -358,24 +427,49 @@ class WineCellarStore:
             ):
                 raise ValueError("Target slot is already occupied")
 
+    def _labels_base_dir(self) -> Path:
+        """Return the only directory this integration may read or delete images in."""
+        return Path(self.hass.config.path("www", "wine_labels")).resolve()
+
     def _normalize_local_path(self, image_path: str) -> str:
-        """Convert HA-style local path to actual filesystem path."""
+        """Resolve an HA-style local path to a filesystem path inside the labels dir.
+
+        Returns "" for anything that escapes the labels directory, so that callers
+        can never be tricked into touching arbitrary files via "..".
+        """
         value = str(image_path or "").strip()
         if not value:
             return ""
 
-        if value.startswith("/local/"):
-            return "/config/www/" + value[len("/local/"):]
-        if value.startswith("local/"):
-            return "/config/www/" + value[len("local/"):]
-        if value.startswith("/www/"):
-            return "/config" + value
-        if value.startswith("www/"):
-            return "/config/" + value
-        if value.startswith("/config/www/"):
-            return value
+        www_root = Path(self.hass.config.path("www"))
 
-        return ""
+        if value.startswith("/local/"):
+            candidate = www_root / value[len("/local/"):]
+        elif value.startswith("local/"):
+            candidate = www_root / value[len("local/"):]
+        elif value.startswith("/www/"):
+            candidate = Path(self.hass.config.path()) / value[len("/"):]
+        elif value.startswith("www/"):
+            candidate = Path(self.hass.config.path()) / value
+        elif value.startswith("/config/www/"):
+            candidate = Path(value)
+        else:
+            return ""
+
+        try:
+            resolved = candidate.resolve()
+            base_dir = self._labels_base_dir()
+        except (OSError, ValueError):
+            return ""
+
+        # Reject traversal: the path must live inside <config>/www/wine_labels.
+        if resolved != base_dir and base_dir not in resolved.parents:
+            _LOGGER.warning(
+                "Rejected image path outside the wine_labels directory: %s", value
+            )
+            return ""
+
+        return str(resolved)
 
     def _sha256(self, path: Path) -> str:
         """Hash a file with SHA-256."""
@@ -415,13 +509,14 @@ class WineCellarStore:
 
         return False
 
-    def _delete_image_if_unreferenced(
+    async def _async_delete_image_if_unreferenced(
         self,
         data: dict[str, Any],
         *,
         image_path: str,
         exclude_ids: set[str] | None = None,
     ) -> None:
+        """Delete an image file when no remaining bottle references it."""
         normalized_target = str(image_path or "").strip()
         if not normalized_target:
             return
@@ -433,18 +528,12 @@ class WineCellarStore:
         ):
             return
 
+        # _normalize_local_path already refuses anything outside the labels dir.
         local_path = self._normalize_local_path(normalized_target)
         if not local_path:
             return
 
-        path = Path(local_path)
-        if not path.exists() or not path.is_file():
-            return
-
-        try:
-            path.unlink()
-        except Exception as err:
-            _LOGGER.warning("Could not delete image file %s: %r", path, err)
+        await self.hass.async_add_executor_job(_remove_file_if_exists, local_path)
 
     async def async_delete_image(self, image_path: str) -> None:
         """Delete an image stored under /local/wine_labels."""
@@ -452,26 +541,75 @@ class WineCellarStore:
         if not normalized_target:
             return
 
+        # _normalize_local_path refuses anything outside the labels directory.
         local_path = self._normalize_local_path(normalized_target)
         if not local_path:
             return
 
-        def _sync_delete():
-            path = Path(local_path)
-            if not path.exists() or not path.is_file():
-                return
-            try:
-                base_dir = Path(self.hass.config.path("www", "wine_labels")).resolve()
-                candidate = path.resolve()
-                if base_dir not in candidate.parents:
-                    return
-                path.unlink()
-            except Exception as err:
-                _LOGGER.warning("Could not delete image file %s: %r", path, err)
+        await self.hass.async_add_executor_job(_remove_file_if_exists, local_path)
 
-        await self.hass.async_add_executor_job(_sync_delete)
+    # ------------------------------------------------------------------
+    # Public mutating API.
+    #
+    # Each of these takes the store lock and delegates to the matching
+    # ``*_unlocked`` implementation, so that a load/modify/save sequence is
+    # never interleaved with another one.
+    # ------------------------------------------------------------------
 
     async def async_save_cellar(
+        self,
+        cellar_id: str | None,
+        name: str,
+        shelves: list,
+        display_order: int = 0,
+        bg_color: str = "",
+    ) -> str:
+        """Create or update a cellar."""
+        async with self._lock:
+            return await self._async_save_cellar_unlocked(
+                cellar_id,
+                name,
+                shelves,
+                display_order=display_order,
+                bg_color=bg_color,
+            )
+
+    async def async_delete_cellar(self, cellar_id: str) -> None:
+        """Delete a cellar and everything stored in it."""
+        async with self._lock:
+            await self._async_delete_cellar_unlocked(cellar_id)
+
+    async def async_save_bottle(self, **kwargs: Any) -> str:
+        """Create or update a bottle."""
+        async with self._lock:
+            return await self._async_save_bottle_unlocked(**kwargs)
+
+    async def async_delete_bottle(self, bottle_id: str) -> None:
+        """Delete a bottle permanently."""
+        async with self._lock:
+            await self._async_delete_bottle_unlocked(bottle_id)
+
+    async def async_consume_bottle(self, bottle_id: str) -> str:
+        """Move an active bottle to the consumed history."""
+        async with self._lock:
+            return await self._async_consume_bottle_unlocked(bottle_id)
+
+    async def async_copy_bottle(self, **kwargs: Any) -> str:
+        """Copy a bottle into an active slot."""
+        async with self._lock:
+            return await self._async_copy_bottle_unlocked(**kwargs)
+
+    async def async_move_bottle(self, **kwargs: Any) -> None:
+        """Move a bottle to another slot."""
+        async with self._lock:
+            await self._async_move_bottle_unlocked(**kwargs)
+
+    async def async_swap_bottles(self, **kwargs: Any) -> None:
+        """Swap the physical locations of two bottles."""
+        async with self._lock:
+            await self._async_swap_bottles_unlocked(**kwargs)
+
+    async def _async_save_cellar_unlocked(
         self,
         cellar_id: str | None,
         name: str,
@@ -536,7 +674,7 @@ class WineCellarStore:
         await self.async_save(data)
         return new_id
 
-    async def async_delete_cellar(self, cellar_id: str) -> None:
+    async def _async_delete_cellar_unlocked(self, cellar_id: str) -> None:
         """Delete a cellar and its active/consumed bottles, cleaning unreferenced images."""
         data = await self.async_load()
 
@@ -556,7 +694,7 @@ class WineCellarStore:
         data["consumed_bottles"] = [b for b in data["consumed_bottles"] if b.get("cellar_id") != cellar_id]
 
         for image_path in image_paths:
-            self._delete_image_if_unreferenced(
+            await self._async_delete_image_if_unreferenced(
                 data,
                 image_path=image_path,
                 exclude_ids=removed_ids,
@@ -564,7 +702,7 @@ class WineCellarStore:
 
         await self.async_save(data)
 
-    async def async_save_bottle(
+    async def _async_save_bottle_unlocked(
         self,
         *,
         bottle_id: str | None,
@@ -701,7 +839,7 @@ class WineCellarStore:
             "alcohol_pct": float(alcohol_pct) if alcohol_pct is not None else None,
             "image_path": image_path,
             "barcode": barcode,
-            "saq_url": str(saq_url).strip() if saq_url is not None else None,
+            "saq_url": _safe_external_url(saq_url),
             "aging_start_year": aging_start_year,
             "aging_end_year": aging_end_year,
             "rating": rating,
@@ -719,7 +857,7 @@ class WineCellarStore:
 
                     new_image_path = str(payload.get("image_path") or "").strip()
                     if previous_image_path and previous_image_path != new_image_path:
-                        self._delete_image_if_unreferenced(
+                        await self._async_delete_image_if_unreferenced(
                             data,
                             image_path=previous_image_path,
                             exclude_ids={existing_bottle_id},
@@ -732,7 +870,7 @@ class WineCellarStore:
         await self.async_save(data)
         return payload["id"]
 
-    async def async_delete_bottle(self, bottle_id: str) -> None:
+    async def _async_delete_bottle_unlocked(self, bottle_id: str) -> None:
         """Delete a bottle permanently from active and consumed records, cleaning unreferenced images."""
         data = await self.async_load()
 
@@ -748,7 +886,7 @@ class WineCellarStore:
         data["consumed_bottles"] = [b for b in data["consumed_bottles"] if b.get("id") != bottle_id]
 
         if image_path:
-            self._delete_image_if_unreferenced(
+            await self._async_delete_image_if_unreferenced(
                 data,
                 image_path=image_path,
                 exclude_ids={bottle_id},
@@ -756,7 +894,7 @@ class WineCellarStore:
 
         await self.async_save(data)
 
-    async def async_consume_bottle(self, bottle_id: str) -> str:
+    async def _async_consume_bottle_unlocked(self, bottle_id: str) -> str:
         """Move active bottle to consumed history."""
         data = await self.async_load()
         bottles = data["bottles"]
@@ -783,7 +921,7 @@ class WineCellarStore:
         await self.async_save(data)
         return source["id"]
 
-    async def async_copy_bottle(
+    async def _async_copy_bottle_unlocked(
         self,
         *,
         source_bottle_id: str,
@@ -835,7 +973,7 @@ class WineCellarStore:
         await self.async_save(data)
         return source["id"]
 
-    async def async_move_bottle(
+    async def _async_move_bottle_unlocked(
         self,
         *,
         bottle_id: str,
@@ -873,7 +1011,7 @@ class WineCellarStore:
 
         raise ValueError("Bottle not found")
 
-    async def async_swap_bottles(
+    async def _async_swap_bottles_unlocked(
         self,
         *,
         source_id: str,
@@ -1063,86 +1201,57 @@ class WineCellarStore:
     async def async_upload_label_image(self, filename: str, data_base64: str) -> str:
         """Decode base64 image data and save it securely to the local filesystem."""
         import base64
-        import os
-        
+        import binascii
+        import time
+
         upload_dir = self.hass.config.path("www", "wine_labels")
-        clean_filename = "".join(c for c in filename if c.isalnum() or c in (".", "_", "-")).strip()
+
+        clean_filename = "".join(
+            c for c in filename if c.isalnum() or c in (".", "_", "-")
+        ).strip()
         if not clean_filename:
             clean_filename = "uploaded_label.jpg"
-            
+
         name_part, ext_part = os.path.splitext(clean_filename)
-        if not ext_part:
+        # Only ever write known image extensions into the web-served www/ tree,
+        # so an upload can never become a served .html/.js/.svg payload.
+        ext_part = ext_part.lower()
+        if ext_part not in ALLOWED_IMAGE_EXTENSIONS:
             ext_part = ".jpg"
-        
-        import time
-        unique_filename = f"{name_part}_{int(time.time())}{ext_part}"
+        if not name_part:
+            name_part = "uploaded_label"
+
+        try:
+            image_bytes = base64.b64decode(data_base64, validate=True)
+        except (binascii.Error, ValueError) as err:
+            raise ValueError("Uploaded data is not valid base64") from err
+
+        if not image_bytes:
+            raise ValueError("Uploaded image is empty")
+
+        if len(image_bytes) > MAX_IMAGE_BYTES:
+            raise ValueError(
+                f"Image is too large ({len(image_bytes) // 1024} KB); "
+                f"the limit is {MAX_IMAGE_BYTES // 1024} KB"
+            )
+
+        detected = _detect_image_mime(image_bytes)
+        if detected is None:
+            raise ValueError("Uploaded file is not a recognized image")
+
+        unique_filename = f"{name_part}_{int(time.time())}_{uuid.uuid4().hex[:8]}{ext_part}"
         target_path = os.path.join(upload_dir, unique_filename)
 
         def _sync_write_image():
-            if not os.path.exists(upload_dir):
-                os.makedirs(upload_dir, exist_ok=True)
-            image_bytes = base64.b64decode(data_base64)
-            with open(target_path, "wb") as f:
-                f.write(image_bytes)
+            os.makedirs(upload_dir, exist_ok=True)
+            with open(target_path, "wb") as handle:
+                handle.write(image_bytes)
 
         try:
             await self.hass.async_add_executor_job(_sync_write_image)
-            _LOGGER.info("Wine Cellar Manager: Image saved successfully to %s", target_path)
+            _LOGGER.debug("Saved label image to %s (%s)", target_path, detected)
             return f"/local/wine_labels/{unique_filename}"
-            
-        except Exception as err:
+
+        except OSError as err:
             _LOGGER.error("Failed to write image to disk: %r", err)
-            raise ValueError(f"Could not save the image: {str(err)}")
-
-    async def async_download_external_image(self, image_url: str, filename_hint: str = "official_label.jpg") -> str:
-        """Download an external image into /config/www/wine_labels and return a /local path."""
-        import aiohttp
-        import os
-        import time
-        from urllib.parse import urlparse
-
-        image_url = str(image_url or "").strip()
-        if not image_url.startswith("http://") and not image_url.startswith("https://"):
-            raise ValueError("Invalid external image URL")
-
-        upload_dir = self.hass.config.path("www", "wine_labels")
-        if not os.path.exists(upload_dir):
-            os.makedirs(upload_dir, exist_ok=True)
-
-        parsed = urlparse(image_url)
-        suffix = Path(parsed.path).suffix.lower()
-        if suffix not in {".jpg", ".jpeg", ".png", ".webp"}:
-            suffix = ".jpg"
-
-        clean_hint = "".join(c for c in filename_hint if c.isalnum() or c in (".", "_", "-")).strip()
-        if not clean_hint:
-            clean_hint = "official_label"
-
-        name_part = Path(clean_hint).stem or "official_label"
-        unique_filename = f"{name_part}_{int(time.time())}{suffix}"
-        target_path = os.path.join(upload_dir, unique_filename)
-
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(image_url, timeout=30) as response:
-                    if response.status != 200:
-                        raise ValueError(f"Image download failed with status {response.status}")
-
-                    content_type = (response.headers.get("Content-Type") or "").lower()
-                    if not content_type.startswith("image/"):
-                        raise ValueError("Downloaded content is not an image")
-
-                    image_bytes = await response.read()
-
-            def _sync_write_external():
-                with open(target_path, "wb") as handle:
-                    handle.write(image_bytes)
-
-            await self.hass.async_add_executor_job(_sync_write_external)
-
-            _LOGGER.info("Wine Cellar Manager: Image downloaded successfully to %s", target_path)
-            return f"/local/wine_labels/{unique_filename}"
-
-        except Exception as err:
-            _LOGGER.error("Failed to download official image: %r", err)
-            raise ValueError(f"Could not download the official image: {str(err)}")
+            raise ValueError(f"Could not save the image: {err}") from err
