@@ -195,3 +195,7 @@ Add `[skip release]` to a commit message to push without releasing, or run the w
 
 - Barcode recognition does not work flawlessly for the moment due to image angle variations.
 - Add a toggle in the Integration Options configuration to specify a custom domain or alternative source instead of SAQ.com for the default AI lookup analysis.
+
+## Credit
+
+This is a fork of [bernarddery/Wine-Cellar-Manager](https://github.com/bernarddery/Wine-Cellar-Manager). All credit for the original integration goes to its author; see [LICENSE](LICENSE) for the original copyright notice.
