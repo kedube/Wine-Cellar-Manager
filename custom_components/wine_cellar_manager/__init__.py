@@ -4,11 +4,14 @@ from __future__ import annotations
 from homeassistant.components.http import StaticPathConfig
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import config_validation as cv
 
 from .const import DOMAIN, PLATFORMS
 from .services import async_register_services, async_unregister_services
 from .storage import async_get_store
 from .websocket_api import async_register_websockets
+
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 async def async_setup(hass: HomeAssistant, config: dict) -> bool:
