@@ -52,6 +52,20 @@ jobs:
         env:
           MANUAL_BUMP: ${{ github.event.inputs.bump }}
         run: |
+          # A push that lands while CI runs moves main past this commit, and the
+          # version commit could not be pushed. That push has its own run, queued
+          # behind this one, which releases these commits once its CI passes.
+          git fetch --quiet origin "$GITHUB_REF_NAME"
+          if [ "$(git rev-parse FETCH_HEAD)" != "$GITHUB_SHA" ]; then
+            if git log -1 --format=%B FETCH_HEAD | grep -qF '[skip release]'; then
+              echo "::warning::$GITHUB_REF_NAME moved past this commit to a [skip release] commit; these changes release with the next push."
+            else
+              echo "::notice::$GITHUB_REF_NAME moved past this commit; the run for the newer push releases it."
+            fi
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           last=$(git tag --list '[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n1)
           last=${last:-0.0.0}
 
