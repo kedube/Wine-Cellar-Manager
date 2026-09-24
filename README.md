@@ -183,9 +183,9 @@ There are also two drop-down boxes letting the user filter by wine type or count
 
 ## Releases
 
-Releases are automated. Every push to `main` (other than documentation or screenshot changes) runs the Release workflow, which:
+Releases are automated. Every push to `main` runs the Release workflow, which:
 
-1. bumps the version from the latest tag: patch by default, or minor/major when a commit message since the last release contains `#minor` or `#major`;
+1. bumps the version from the latest tag: patch by default, or minor/major when a commit message since the last release has a line containing only `#minor` or `#major`;
 2. writes the new version to `manifest.json`, commits it, and tags it;
 3. publishes a GitHub release with `wine_cellar_manager.zip` attached, which HACS installs.
 

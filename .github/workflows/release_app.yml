@@ -4,16 +4,13 @@ name: Release
 # latest tag, written to manifest.json, committed, tagged, and the integration
 # zip is attached to the GitHub release.
 #
-# Bump size: patch by default. Put "#minor" or "#major" anywhere in a commit
-# message since the last release to bump more, or run the workflow manually
-# and pick the bump. Put "[skip release]" in the head commit to skip a push.
+# Bump size: patch by default. To bump more, put a line containing only
+# "#minor" or "#major" in a commit message since the last release, or run the
+# workflow manually and pick the bump. Put "[skip release]" in the head commit
+# to push without releasing.
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "**.md"
-      - "images/**"
-      - "LICENSE*"
   workflow_dispatch:
     inputs:
       bump:
@@ -70,8 +67,10 @@ jobs:
           else
             range=$([ "$last" = "0.0.0" ] && echo HEAD || echo "$last..HEAD")
             messages=$(git log "$range" --format=%B)
-            if echo "$messages" | grep -qi '#major'; then bump=major
-            elif echo "$messages" | grep -qi '#minor'; then bump=minor
+            # Only a line holding the keyword alone counts, so a message that
+            # merely mentions "#major" does not trigger a major release.
+            if echo "$messages" | grep -qiE '^[[:space:]]*#major[[:space:]]*$'; then bump=major
+            elif echo "$messages" | grep -qiE '^[[:space:]]*#minor[[:space:]]*$'; then bump=minor
             else bump=patch
             fi
           fi
