@@ -1,98 +1,155 @@
 # Wine Cellar Manager
 
-This integration offers a tool and dashboard card to manage several wine cellars locally.
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories)
+[![GitHub Release](https://img.shields.io/github/v/release/kedube/ha-wine-cellar-manager)](https://github.com/kedube/ha-wine-cellar-manager/releases)
+[![License](https://img.shields.io/github/license/kedube/ha-wine-cellar-manager)](LICENSE)
 
-I strongly recommend using the card in its own dashboard, using the "Panel" layout (a single card on that dashboard).
+A Home Assistant integration and dashboard card for managing one or more wine cellars locally. Each cellar is drawn the way it is physically laid out, shelf by shelf and row by row, so you can find a bottle by where it sits. Optionally, Google Gemini can read a label or barcode photo and fill in the bottle details for you.
 
 ![Wine Cellar](images/main_image.png)
 
-I created the integration because no solution currently available did exactly what I wanted to do. The "Wine cellar" integration simply didn't work on my server, and the "Wine Tracker" app, while beautiful and full-featured, doesn't organize wines as a visual equivalent to their physical location. It's a tracker, not a cellar representation. Other apps, not part of Home Assistant, often rely on subscriptions or add unwanted features while not excelling at what I actually needed.
+## Contents
 
-The benefit of Wine Cellar Manager, beyond its simplicity, lies in its ability to physically represent a cellar while showing sufficient information. I built it by thinking about what I actually want to do and how I like interacting with my physical and virtual cellar.
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Adding the card](#adding-the-card)
+- [Features](#features)
+- [Views](#views)
+- [Notes](#notes)
+- [Known issues and to do](#known-issues-and-to-do)
+- [Development](#development)
+- [Credit](#credit)
+- [License](#license)
 
-I created this integration first for my personal use, but I'm happy to share it with anyone interested. Use it as is, feel free to comment, and recommend new features or bug corrections!
+## Requirements
 
-## Installation and configuration
+- Home Assistant 2024.7.0 or newer
+- [HACS](https://hacs.xyz/) (for the recommended installation method)
+- Optional: a Google Gemini API key, used to analyze label and barcode images (see [Obtaining a Gemini API key](#obtaining-a-gemini-api-key))
 
-### Step 1: Install via HACS (Custom Repository)
-Since this integration is not yet part of the HACS default store, you must add it as a Custom Repository:
-1. In your Home Assistant interface, click on HACS in the sidebar.
-2. Click on the three dots in the top right corner and select Custom repositories.
-3. Paste the URL of this GitHub repository into the Repository field.
-4. Select Integration in the Category dropdown menu, then click Add.
-5. Find the newly added Wine Cellar Manager card in HACS, click on it, and select Download.
-6. Restart Home Assistant to load the integration.
+## Installation
 
-### Step 2: Set up the Integration
-1. Go to Settings > Devices & Services in Home Assistant.
-2. Click +Add Integration in the bottom right corner.
-3. Search for Wine Cellar Manager and click on it to begin configuration.
-4. The integration proposes default paths for label images which should not be changed without reason. 
-5. Enter your Gemini API key and the Gemini model name when requested (see below).
+### HACS (recommended)
 
-Lastly, it asks for the name of the Gemini model. For now, `gemini-3.6-flash` is the most robust, offers free daily tokens (sufficient to build a reasonable cellar) and is more effective than newer models which only offer free tiers in their "lite" modes (which are not as effective). For now, the integration doesn't do anything with a different model, so just leave it as is.
+This integration is not in the HACS default store, so add it as a custom repository.
 
-### Step 3: Add the Lovelace Card
-Once the integration is installed, create a new dashboard with a Panel (1 card) layout view, click Add Card, select Manual Card, switch to the YAML editor, and simply paste:
+[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=kedube&repository=ha-wine-cellar-manager&category=integration)
+
+Or add it manually:
+
+1. In Home Assistant, open **HACS**.
+2. Open the three-dot menu in the top right corner and select **Custom repositories**.
+3. Enter `https://github.com/kedube/ha-wine-cellar-manager` as the repository and select **Integration** as the type, then select **Add**.
+4. Search for **Wine Cellar Manager** in HACS, open it, and select **Download**.
+5. Restart Home Assistant.
+
+### Manual
+
+1. Download `wine_cellar_manager.zip` from the [latest release](https://github.com/kedube/ha-wine-cellar-manager/releases/latest).
+2. Unzip it into your Home Assistant `config/custom_components/` folder, so that you end up with `config/custom_components/wine_cellar_manager/manifest.json`.
+3. Restart Home Assistant.
+
+## Configuration
+
+### Add the integration
+
+[![Open your Home Assistant instance and start setting up Wine Cellar Manager.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=wine_cellar_manager)
+
+Or add it manually:
+
+1. Go to **Settings** > **Devices & services**.
+2. Select **Add integration** and search for **Wine Cellar Manager**.
+3. Enter a title for the integration (or keep the default) and select **Submit**.
+
+The integration registers the dashboard card automatically, so there is no separate frontend resource to install.
+
+### Options
+
+To set up Gemini or change image storage, go to **Settings** > **Devices & services** > **Wine Cellar Manager** and select **Configure**.
+
+| Option | Default | Description |
+| --- | --- | --- |
+| Default image base path | `/local/wine_labels` | URL path used to display label images. Leave as is unless you have a reason to change it. |
+| Server upload folder under /config | `www/wine_labels` | Folder, relative to `/config`, where uploaded label images are stored. Must match the base path above. |
+| Enable demo enrichment hooks | On | Enables built-in enrichment hooks. |
+| Gemini API key | *(empty)* | Needed only for label and barcode analysis. |
+| Gemini model | `gemini-3.6-flash` | Gemini model used for analysis. Leave as is. |
+
+`gemini-3.6-flash` is the most robust model for this use, includes free daily tokens (enough to build a reasonable cellar), and works better than newer models whose free tiers are limited to their "lite" variants. The integration hasn't been tuned for other models.
+
+### Obtaining a Gemini API key
+
+A Gemini API key works with any model, though some models may require payment information. `gemini-3.6-flash` is free with daily limits, which is enough for Wine Cellar Manager. Like any AI, it can hallucinate or return wrong information, so review what it fills in.
+
+Getting a key is free and takes a few minutes in Google AI Studio:
+
+1. Go to [Google AI Studio](https://aistudio.google.com/welcome) and sign in with your Google account.
+2. Accept the Terms of Service if this is your first time using the platform.
+3. Select **Get API key** in the left-hand sidebar.
+4. Select **Create API key**.
+5. Select or create a Google Cloud project when prompted, then select **Create key**.
+6. Copy the key, store it securely, and paste it into the integration [options](#options).
+
+## Adding the card
+
+The card works best on its own dashboard using the **Panel** layout (a single card that fills the view).
+
+1. Create a new dashboard, then edit its view and set the view type to **Panel (single card)**.
+2. Select **Add card** > **Manual**.
+3. Paste the following and select **Save**:
 
 ```yaml
 type: custom:wine-cellar-card
 ```
 
-Save and Wine Cellar Manager will be ready for you!
+### Card options
 
-The card follows your Home Assistant theme, light or dark. To use the wood texture background instead, add `background: wood`:
+| Option | Values | Default | Description |
+| --- | --- | --- | --- |
+| `background` | `wood` | Theme | By default the card follows your Home Assistant theme, light or dark. Set to `wood` to use a wood texture background instead. |
 
 ```yaml
 type: custom:wine-cellar-card
 background: wood
 ```
 
-### Obtaining a Gemini API Key
+## Features
 
-A Gemini API key can be used regardless of the model selected, but some may require payment information. Using `gemini-3.6-flash` is free but has daily limits. It's sufficient for Wine Cellar Manager and, as such, I did not implement any other AI option. Note that `gemini-3.6-flash`, like any AI, is far from perfect and can hallucinate or pull erroneous information. For most things it's reliable, but use with caution.
+- **Unlimited cellars**, each with its own name and a color (picked from swatches) used for the frame of its cabinet, so cellars are easy to tell apart.
 
-Getting a Gemini API key is completely free and takes just a few minutes using Google AI Studio.
+  ![Create cellar](images/add_cellar.png)
 
-- Go to the [Google AI Studio](https://aistudio.google.com/welcome) and log in using your Google account.
-- Accept the Terms of Service if it is your first time using the platform.
-- Click **Get API key** in the left-hand sidebar.
-- Click **Create API key**.
-- Select or create a Google Cloud Project when prompted, then click **Create key**.
-- Copy your API key and store it securely.
+- **Per-shelf layout**: each shelf can have a front and/or back row and its own number of bottles per row, and can be named individually. This matches cellars that have, for example, sliding racks at the top and fixed shelves at the bottom.
 
-## Main characteristics of Wine Cellar Manager
+  ![Rows with different characteristics](images/different_rows.png)
 
-- Unlimited number of unique cellars which can be named individually. Each cellar can be given a color, picked from swatches, which is used for the frame of its cabinet so cellars are easy to tell apart.
+- **Shared label images**: identical bottles (same name and producer) share a single label image on disk, so cloning or adding similar wines doesn't duplicate files.
 
-![Create cellar](images/add_cellar.png)
-
-- Each shelf of each cellar can be individually configured: front and/or back rows + number of bottles per row. This lets users adapt to cellars which can have moving racks at the top and fixed shelves at the bottom, for instance. Each shelf can be named individually.
-
-![Rows with different characteristics](images/different_rows.png)
-
-- Intelligent Storage Optimization: If you have multiple identical bottles (same name and producer), the integration automatically links them to a single shared label image on your server disk, preventing storage duplication when cloning or adding similar wines.
-
-- Each bottle can be fully characterized with:
-  - name (the only mandatory field)
-  - label (JPG, PNG, WEBP, or GIF)
-  - type from list (red, white, sparkling, rosé, orange, sweet or other)
-  - varietals (the GUI handles complex varietal assemblies and replaces them with "Blend" as needed in Cellar view)
+- **Detailed bottle records**. Only the name is required:
+  - name
+  - label image (JPG, PNG, WEBP, or GIF)
+  - type (red, white, sparkling, rosé, orange, sweet, or other)
+  - varietals (complex blends are shown as "Blend" in the Cellar view)
   - vintage
   - producer
   - region
   - country
-  - beginning and ending of aging period
+  - start and end of the aging period
   - price
-  - service temperature
-  - alcohol concentration
+  - serving temperature
+  - alcohol content
   - personal rating
   - personal notes
-  - clickable URL (default is SAQ.com, but any URL can be used)
+  - link (defaults to SAQ.com, but any URL can be used)
 
-- There are four views: Cellar, Compact, All Bottles, and Statistics.
+- **Four views**: Cellar, Compact, All Bottles, and Statistics.
 
-## Cellar view
+- **Languages**: the card and setup screens follow your Home Assistant language and ship with English, French, German, Spanish, Italian, Dutch, Portuguese, and Polish. Other languages fall back to English.
+
+## Views
+
+### Cellar view
 
 ![Cellar View](images/main_view.png)
 
@@ -103,6 +160,7 @@ Shelves appear in the order set within the cellar (can be modified), each with i
 The bottles are shown as cards. Each card is tinted and capped with the color of the wine type and displays the label image (or a drawn bottle when there is none), the name, the varietal (or region if the country is France), the vintage, and the rating.
 
 A badge on the label shows the drinking window (for example `2025–27`), colored by aging status:
+
 - **Blue**: too young
 - **Green**: ready to drink
 - **Orange**: peak (current year = last year of aging period)
@@ -112,91 +170,105 @@ No badge means the aging period is not set. A legend under the filters repeats t
 
 ![Drag and drop](images/drag_drop.png)
 
-Individual cards can be dragged and dropped at will. Bottles can be moved to an empty slot or swapped; the slot under the pointer is highlighted before you let go. This works seamlessly on PC, tablet, or mobile. This is, again, to duplicate how people physically interact with a cellar. It also works in the compact view.
+Individual cards can be dragged and dropped at will. Bottles can be moved to an empty slot or swapped; the slot under the pointer is highlighted before you let go. This works on PC, tablet, or mobile, and mirrors how people physically interact with a cellar. It also works in the Compact view.
 
 ![Bottle View](images/bottle.png)
 
-Clicking on a card opens the Bottle View. This shows detailed information about this particular bottle. This is where the URL link appears. The physical location of the bottle (cellar, shelf, row, position) is also shown, along with a small map of the cellar that highlights the bottle's slot, and a timeline of its drinking window. There are buttons to Delete (all information removed from memory) or Consume (the bottle is removed from the cellar, but information remains for future use if a similar bottle is later added). There is an Edit button (see below) and a Copy button, which temporarily puts the bottle data in memory and closes the view. A banner then confirms the copy and every empty slot pulses; clicking one copies all the fields into this new slot, making it quick to add a second similar bottle. The copy can be cancelled from the banner, and expires after 10 minutes.
+Clicking on a card opens the Bottle view. This shows detailed information about this particular bottle, including its link. The physical location of the bottle (cellar, shelf, row, position) is also shown, along with a small map of the cellar that highlights the bottle's slot, and a timeline of its drinking window.
+
+- **Delete** removes the bottle and all its information.
+- **Consume** removes the bottle from the cellar but keeps its information, so it can be reused if a similar bottle is added later.
+- **Edit** opens the edit window (see below).
+- **Copy** temporarily keeps the bottle data in memory and closes the view. A banner confirms the copy and every empty slot pulses; clicking one copies all the fields into that slot, making it quick to add a second similar bottle. The copy can be cancelled from the banner, and expires after 10 minutes.
 
 ![Edit View](images/edit_bottle.png)
 
-The Edit button brings up a new window. Each field can be filled at will, with only Name being required. Autocomplete (by looking at existing and consumed wines) is active for name, producer, varietal, region, and country. There is also an option to directly search the history by typing any of the main fields. The UI will recommend options which can be selected for auto-fill.
+In the Edit window, each field can be filled at will, with only Name being required. Autocomplete (based on existing and consumed wines) is active for name, producer, varietal, region, and country. You can also search the history by typing any of the main fields, and select a suggestion to auto-fill the bottle.
 
 ![Search previous entries](images/previous.png)
 
-At the top of the Edit view is the option to upload the label image or a barcode image. The label image can be analyzed by Gemini to fill the bottle fields. If no label is present but a barcode image exists, clicking Analyze will ask Gemini to extract the barcode string. Once that string exists (either created by Gemini or entered manually by the user), clicking Analyze will have Gemini look at SAQ.com to determine the wine name and fill the bottle fields. The barcode image is then deleted to preserve storage. 
+At the top of the Edit window you can upload a label image or a barcode image. Selecting **Analyze** with a label image has Gemini read the label and fill the bottle fields. If there is no label but there is a barcode image, **Analyze** asks Gemini to extract the barcode number. Once a barcode number exists (extracted by Gemini or entered manually), **Analyze** has Gemini look up the wine on SAQ.com and fill the bottle fields. The barcode image is then deleted to save storage.
 
-## Compact view
+### Compact view
 
 ![Compact View](images/compact_view.png)
 
-The compact view entirely duplicates the features of the Cellar view. The only difference is that each cellar is shown as if looking into an open wine fridge: every bottle is a glass bottle end colored by wine type, circled by its aging status color, with back-row bottles shown darker and nested between the front ones. Hovering a bottle shows its name, vintage and aging status. Apart from the bottle representation, this view is functionally identical to the Cellar view. It is particularly useful on mobile or to have a denser overview of several cellars. If the screen allows it, the card will put cellars side-by-side. This view is closer to what is typically seen in a cellar manager app.
+The Compact view has all the features of the Cellar view. The only difference is that each cellar is shown as if looking into an open wine fridge: every bottle is a glass bottle end colored by wine type, circled by its aging status color, with back-row bottles shown darker and nested between the front ones. Hovering a bottle shows its name, vintage, and aging status. It is particularly useful on mobile or for a denser overview of several cellars. If the screen allows it, the card puts cellars side by side. This view is closer to what is typically seen in a cellar manager app.
 
-## All bottles
+### All Bottles
 
 ![All Bottles](images/all_bottles.png)
 
-This view is essentially a table view of all current bottles, grouped by type. The Location column shows where each bottle is stored (cellar, shelf, row and position), and sorting by it lists bottles in the order they sit in your cellars. The Aging column shows the drinking window with its status color. It allows sorting in ascending or descending order for any column. Clicking a line brings up the same Bottle view as with the Cellar and Compact views.
+A table of all current bottles, grouped by type. The Location column shows where each bottle is stored (cellar, shelf, row, and position), and sorting by it lists bottles in the order they sit in your cellars. The Aging column shows the drinking window with its status color. Any column can be sorted in ascending or descending order. Clicking a row opens the same Bottle view as the Cellar and Compact views.
 
-## Statistics
+### Statistics
 
 ![Statistics](images/stats.png)
 
-This view shows various information and statistics for the current inventory, including how many bottles reach their peak each upcoming year.
+Information and statistics for the current inventory, including total value and how many bottles reach their peak in each upcoming year.
 
-## Header controls
+### Header controls
 
 The header switches between the four views and offers two main buttons:
 
-- **+ Cellar**: Opens a window allowing the creation and configuration of a new cellar. It is the same view as the one for editing a cellar.
+- **+ Cellar**: opens a window to create and configure a new cellar. It is the same window used to edit a cellar.
+- **Clean-Up**: analyzes the whole inventory and identifies possible duplicates (for instance, similar but not identical names, or misspelled varietals). For each case, it proposes a fix and lets you decide which entry to keep.
 
-![Cleanup tool](images/cleanup.png)
+  ![Cleanup tool](images/cleanup.png)
 
-- **Clean-Up**: A very useful tool. It analyzes the whole inventory and identifies possible duplicates (for instance, with similar but not identical names, or misspelled varietals). For each case, it will propose a fix, letting the user decide which of the possible duplicates should be retained.
+### Filters
 
 ![Filters](images/filter.png)
 
-In each view except Statistics, there are also filtering options. First, there is a search field. While any filter is active, matching bottles stay highlighted, the others fade, and the header shows how many bottles match. Under the filters, a summary line gives the number of bottles, the free slots, and how many bottles are in each aging state.
+Every view except Statistics has filtering options. While any filter is active, matching bottles stay highlighted, the others fade, and the header shows how many bottles match. Under the filters, a summary line gives the number of bottles, the free slots, and how many bottles are in each aging state.
 
-![Aging filter](images/aging.gif)
+- **Search**: matches any of the main bottle fields.
+- **Aging**: shows bottles that are **Ready to drink** (the current year falls within their aging period) or to **Drink now** (bottles in their final peak year).
 
-Second, there is a dropdown letting the user filter for bottles which are "Ready to drink" (highlights bottles whose "aging start" and "aging end" years cover the current year) or "Drink now" (bottles having reached their final peak year). 
+  ![Aging filter](images/aging.gif)
 
-![Filtering by type](images/type.png)
+- **Type** and **Country**: filter by wine type or country of origin.
 
-There are also two drop-down boxes letting the user filter by wine type or country.
+  ![Filtering by type](images/type.png)
 
-## GUI details
+### Layout details
 
-- **Smart Column Balancing**: Every shelf spans the full width of its cabinet and its rows are centered, so shelves of different sizes line up in a clean, symmetrical layout.
-- **Dynamic Mobile Adaptability**: Cellars scale to 100% of the screen width in portrait mode. A cabinet wider than the screen scrolls sideways as a whole, opens centered on its bottles, and keeps each shelf's name in view while scrolling.
-- **Responsive Landscape Flow**: Automatically displays multiple cellars side-by-side on mobile landscape orientation, tablets, or wider PC monitors if screen real estate allows.
-- **Theme Native**: All surfaces, text and accents come from the active Home Assistant theme, so the card follows Light and Dark mode and custom themes.
-- **Optimized Real Estate**: Keeps the header section anchored on larger screens but hides structural padding on smaller phone viewports to preserve usability.
-- **State Persistence**: Remembers your scroll position inside the dashboard even after minor interface refreshes.
-- **Keyboard Friendly**: Bottles and empty slots can be reached with Tab and opened with Enter or Space.
+- **Balanced shelves**: every shelf spans the full width of its cabinet and its rows are centered, so shelves of different sizes line up cleanly.
+- **Mobile friendly**: cellars scale to the full screen width in portrait mode. A cabinet wider than the screen scrolls sideways as a whole, opens centered on its bottles, and keeps each shelf's name in view while scrolling.
+- **Landscape and wide screens**: multiple cellars are shown side by side on mobile in landscape, tablets, or wider monitors when there is room.
+- **Theme aware**: all surfaces, text, and accents come from the active Home Assistant theme, so the card follows light mode, dark mode, and custom themes.
+- **Compact header**: the header stays anchored on larger screens, and extra padding is dropped on small phone screens.
+- **Scroll position**: your scroll position is kept after minor interface refreshes.
+- **Keyboard support**: bottles and empty slots can be reached with Tab and opened with Enter or Space.
 
 ## Notes
-1. Large parts of the code were debugged, optimized, and refactored using advanced AI collaborative engines.
-2. This integration was built primarily in French and translated during development. The card and the config flow follow your Home Assistant language and ship with English, French, German, Spanish, Italian, Dutch, Portuguese, and Polish. Other languages fall back to English. Some language quirks may remain.
-3. This integration was built primarily for personal use. As such, some references relate to Québec (Canada), such as native lookups on the state-owned alcohol monopoly "SAQ.com".
-4. Prices are shown in the currency set in Home Assistant (Settings > System > General), and Gemini is asked for prices in that currency. Prices you already saved are not converted.
 
-## Releases
+- **Currency**: prices are shown in the currency set in Home Assistant (**Settings** > **System** > **General**), and Gemini is asked for prices in that currency. Prices you already saved are not converted.
+- **Québec references**: the integration was originally built for personal use in Québec, Canada, so some features refer to the SAQ (Québec's provincial liquor retailer), such as the default bottle link and barcode lookups on SAQ.com.
+- **Translations**: the integration was originally written in French and translated during development, so some wording quirks may remain.
+- **AI-assisted code**: large parts of the code were debugged, optimized, and refactored with the help of AI tools.
+
+## Known issues and to do
+
+- Barcode recognition is not fully reliable yet, because of variations in image angle.
+- Add an option to use a custom domain or another source instead of SAQ.com for AI lookups.
+
+Bugs and feature requests: [open an issue](https://github.com/kedube/ha-wine-cellar-manager/issues).
+
+## Development
 
 Releases are automated. Every push to `main` runs the Release workflow, which:
 
 1. bumps the version from the latest tag: patch by default, or minor/major when a commit message since the last release has a line containing only `#minor` or `#major`;
 2. writes the new version to `manifest.json`, commits it, and tags it;
-3. publishes a GitHub release with `wine_cellar_manager.zip` attached, which HACS installs.
+3. publishes a GitHub release with `wine_cellar_manager.zip` attached.
 
 Add `[skip release]` to a commit message to push without releasing, or run the workflow by hand from the Actions tab to pick the bump. Pull before pushing again, as each release adds a version commit to `main`. The release fails if `dist/wine-cellar-card.js` differs from the card in `custom_components/wine_cellar_manager/frontend/`, so copy it over after editing the card.
 
-## Known bugs and To Do
-
-- Barcode recognition does not work flawlessly for the moment due to image angle variations.
-- Add a toggle in the Integration Options configuration to specify a custom domain or alternative source instead of SAQ.com for the default AI lookup analysis.
-
 ## Credit
 
-This is a fork of [bernarddery/Wine-Cellar-Manager](https://github.com/bernarddery/Wine-Cellar-Manager). All credit for the original integration goes to its author; see [LICENSE](LICENSE) for the original copyright notice.
+Wine Cellar Manager was originally created by [bernarddery](https://github.com/bernarddery) as [Wine-Cellar-Manager](https://github.com/bernarddery/Wine-Cellar-Manager). This project builds on that work.
+
+## License
+
+Released under the [MIT License](LICENSE). The original author's copyright notice is retained as the license requires.
