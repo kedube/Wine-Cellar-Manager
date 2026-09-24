@@ -63,7 +63,7 @@ Getting a Gemini API key is completely free and takes just a few minutes using G
 
 ## Main characteristics of Wine Cellar Manager
 
-- Unlimited number of unique cellars which can be named individually. Background colors can be assigned to each cellar for aesthetic purposes and visual differentiation.
+- Unlimited number of unique cellars which can be named individually. Each cellar can be given a color, picked from swatches, which is used for the frame of its cabinet so cellars are easy to tell apart.
 
 ![Create cellar](images/add_cellar.png)
 
@@ -96,11 +96,9 @@ Getting a Gemini API key is completely free and takes just a few minutes using G
 
 ![Cellar View](images/main_view.png)
 
-This is the default view. It shows a visual representation of all the cellars with useful information about each bottle. Each cellar has an Edit button at the top right.
+This is the default view. It shows a visual representation of all the cellars with useful information about each bottle. Each cellar is drawn as a cabinet whose frame takes the cellar's color. Its header shows how full it is (for example `28 / 40`), and the pencil button at the top right edits it.
 
-Each shelf is represented in the order they have been set within a cellar (can be modified). Shelves with front and back rows are shown together, with the back row offset (representing how a physical shelf is actually configured).
-
-Each cellar is drawn as a cabinet whose frame takes the cellar's color, with a rail under every shelf. The back row sits above the front row, slightly smaller and staggered into the gaps between the front bottles, and both rows are centered on the shelf.
+Shelves appear in the order set within the cellar (can be modified), each with its name, the number of bottles it holds, and a rail underneath. On shelves with front and back rows, the back row sits above the front row, slightly smaller, on a shaded band and staggered into the gaps between the front bottles, representing how a physical shelf is actually configured. The rows are labelled Back and Front, and both are centered on the shelf.
 
 The bottles are shown as cards. Each card is tinted and capped with the color of the wine type and displays the label image (or a drawn bottle when there is none), the name, the varietal (or region if the country is France), the vintage, and the rating.
 
@@ -114,11 +112,11 @@ No badge means the aging period is not set. A legend under the filters repeats t
 
 ![Drag and drop](images/drag_drop.png)
 
-Individual cards can be dragged and dropped at will. Bottles can be moved to an empty slot or swapped. This works seamlessly on PC, tablet, or mobile. This is, again, to duplicate how people physically interact with a cellar. It also works in the compact view.
+Individual cards can be dragged and dropped at will. Bottles can be moved to an empty slot or swapped; the slot under the pointer is highlighted before you let go. This works seamlessly on PC, tablet, or mobile. This is, again, to duplicate how people physically interact with a cellar. It also works in the compact view.
 
 ![Bottle View](images/bottle.png)
 
-Clicking on a card opens the Bottle View. This shows detailed information about this particular bottle. This is where the URL link appears. The physical location of the bottle (cellar, shelf, row, position) is also shown, along with a small map of the cellar that highlights the bottle's slot, and a timeline of its drinking window. There are buttons to Delete (all information removed from memory) or Consume (the bottle is removed from the cellar, but information remains for future use if a similar bottle is later added). There is an Edit button (see below) and a Copy button, which temporarily puts the bottle data in memory and closes the view. Clicking on an empty spot automatically copies all the fields into this new slot, making it quick to add a second similar bottle.
+Clicking on a card opens the Bottle View. This shows detailed information about this particular bottle. This is where the URL link appears. The physical location of the bottle (cellar, shelf, row, position) is also shown, along with a small map of the cellar that highlights the bottle's slot, and a timeline of its drinking window. There are buttons to Delete (all information removed from memory) or Consume (the bottle is removed from the cellar, but information remains for future use if a similar bottle is later added). There is an Edit button (see below) and a Copy button, which temporarily puts the bottle data in memory and closes the view. A banner then confirms the copy and every empty slot pulses; clicking one copies all the fields into this new slot, making it quick to add a second similar bottle. The copy can be cancelled from the banner, and expires after 10 minutes.
 
 ![Edit View](images/edit_bottle.png)
 
@@ -132,13 +130,13 @@ At the top of the Edit view is the option to upload the label image or a barcode
 
 ![Compact View](images/compact_view.png)
 
-The compact view entirely duplicates the features of the Cellar view. The only difference is that bottles are represented by type-colored circles with aging status rings. Apart from the bottle representation, this view is functionally identical to the Cellar view. It is particularly useful on mobile or to have a denser overview of several cellars. If the screen allows it, the card will put cellars side-by-side. This view is closer to what is typically seen in a cellar manager app.
+The compact view entirely duplicates the features of the Cellar view. The only difference is that each cellar is shown as if looking into an open wine fridge: every bottle is a glass bottle end colored by wine type, circled by its aging status color, with back-row bottles shown darker and nested between the front ones. Hovering a bottle shows its name, vintage and aging status. Apart from the bottle representation, this view is functionally identical to the Cellar view. It is particularly useful on mobile or to have a denser overview of several cellars. If the screen allows it, the card will put cellars side-by-side. This view is closer to what is typically seen in a cellar manager app.
 
 ## All bottles
 
 ![All Bottles](images/all_bottles.png)
 
-This view is essentially a table view of all current bottles, grouped by type, including where each bottle is stored. It allows sorting in ascending or descending order for any column. Clicking a line brings up the same Bottle view as with the Cellar and Compact views.
+This view is essentially a table view of all current bottles, grouped by type. The Location column shows where each bottle is stored (cellar, shelf, row and position), and sorting by it lists bottles in the order they sit in your cellars. The Aging column shows the drinking window with its status color. It allows sorting in ascending or descending order for any column. Clicking a line brings up the same Bottle view as with the Cellar and Compact views.
 
 ## Statistics
 
@@ -148,17 +146,17 @@ This view shows various information and statistics for the current inventory, in
 
 ## Header controls
 
-Each view offers two main buttons:
+The header switches between the four views and offers two main buttons:
 
-- **+Cellar**: Opens a window allowing the creation and configuration of a new cellar. It is the same view as the one for editing a cellar.
+- **+ Cellar**: Opens a window allowing the creation and configuration of a new cellar. It is the same view as the one for editing a cellar.
 
 ![Cleanup tool](images/cleanup.png)
 
-- **Cleanup**: A very useful tool. It analyzes the whole inventory and identifies possible duplicates (for instance, with similar but not identical names, or misspelled varietals). For each case, it will propose a fix, letting the user decide which of the possible duplicates should be retained.
+- **Clean-Up**: A very useful tool. It analyzes the whole inventory and identifies possible duplicates (for instance, with similar but not identical names, or misspelled varietals). For each case, it will propose a fix, letting the user decide which of the possible duplicates should be retained.
 
 ![Filters](images/filter.png)
 
-In each view except Statistics, there are also filtering options. First, there is a search field.
+In each view except Statistics, there are also filtering options. First, there is a search field. While any filter is active, matching bottles stay highlighted, the others fade, and the header shows how many bottles match. Under the filters, a summary line gives the number of bottles, the free slots, and how many bottles are in each aging state.
 
 ![Aging filter](images/aging.gif)
 
@@ -170,17 +168,28 @@ There are also two drop-down boxes letting the user filter by wine type or count
 
 ## GUI details
 
-- **Smart Column Balancing**: Automatically centers shorter shelves within the cellar volume to provide a clean, symmetrical layout.
-- **Dynamic Mobile Adaptability**: Cellars scale beautifully to 100% of the screen width in portrait mode, while individual shelves retain fluid horizontal touch scrolling to maximize space.
+- **Smart Column Balancing**: Every shelf spans the full width of its cabinet and its rows are centered, so shelves of different sizes line up in a clean, symmetrical layout.
+- **Dynamic Mobile Adaptability**: Cellars scale to 100% of the screen width in portrait mode. A cabinet wider than the screen scrolls sideways as a whole, opens centered on its bottles, and keeps each shelf's name in view while scrolling.
 - **Responsive Landscape Flow**: Automatically displays multiple cellars side-by-side on mobile landscape orientation, tablets, or wider PC monitors if screen real estate allows.
 - **Theme Native**: All surfaces, text and accents come from the active Home Assistant theme, so the card follows Light and Dark mode and custom themes.
 - **Optimized Real Estate**: Keeps the header section anchored on larger screens but hides structural padding on smaller phone viewports to preserve usability.
 - **State Persistence**: Remembers your scroll position inside the dashboard even after minor interface refreshes.
+- **Keyboard Friendly**: Bottles and empty slots can be reached with Tab and opened with Enter or Space.
 
 ## Notes
 1. Large parts of the code were debugged, optimized, and refactored using advanced AI collaborative engines.
 2. This integration was built primarily in French and translated during development. The card and the config flow follow your Home Assistant language and ship with English, French, German, Spanish, Italian, Dutch, Portuguese, and Polish. Other languages fall back to English. Some language quirks may remain.
 3. This integration was built primarily for personal use. As such, some references relate to Québec (Canada), such as automatic CAD pricing conversions and native lookups on the state-owned alcohol monopoly "SAQ.com".
+
+## Releases
+
+Releases are automated. Every push to `main` (other than documentation or screenshot changes) runs the Release workflow, which:
+
+1. bumps the version from the latest tag: patch by default, or minor/major when a commit message since the last release contains `#minor` or `#major`;
+2. writes the new version to `manifest.json`, commits it, and tags it;
+3. publishes a GitHub release with `wine_cellar_manager.zip` attached, which HACS installs.
+
+Add `[skip release]` to a commit message to push without releasing, or run the workflow by hand from the Actions tab to pick the bump. Pull before pushing again, as each release adds a version commit to `main`. The release fails if `dist/wine-cellar-card.js` differs from the card in `custom_components/wine_cellar_manager/frontend/`, so copy it over after editing the card.
 
 ## Known bugs and To Do
 
