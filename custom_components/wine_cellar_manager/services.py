@@ -1,14 +1,16 @@
 from __future__ import annotations
 
 import logging
+
 from homeassistant.core import HomeAssistant, ServiceCall
+
 from .const import DOMAIN, SERVICE_REBUILD_READY
 
 _LOGGER = logging.getLogger(__name__)
 
 async def async_register_services(hass: HomeAssistant) -> None:
     """Register custom services for Wine Cellar Manager."""
-    
+
     async def handle_rebuild_ready(call: ServiceCall) -> None:
         store = hass.data.get(DOMAIN, {}).get("store")
         if store is None:

@@ -1,0 +1,67 @@
+name: CI
+
+# Runs on pull requests and weekly (to catch new Home Assistant or HACS
+# requirements). Pushes to main run it through the Release workflow, which
+# only releases when it passes.
+on:
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  hassfest:
+    name: Hassfest
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: home-assistant/actions/hassfest@master
+
+  hacs:
+    name: HACS validation
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: hacs/action@main
+        with:
+          category: integration
+          # Brand images ship in the integration's brand/ folder rather than
+          # the home-assistant/brands repository.
+          ignore: brands
+
+  python:
+    name: Python lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Ruff
+        run: pipx run ruff==0.16.8 check --output-format github
+      - name: Compile
+        run: python -m compileall -q custom_components scripts
+      - name: Translations match strings.json
+        run: python scripts/check_translations.py
+
+  card:
+    name: Dashboard card
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: JavaScript syntax
+        run: node --check custom_components/wine_cellar_manager/frontend/wine-cellar-card.js
+      # dist/ is a published copy of the card served from the integration.
+      - name: dist/ matches the integration frontend
+        run: |
+          for f in wine-cellar-card.js cellar_pattern.jpg; do
+            cmp -s "custom_components/wine_cellar_manager/frontend/$f" "dist/$f" \
+              || { echo "::error file=dist/$f::dist/$f is out of sync; re-copy it from custom_components/wine_cellar_manager/frontend/"; exit 1; }
+          done

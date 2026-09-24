@@ -2,12 +2,12 @@
 from __future__ import annotations
 
 import asyncio
-from copy import deepcopy
 import hashlib
 import logging
 import os
 import uuid
-from datetime import datetime, timezone
+from copy import deepcopy
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -31,7 +31,7 @@ _LOGGER = logging.getLogger(__name__)
 
 def _utcnow() -> str:
     """Return the current UTC time as an ISO-8601 string."""
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return datetime.now(UTC).isoformat(timespec="seconds")
 
 
 def _remove_file_if_exists(path: str) -> None:
@@ -91,7 +91,7 @@ def _default_data() -> dict[str, Any]:
     }
 
 
-def async_get_store(hass: HomeAssistant) -> "WineCellarStore":
+def async_get_store(hass: HomeAssistant) -> WineCellarStore:
     """Return the domain storage helper."""
     domain_data = hass.data.setdefault(DOMAIN, {})
     store = domain_data.get("store")
@@ -754,7 +754,7 @@ class WineCellarStore:
         # ALGORITHME DE MUTUALISATION DE L'IMAGE POUR BOUTEILLES SEMBLABLES
         if wine_name and current_image_path:
             import os
-            
+
             # Normalisation stricte pour trouver une bouteille identique en stock
             target_name_norm = str(wine_name).strip().lower()
             target_prod_norm = str(producer).strip().lower()
@@ -767,7 +767,7 @@ class WineCellarStore:
                 b_name_norm = str(b.get("wine_name") or "").strip().lower()
                 b_prod_norm = str(b.get("producer") or "").strip().lower()
                 b_img = str(b.get("image_path") or "").strip()
-                
+
                 if b_name_norm == target_name_norm and b_prod_norm == target_prod_norm and b_img.startswith("/local/wine_labels/"):
                     existing_shared_path = b_img
                     break
@@ -785,7 +785,7 @@ class WineCellarStore:
                             )
                     except Exception as img_err:
                         _LOGGER.debug("Skipped duplicate image cleanup: %r", img_err)
-                
+
                 _LOGGER.info("Wine Cellar Manager: Reusing shared image for wine '%s'", wine_name)
                 image_path = existing_shared_path
 
@@ -815,7 +815,7 @@ class WineCellarStore:
                         else:
                             def _sync_rename(): os.rename(current_local_path, new_local_path)
                             await self.hass.async_add_executor_job(_sync_rename)
-                        
+
                         image_path = new_image_path_url
                     except Exception as err:
                         _LOGGER.error("Impossible de renommer le fichier image : %r", err)
@@ -1025,7 +1025,7 @@ class WineCellarStore:
 
         source_bottle = None
         dest_bottle = None
-        
+
         for bottle in data["bottles"]:
             if bottle.get("id") == source_id:
                 source_bottle = bottle
@@ -1042,7 +1042,7 @@ class WineCellarStore:
             source_bottle["lane"],
             source_bottle["position"],
         )
-        
+
         source_bottle["cellar_id"] = dest_bottle["cellar_id"]
         source_bottle["shelf_id"] = dest_bottle["shelf_id"]
         source_bottle["lane"] = dest_bottle["lane"]

@@ -257,7 +257,26 @@ Bugs and feature requests: [open an issue](https://github.com/kedube/ha-wine-cel
 
 ## Development
 
-Releases are automated. Every push to `main` runs the Release workflow, which:
+### Checks
+
+The CI workflow runs on every pull request, every push to `main`, and weekly:
+
+- **Hassfest**: Home Assistant's validation of the manifest, translations, and services.
+- **HACS validation**: checks the repository meets HACS requirements.
+- **Python lint**: [Ruff](https://docs.astral.sh/ruff/) with the rules in `ruff.toml`, a compile check, and a check that every file in `translations/` has the same keys as `strings.json`.
+- **Dashboard card**: a JavaScript syntax check, and a check that `dist/` matches the card in `custom_components/wine_cellar_manager/frontend/`.
+
+To run the local checks before pushing:
+
+```sh
+uvx ruff@0.16.8 check
+python3 scripts/check_translations.py
+node --check custom_components/wine_cellar_manager/frontend/wine-cellar-card.js
+```
+
+### Releases
+
+Releases are automated. Every push to `main` runs CI and then, if it passes, the Release workflow, which:
 
 1. bumps the version from the latest tag: patch by default, or minor/major when a commit message since the last release has a line containing only `#minor` or `#major`;
 2. writes the new version to `manifest.json`, commits it, and tags it;

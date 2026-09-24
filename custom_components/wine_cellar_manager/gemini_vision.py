@@ -5,11 +5,12 @@ import json
 import logging
 import os
 from typing import Any
-from pydantic import BaseModel, Field
 
 from homeassistant.core import HomeAssistant
-from .websocket_api import _get_config_entry_options
+from pydantic import BaseModel, Field
+
 from .const import DEFAULT_GEMINI_MODEL, OPTION_GEMINI_API_KEY, OPTION_GEMINI_MODEL
+from .websocket_api import _get_config_entry_options
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -37,7 +38,7 @@ class BarcodeSchema(BaseModel):
 PROMPT_LABEL_ANALYSIS = """
 You are an expert sommelier and wine label scanner. Carefully analyze this image of a wine label.
 CRITICAL DIRECTIONS:
-1. Do NOT confuse the 'producer' (the company, chateau, winery, estate, or maison who made it) with the 'wine_name' (the specific cuvée, brand name, or grape designation). 
+1. Do NOT confuse the 'producer' (the company, chateau, winery, estate, or maison who made it) with the 'wine_name' (the specific cuvée, brand name, or grape designation).
 2. Look closely at the fine print on the neck, back, or bottom edges of the label to find the alcohol level percentage.
 3. If this wine is sold in Canada/Quebec, search your knowledge base to provide its official SAQ.com product page URL in 'saq_url'.
 4. Provide its current retail price in {currency} in 'price'. If the currency is CAD and the wine is sold at the SAQ, use the SAQ price.
@@ -57,10 +58,10 @@ def _get_client_and_model(hass: HomeAssistant) -> tuple[Any, str]:
     options = _get_config_entry_options(hass)
     api_key = options.get(OPTION_GEMINI_API_KEY, "")
     model_name = options.get(OPTION_GEMINI_MODEL, DEFAULT_GEMINI_MODEL)
-    
+
     if not api_key:
         raise ValueError("Gemini API key is not configured in integration options.")
-        
+
     client = genai.Client(api_key=api_key)
     return client, model_name
 
@@ -70,13 +71,13 @@ def _load_image_bytes_and_mime(image_path: str) -> tuple[bytes, str]:
     resolved_path = image_path
     if image_path.startswith("/local/"):
         resolved_path = "/config/www/" + image_path[len("/local/"):]
-        
+
     if not os.path.exists(resolved_path):
         raise FileNotFoundError(f"Image label file not found on disk: {resolved_path}")
-        
+
     with open(resolved_path, "rb") as f:
         data = f.read()
-        
+
     # Analyse des "magic bytes" signature du fichier pour en extraire le bon type MIME
     mime_type = "image/jpeg"
     if data.startswith(b"\x89PNG\r\n\x1a\n"):
@@ -85,7 +86,7 @@ def _load_image_bytes_and_mime(image_path: str) -> tuple[bytes, str]:
         mime_type = "image/gif"
     elif data.startswith(b"RIFF") and data[8:12] == b"WEBP":
         mime_type = "image/webp"
-        
+
     return data, mime_type
 
 
@@ -96,7 +97,7 @@ async def async_analyze_wine_with_gemini(
 ) -> dict[str, Any]:
     """Analyze a wine using its barcode or label image via Gemini Vision."""
     client, model_name = await hass.async_add_executor_job(_get_client_and_model, hass)
-    
+
     if barcode and not image_path:
         def _sync_text_query():
             from google.genai import types
@@ -109,7 +110,7 @@ async def async_analyze_wine_with_gemini(
                 ),
             )
             return json.loads(response.text)
-            
+
         suggestion_raw = await hass.async_add_executor_job(_sync_text_query)
         from .websocket_api import _normalize_label_suggestion
         return {"suggestion": _normalize_label_suggestion(suggestion_raw, "")}
@@ -120,10 +121,10 @@ async def async_analyze_wine_with_gemini(
     def _sync_vision_analysis():
         from google.genai import types
         image_bytes, mime_type = _load_image_bytes_and_mime(image_path)
-        
+
         # Passage obligatoire par types.Part.from_bytes en fournissant le type MIME détecté dynamiquement
         image_part = types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
-        
+
         response = client.models.generate_content(
             model=model_name,
             contents=[image_part, _label_prompt(hass)],
@@ -146,7 +147,7 @@ async def async_analyze_wine_with_gemini(
         }
     except Exception as err:
         _LOGGER.error("Gemini vision generation failed: %r", err)
-        raise RuntimeError(f"Gemini API call failed: {str(err)}")
+        raise RuntimeError(f"Gemini API call failed: {err!s}") from err
 
 
 async def async_extract_barcode_from_image(
@@ -160,7 +161,7 @@ async def async_extract_barcode_from_image(
         from google.genai import types
         image_bytes, mime_type = _load_image_bytes_and_mime(image_path)
         image_part = types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
-        
+
         response = client.models.generate_content(
             model=model_name,
             contents=[image_part, PROMPT_BARCODE_EXTRACTION],
@@ -176,4 +177,4 @@ async def async_extract_barcode_from_image(
         return {"barcode": raw_json.get("barcode")}
     except Exception as err:
         _LOGGER.error("Gemini barcode scanning failed: %r", err)
-        raise RuntimeError(f"Gemini API call failed: {str(err)}")
+        raise RuntimeError(f"Gemini API call failed: {err!s}") from err

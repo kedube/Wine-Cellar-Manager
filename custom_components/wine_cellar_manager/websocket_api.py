@@ -1,20 +1,20 @@
 """Websockets API for Wine Cellar Manager."""
 from __future__ import annotations
 
-from datetime import datetime
 import logging
 import re
+from datetime import datetime
 from typing import Any
-import voluptuous as vol
 
+import voluptuous as vol
 from homeassistant.components import websocket_api
 from homeassistant.core import HomeAssistant, callback
 
 from .const import (
     DOMAIN,
+    WS_TYPE_CLEANUP_TEMP_IMAGE,
     WS_TYPE_CONSUME_BOTTLE,
     WS_TYPE_COPY_BOTTLE,
-    WS_TYPE_CLEANUP_TEMP_IMAGE,
     WS_TYPE_DELETE_BOTTLE,
     WS_TYPE_DELETE_CELLAR,
     WS_TYPE_FIND_LABEL_DUPLICATES,
@@ -23,8 +23,8 @@ from .const import (
     WS_TYPE_SAVE_BOTTLE,
     WS_TYPE_SAVE_CELLAR,
     WS_TYPE_SEARCH_BOTTLES,
-    WS_TYPE_UNIFIED_ANALYZE,
     WS_TYPE_SWAP_BOTTLES,
+    WS_TYPE_UNIFIED_ANALYZE,
     WS_TYPE_UPLOAD_LABEL_IMAGE,
 )
 
@@ -78,13 +78,13 @@ def _normalize_wine_type(val: Any) -> str:
 def _normalize_label_suggestion(payload: dict[str, Any], image_path: str) -> dict[str, Any]:
     """Clean up and format the raw AI json payload for the wine database."""
     wine_name = _safe_str(payload.get("wine_name")).strip()
-    
+
     # Éradication automatique des formats de bouteilles (ex: 750ml, 750 ml, 1.5L) à la fin du nom
     wine_name = re.sub(r'\s*[-\(]?\s*\d+(?:\.\d+)?\s*(?:ml|l|cl|ML|L|CL)\s*\)?\s*$', '', wine_name).strip()
-    
+
     producer = _safe_str(payload.get("producer")).strip()
     region = _safe_str(payload.get("region")).strip()
-    
+
     for suffix in ("docg", "doc", "aoc", "dop", "igp", "vdp"):
         if region.lower().endswith(f" {suffix}"):
             region = region[:-len(suffix)].strip()
@@ -93,16 +93,16 @@ def _normalize_label_suggestion(payload: dict[str, Any], image_path: str) -> dic
 
     country = _safe_str(payload.get("country")).strip()
     raw_varietal = _safe_str(payload.get("varietal")).strip()
-    
+
     raw_varietal_lower = raw_varietal.lower().replace("shiraz", "syrah")
     single_composite_grapes = {
-        "cabernet-sauvignon", "pinot-noir", "chenin-blanc", "sauvignon-blanc", 
+        "cabernet-sauvignon", "pinot-noir", "chenin-blanc", "sauvignon-blanc",
         "cabernet-franc", "gros-manseng", "petit-manseng", "gewürztraminer",
         "savagnin-rose", "carignan-noir", "mourvèdre-syrah"
     }
-    
+
     normalized_text = raw_varietal_lower.replace("/", "-").replace("&", "-").replace(" and ", "-")
-    
+
     if "-" in normalized_text:
         if normalized_text in single_composite_grapes:
             varietal = raw_varietal.replace("Shiraz", "Syrah").replace("shiraz", "Syrah")
@@ -114,23 +114,27 @@ def _normalize_label_suggestion(payload: dict[str, Any], image_path: str) -> dic
         varietal = raw_varietal.replace("Shiraz", "Syrah").replace("shiraz", "Syrah").capitalize()
 
     notes = _safe_str(payload.get("notes")).strip()
-    
+
     raw_type = payload.get("wine_type")
     wine_type = _normalize_wine_type(raw_type) if raw_type else "unset"
-    
+
     vintage = _safe_int(payload.get("vintage"))
-    if vintage == 0: vintage = None
-    
+    if vintage == 0:
+        vintage = None
+
     price = _safe_float(payload.get("price"))
-    if price == 0.0 or price == 0: price = None
-    
+    if price == 0.0 or price == 0:
+        price = None
+
     # Sécurité anti-zéro pour l'apogée : si l'IA renvoie 0, on traite comme "pas d'information" (None)
     aging_start_year = _safe_int(payload.get("aging_start_year"))
-    if aging_start_year == 0: aging_start_year = None
-    
+    if aging_start_year == 0:
+        aging_start_year = None
+
     aging_end_year = _safe_int(payload.get("aging_end_year"))
-    if aging_end_year == 0: aging_end_year = None
-    
+    if aging_end_year == 0:
+        aging_end_year = None
+
     rating = _safe_int(payload.get("rating"))
     if rating is not None:
         rating = max(0, min(5, rating))
@@ -194,10 +198,10 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
     if not entries:
         connection.send_error(msg["id"], "no_entry", "No configuration entry found.")
         return
-    
+
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
-    
+
     # async_export travaille sur le cache mémoire et renvoie une copie autonome.
     try:
         raw_data = await store.async_export_cached()
@@ -219,7 +223,7 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
     bottles_with_vintage = 0
     unique_wines = set()
     country_counts = {}
-    
+
     allowed_types = ["unset", "red", "white", "rosé", "sparkling", "orange", "sweet", "other"]
     taste_window = {}
     for y in range(current_year, current_year + 11):
@@ -228,28 +232,28 @@ async def ws_get_data(hass: HomeAssistant, connection: websocket_api.ActiveConne
     for b in bottles:
         wine_key = f"{b.get('wine_name', '')}||{b.get('producer', '')}".lower().strip()
         unique_wines.add(wine_key)
-        
+
         if b.get("price"):
             try:
                 total_value += float(b["price"])
             except (ValueError, TypeError):
                 pass
-            
+
         if b.get("vintage"):
             v_int = _safe_int(b["vintage"])
             if v_int:
                 total_age_years += (current_year - v_int)
                 bottles_with_vintage += 1
-            
+
         cntry = b.get("country", "").strip() or "Unknown"
         country_counts[cntry] = country_counts.get(cntry, 0) + 1
-        
+
         start_y = b.get("aging_start_year")
         end_y = b.get("aging_end_year")
         b_type = b.get("wine_type") or "other"
         if b_type not in allowed_types:
             b_type = "other"
-            
+
         if start_y is not None and end_y is not None:
             try:
                 for y in range(int(start_y), int(end_y) + 1):
@@ -294,7 +298,7 @@ async def ws_save_cellar(hass: HomeAssistant, connection: websocket_api.ActiveCo
         return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
-    
+
     try:
         await store.async_save_cellar(
             cellar_id=msg.get("cellar_id"),
@@ -318,9 +322,9 @@ async def ws_delete_cellar(hass: HomeAssistant, connection: websocket_api.Active
         return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
-    
+
     target_cellar_id = str(msg["cellar_id"])
-    
+
     try:
         await store.async_delete_cellar(target_cellar_id)
         connection.send_result(msg["id"], {"status": "success"})
@@ -358,14 +362,14 @@ async def ws_delete_cellar(hass: HomeAssistant, connection: websocket_api.Active
 async def ws_save_bottle(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle save bottle command securely by unpacking arguments."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: 
+    if not entries:
         connection.send_error(msg["id"], "no_entry", "No configuration entry found.")
         return
     entry = entries[0]
     store = hass.data[DOMAIN][entry.entry_id]["store"]
-    
+
     bottle_id = msg.get("bottle_id")
-    
+
     try:
         # Déballage explicite des arguments nommés requis par storage.py
         await store.async_save_bottle(
@@ -473,18 +477,18 @@ async def ws_copy_bottle(
 
 
 @websocket_api.websocket_command({
-    vol.Required("type"): WS_TYPE_MOVE_BOTTLE, 
-    vol.Required("bottle_id"): str, 
-    vol.Required("cellar_id"): str, 
-    vol.Required("shelf_id"): str, 
-    vol.Required("lane"): str, 
+    vol.Required("type"): WS_TYPE_MOVE_BOTTLE,
+    vol.Required("bottle_id"): str,
+    vol.Required("cellar_id"): str,
+    vol.Required("shelf_id"): str,
+    vol.Required("lane"): str,
     vol.Required("position"): int
 })
 @websocket_api.async_response
 async def ws_move_bottle(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
     """Handle move bottle command securely with keyword arguments."""
     entries = hass.config_entries.async_entries(DOMAIN)
-    if not entries: 
+    if not entries:
         connection.send_error(msg["id"], "no_entry", "No configuration entry found.")
         return
     entry = entries[0]
@@ -629,7 +633,10 @@ async def ws_unified_analyze(
         return
 
     try:
-        from .gemini_vision import async_analyze_wine_with_gemini, async_extract_barcode_from_image
+        from .gemini_vision import (
+            async_analyze_wine_with_gemini,
+            async_extract_barcode_from_image,
+        )
         from .storage import async_get_store
 
         if image_path and not barcode and "temp_barcode_" in image_path:

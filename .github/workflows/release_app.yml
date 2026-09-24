@@ -1,6 +1,6 @@
 name: Release
 
-# Every push to main publishes a new release: the version is bumped from the
+# Every push to main runs CI and, if it passes, publishes a new release: the version is bumped from the
 # latest tag, written to manifest.json, committed, tagged, and the integration
 # zip is attached to the GitHub release.
 #
@@ -19,10 +19,8 @@ on:
         options: [patch, minor, major]
         default: patch
 
-# Pushing the version commit and tag, and creating the release, need write
-# access. Repos whose default workflow permission is read-only fail without it.
 permissions:
-  contents: write
+  contents: read
 
 # Never run two releases at once; they would compute the same version.
 concurrency:
@@ -30,23 +28,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yml
+
   release:
     name: Prepare release
+    needs: ci
     if: ${{ !contains(github.event.head_commit.message, '[skip release]') }}
     runs-on: ubuntu-24.04
+    # Pushing the version commit and tag, and creating the release, need write
+    # access. Repos whose default workflow permission is read-only fail without it.
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
-
-      # dist/ is a published copy of the card served from the integration.
-      # Fail loudly rather than shipping a release where the two have drifted.
-      - name: Verify dist/ matches the integration frontend
-        run: |
-          diff -u custom_components/wine_cellar_manager/frontend/wine-cellar-card.js \
-                  dist/wine-cellar-card.js \
-            || { echo "::error::dist/wine-cellar-card.js is out of sync; re-copy it from custom_components/wine_cellar_manager/frontend/"; exit 1; }
 
       - name: Compute next version
         id: version

@@ -21,7 +21,7 @@ async def async_setup_entry(
 ) -> None:
     """Set up the Wine Cellar Manager sensors from a config entry."""
     store = hass.data[DOMAIN][config_entry.entry_id]["store"]
-    
+
     # Création des deux seules entités officielles basées sur l'ID de l'intégration
     sensors = [
         WineCellarStockSensor(config_entry, store),
@@ -108,7 +108,7 @@ class WineCellarCapacitySensor(BaseWineCellarSensor):
         cellars = self._stored_data.get("cellars", [])
         if not isinstance(cellars, list):
             return 0
-            
+
         total_capacity = 0
         for cellar in cellars:
             shelves = cellar.get("shelves", [])
@@ -117,5 +117,5 @@ class WineCellarCapacitySensor(BaseWineCellarSensor):
                     front = int(shelf.get("capacity_front", 0) or 0)
                     back = int(shelf.get("capacity_back", 0) or 0)
                     total_capacity += (front + back)
-                    
+
         return total_capacity
