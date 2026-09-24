@@ -165,7 +165,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Wine details",
     "cellar_editor": "Cellar editor",
     "bottle_editor": "Bottle editor",
-    "unknown_cellar": "Unknown cellar"
+    "unknown_cellar": "Unknown cellar",
+    "bottles_count": "{n} bottles",
+    "free_slots": "{n} free",
+    "status_young": "Too young",
+    "status_ready": "Ready",
+    "status_peak": "At peak",
+    "status_past": "Past peak",
+    "location": "Location",
+    "no_shelves": "No shelves configured.",
+    "add_first_cellar": "Add a first cellar to get started!"
   },
   "fr": {
     "cellars": "Celliers",
@@ -333,7 +342,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Détails du vin",
     "cellar_editor": "Éditeur de cellier",
     "bottle_editor": "Éditeur de bouteille",
-    "unknown_cellar": "Cellier inconnu"
+    "unknown_cellar": "Cellier inconnu",
+    "bottles_count": "{n} bouteilles",
+    "free_slots": "{n} libres",
+    "status_young": "Trop jeune",
+    "status_ready": "Prêt",
+    "status_peak": "À l'apogée",
+    "status_past": "Apogée passée",
+    "location": "Emplacement",
+    "no_shelves": "Aucune tablette configurée.",
+    "add_first_cellar": "Ajoutez un premier cellier pour commencer !"
   },
   "de": {
     "cellars": "Weinkeller",
@@ -501,7 +519,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Weindetails",
     "cellar_editor": "Keller-Editor",
     "bottle_editor": "Flaschen-Editor",
-    "unknown_cellar": "Unbekannter Keller"
+    "unknown_cellar": "Unbekannter Keller",
+    "bottles_count": "{n} Flaschen",
+    "free_slots": "{n} frei",
+    "status_young": "Zu jung",
+    "status_ready": "Trinkreif",
+    "status_peak": "Auf dem Höhepunkt",
+    "status_past": "Über dem Höhepunkt",
+    "location": "Lagerort",
+    "no_shelves": "Keine Regale konfiguriert.",
+    "add_first_cellar": "Legen Sie einen ersten Keller an, um loszulegen!"
   },
   "es": {
     "cellars": "Bodegas",
@@ -669,7 +696,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Detalles del vino",
     "cellar_editor": "Editor de bodega",
     "bottle_editor": "Editor de botella",
-    "unknown_cellar": "Bodega desconocida"
+    "unknown_cellar": "Bodega desconocida",
+    "bottles_count": "{n} botellas",
+    "free_slots": "{n} libres",
+    "status_young": "Demasiado joven",
+    "status_ready": "Listo",
+    "status_peak": "En su apogeo",
+    "status_past": "Pasado su apogeo",
+    "location": "Ubicación",
+    "no_shelves": "No hay estantes configurados.",
+    "add_first_cellar": "¡Añada una primera bodega para empezar!"
   },
   "it": {
     "cellars": "Cantine",
@@ -837,7 +873,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Dettagli del vino",
     "cellar_editor": "Editor cantina",
     "bottle_editor": "Editor bottiglia",
-    "unknown_cellar": "Cantina sconosciuta"
+    "unknown_cellar": "Cantina sconosciuta",
+    "bottles_count": "{n} bottiglie",
+    "free_slots": "{n} liberi",
+    "status_young": "Troppo giovane",
+    "status_ready": "Pronto",
+    "status_peak": "Al culmine",
+    "status_past": "Oltre il culmine",
+    "location": "Collocazione",
+    "no_shelves": "Nessun ripiano configurato.",
+    "add_first_cellar": "Aggiungi una prima cantina per iniziare!"
   },
   "nl": {
     "cellars": "Wijnkelders",
@@ -1005,7 +1050,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Wijngegevens",
     "cellar_editor": "Keldereditor",
     "bottle_editor": "Fleseditor",
-    "unknown_cellar": "Onbekende kelder"
+    "unknown_cellar": "Onbekende kelder",
+    "bottles_count": "{n} flessen",
+    "free_slots": "{n} vrij",
+    "status_young": "Te jong",
+    "status_ready": "Drinkklaar",
+    "status_peak": "Op hoogtepunt",
+    "status_past": "Over hoogtepunt",
+    "location": "Locatie",
+    "no_shelves": "Geen planken geconfigureerd.",
+    "add_first_cellar": "Voeg een eerste kelder toe om te beginnen!"
   },
   "pt": {
     "cellars": "Adegas",
@@ -1173,7 +1227,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Detalhes do vinho",
     "cellar_editor": "Editor de adega",
     "bottle_editor": "Editor de garrafa",
-    "unknown_cellar": "Adega desconhecida"
+    "unknown_cellar": "Adega desconhecida",
+    "bottles_count": "{n} garrafas",
+    "free_slots": "{n} livres",
+    "status_young": "Muito novo",
+    "status_ready": "Pronto",
+    "status_peak": "No auge",
+    "status_past": "Passou do auge",
+    "location": "Localização",
+    "no_shelves": "Nenhuma prateleira configurada.",
+    "add_first_cellar": "Adicione uma primeira adega para começar!"
   },
   "pl": {
     "cellars": "Piwnice",
@@ -1341,7 +1404,16 @@ const WCM_TRANSLATIONS = {
     "wine_details": "Szczegóły wina",
     "cellar_editor": "Edytor piwnicy",
     "bottle_editor": "Edytor butelki",
-    "unknown_cellar": "Nieznana piwnica"
+    "unknown_cellar": "Nieznana piwnica",
+    "bottles_count": "{n} butelek",
+    "free_slots": "{n} wolnych",
+    "status_young": "Za młode",
+    "status_ready": "Gotowe",
+    "status_peak": "W szczycie",
+    "status_past": "Po szczycie",
+    "location": "Lokalizacja",
+    "no_shelves": "Brak skonfigurowanych półek.",
+    "add_first_cellar": "Dodaj pierwszą piwnicę, aby rozpocząć!"
   }
 };
 
@@ -1366,155 +1438,308 @@ function _T(key, vars) {
 }
 
 // Static stylesheet for the card. Built once at module load instead of being
-// re-concatenated (~20KB) on every render.
+// re-concatenated (~20KB) on every render. Every surface and text color is
+// derived from the active Home Assistant theme so the card follows light/dark
+// mode and custom themes; only wine types and aging states use fixed colors.
 const _WCM_STYLES =
-        ":host{display:block}" +
+        ":host{--wcm-surface:var(--ha-card-background,var(--card-background-color,#fff));--wcm-bg:var(--primary-background-color,#fafafa);--wcm-text:var(--primary-text-color,#212121);--wcm-muted:var(--secondary-text-color,#727272);--wcm-divider:var(--divider-color,rgba(127,127,127,.2));--wcm-border:var(--ha-card-border-color,var(--wcm-divider));--wcm-accent:var(--primary-color,#03a9f4);--wcm-on-accent:var(--text-primary-color,#fff);--wcm-danger:var(--error-color,#db4437);--wcm-radius:var(--ha-card-border-radius,12px);--wcm-dialog:var(--ha-dialog-surface-background,var(--mdc-theme-surface,var(--wcm-surface)));--wcm-tonal:color-mix(in srgb,var(--wcm-text) 7%,transparent);--wcm-tonal-strong:color-mix(in srgb,var(--wcm-text) 12%,transparent);--wcm-interior:var(--wcm-bg);--wcm-rail-hi:#b3875c;--wcm-rail-lo:#6b4629;--wcm-young:#3b82f6;--wcm-ready:#22c55e;--wcm-peak:#f59e0b;--wcm-past:#ef4444;--wcm-none:color-mix(in srgb,var(--wcm-text) 28%,transparent);--wcm-star:#f5b400}" +
         "*{box-sizing:border-box}" +
-        "ha-card{display:block}" +
         ":host{display:flex !important;flex-direction:column !important;position:absolute !important;top:var(--header-height, 56px) !important;left:0 !important;right:0 !important;bottom:0 !important;height:calc(100vh - var(--header-height, 56px)) !important;width:100% !important;box-sizing:border-box !important}" +
-        "ha-card{display:flex !important;flex-direction:column !important;flex:1 1 100% !important;height:100% !important;min-height:0 !important;border:none !important;box-shadow:none !important;border-radius:0 !important}" +
-        ".wrap{background-image:linear-gradient(rgba(0,0,0,0.20),rgba(0,0,0,0.20)),url('/wine-cellar-manager-frontend/cellar_pattern.jpg');background-size:auto;background-repeat:repeat;background-position:top left;color:var(--primary-text-color);border-radius:0 !important;padding:16px;flex:1 1 100%;display:flex;flex-direction:column;gap:12px;overflow:hidden;height:100%}" +
-        ".toolbar{display:grid;grid-template-columns:1fr;gap:12px;flex:0 0 auto;border-bottom:1px solid color-mix(in srgb,var(--primary-text-color) 8%,transparent);padding-bottom:12px}" +
-        ".toolbar-actions,.filters,.helper-actions,.left-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}" +
-        ".btn,.icon-btn,select,input,textarea{font:inherit}" +
-        ".btn,select[data-age-filter],select[data-type-filter],select[data-country-filter]{border:1px solid transparent;background:var(--secondary-background-color);color:var(--primary-text-color);padding:10px 14px;border-radius:12px;cursor:pointer;height:42px;transition:background-color 0.15s ease,color 0.15s ease}" +
-        "select[data-age-filter],select[data-type-filter],select[data-country-filter]{width:auto;min-width:140px;padding-right:28px}" +
-        "select.filter-active{background-color:#2563eb !important;color:#ffffff !important;font-weight:700;box-shadow:0 0 10px rgba(37,99,235,0.3)}" +
-        "select.filter-active option{background-color:var(--secondary-background-color) !important;color:var(--primary-text-color) !important;font-weight:normal}" +
-        "/* Separateur Onglets structuraux */" +
-        ".nav-tabs-container{display:flex;gap:8px;padding-bottom:12px;margin-bottom:4px;border-bottom:2px solid color-mix(in srgb, var(--primary-text-color) 15%, transparent);width:100%}" +
-        "/* Style Switch Ready active */" +
-        ".btn.togglable.active{background:#2563eb;color:#ffffff;font-weight:700;box-shadow:0 0 10px rgba(37,99,235,0.4)}" +
-        ".btn[data-close-modal-btn]{border:1px solid color-mix(in srgb,var(--primary-text-color) 40%, transparent)}" +
-        ".btn.primary{background:#7b2130;color:#fff;border:none}" +
-        ".btn.danger{background:#a12d2f;color:#fff}" +
-        ".btn.warning{background:#9c6b14;color:#fff}" +
-        ".btn.edit-btn{background:#2563eb;color:#fff}" +
-        ".small-btn{padding:8px 10px}" +
-        ".icon-btn{background:none;border:none;font-size:1.6rem;cursor:pointer;color:inherit;line-height:1}" +
-        ".filters input{width:auto;min-width:320px;background:var(--secondary-background-color);border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent);border-radius:12px;padding:10px;color:inherit}" +
-        ".modal-form input,.modal-form select,.modal-form textarea{width:100%;background:var(--secondary-background-color);border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent);border-radius:12px;padding:10px;color:inherit}" +
-        ".cellars-grid{display:grid;grid-template-columns:1fr;gap:24px;justify-items:start}" +
-        ".cellar-panel{background:color-mix(in srgb,var(--secondary-background-color) 85%, transparent);border-radius:18px;padding:16px;min-width:0;width:max-content;max-width:100%;display:flex;flex-direction:column;align-items:center;border:1px solid color-mix(in srgb,var(--primary-text-color) 15%, transparent);box-shadow:0 4px 20px rgba(0,0,0,0.40)}.cellar-head{width:100%}" +
-        ".cellar-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}" +
-        ".cellar-head h3{margin:0}" +
-        ".shelf{margin-bottom:14px;padding:10px;border-radius:14px;background:color-mix(in srgb,var(--card-background-color) 55%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)}" +
-        ".shelf-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:10px}" +
-        ".shelf-lanes{display:grid;grid-template-columns:1fr;gap:10px;overflow-x:auto;padding-bottom:6px;width:100%}" +
-        ".shelf-lanes.has-back{padding-right:21px}" +
-        ".shelf-lanes.has-back{grid-template-columns:1fr}" +
-        ".lane-block{min-width:max-content;width:100%}" +
-        ".lane-label{font-weight:700;margin-bottom:4px;margin-top:4px}" +
-        ".row-label{font-weight:700;margin-bottom:0}" +
-        ".row-slots{display:flex;flex-wrap:nowrap;gap:10px;padding-bottom:2px;width:100%}" +
-        ".slot{width:122px;height:170px;flex:0 0 122px;border-radius:14px;border:4px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent);padding:5px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:center;cursor:pointer;color:inherit;transition:opacity .15s ease, transform .15s ease, border-color .15s ease;overflow:hidden}" +
-        ".slot.filled:hover{transform:translateY(-1px)}" +
-        ".slot.empty{opacity:.65;background:transparent;justify-content:center;height:170px}" +
-        ".slot.dimmed{opacity:.28;filter:grayscale(.25)}" +
-        ".compact-grid .cellars-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px;align-items:flex-start}.compact-grid .cellar-panel{width:max-content;max-width:100%}.compact-grid .shelf{padding:10px;margin-bottom:12px;border-radius:10px;display:flex;flex-direction:column;align-items:center;width:max-content;overflow:hidden}.compact-grid .shelf-head{display:none}.compact-grid .shelf-lanes{display:flex;flex-direction:column;align-items:center;width:auto;max-width:100%;padding:0 17px;box-sizing:border-box}.compact-grid .row-slots{gap:6px;justify-content:center;flex-wrap:nowrap;padding-bottom:0;width:auto}.compact-grid .lane-block{width:auto;min-width:0}.compact-grid .lane-label{display:none}.compact-grid .slot{width:28px;height:28px;flex:0 0 28px;border-radius:50%;padding:0;border:2px solid color-mix(in srgb,var(--primary-text-color) 15%,transparent);justify-content:center;align-items:center}.compact-grid .slot.empty{background:transparent;border:2px dashed color-mix(in srgb,var(--primary-text-color) 25%,transparent);font-size:0;position:relative}.compact-grid .slot.empty::before{content:'';width:5px;height:5px;background:color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:50%}.compact-grid .slot .label-wrap,.compact-grid .slot .slot-name,.compact-grid .slot .slot-meta,.compact-grid .slot .slot-rating{display:none}" +
-        ".lane-back{transform:translateX(21px)}" +
-        ".compact-grid .lane-back{transform:translateX(17px)}" +
-        ".label-wrap{height:78px;flex:0 0 78px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.20);overflow:hidden;margin-bottom:4px;border:1px dashed rgba(255,255,255,0.28);backdrop-filter:blur(2px)}" +
-        ".label-wrap.placeholder span{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;opacity:.75}" +
-        ".label-image{width:100%;height:100%;object-fit:cover}" +
-        ".slot-name{font-size:.88rem;font-weight:700;line-height:1.1;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:2.2em;flex-shrink:0}" +
-        ".slot-meta{font-size:.78rem;opacity:.85;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;height:1.2em;line-height:1.1;text-overflow:ellipsis;width:100%;flex-shrink:0}" +
-        ".slot-rating{font-size:.82rem;font-weight:600;opacity:.9;margin-top:auto}" +
-        ".table-wrap{overflow:auto}" +
-        ".table-wrap table{width:100%;border-collapse:collapse}" +
-        ".table-wrap th,.table-wrap td{padding:10px;border-bottom:1px solid color-mix(in srgb,var(--primary-text-color) 10%, transparent);text-align:left}" +
-        ".table-wrap tr{cursor:pointer}" +
-        ".table-wrap th{cursor:pointer;user-select:none}" +
-        ".table-wrap th:hover{background:color-mix(in srgb, var(--secondary-background-color) 85%, var(--primary-text-color))}" +
-        ".type-group-header{padding:12px 10px;font-weight:bold;font-size:1.1rem;letter-spacing:0.03em;text-transform:capitalize}" +
-        ".age-text{font-weight:600}" +
-        ".age-text.young{color:#3b82f6}" +
-        ".age-text.ready{color:#22c55e}" +
-        ".age-text.peak{color:#d4a017}" +
-        ".age-text.past{color:#dc2626}" +
-        ".empty-state{padding:24px;text-align:center;color:var(--secondary-text-color);font-size:1rem}" +
-        "/* STYLES INTERFACE STATISTIQUES */" +
-        ".stats-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px}" +
-        ".stats-card{background:color-mix(in srgb,var(--secondary-background-color) 70%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);border-radius:16px;padding:16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)}" +
-        ".stats-card-label{font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--secondary-text-color);margin-bottom:6px}" +
-        ".stats-card-value{font-size:1.6rem;font-weight:700;color:var(--primary-text-color)}" +
-        ".stats-charts-split{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}" +
-        ".stats-panel{background:color-mix(in srgb,var(--secondary-background-color) 50%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);border-radius:18px;padding:16px}" +
-        ".stats-panel h4{margin:0 0 14px 0;font-size:1.1rem;font-weight:700;letter-spacing:0.02em}" +
+        "ha-card{display:flex !important;flex-direction:column !important;flex:1 1 100% !important;height:100% !important;min-height:0 !important;border:none !important;box-shadow:none !important;border-radius:0 !important;background:transparent !important}" +
+        ".wrap{color:var(--wcm-text);padding:16px;flex:1 1 100%;display:flex;flex-direction:column;gap:14px;overflow:hidden;height:100%}" +
+        ".wrap.wood{background-image:linear-gradient(rgba(0,0,0,0.20),rgba(0,0,0,0.20)),url('/wine-cellar-manager-frontend/cellar_pattern.jpg');background-repeat:repeat;background-position:top left}" +
+        ".main-scroll-content{flex:1 1 auto;overflow-y:auto;min-height:0;padding:2px 2px 16px}" +
+        ".empty-state{padding:32px 24px;text-align:center;color:var(--wcm-muted);font-size:1rem}" +
+
+        /* Buttons */
+        ".btn,.icon-btn,.seg-btn,select,input,textarea{font:inherit}" +
+        ".btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;background:var(--wcm-tonal);color:var(--wcm-text);font-size:.9rem;font-weight:500;height:40px;padding:0 16px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background-color .15s ease,filter .15s ease}" +
+        ".btn:hover{background:var(--wcm-tonal-strong)}" +
+        ".btn:disabled{opacity:.45;cursor:default}" +
+        ".btn.primary{background:var(--wcm-accent);color:var(--wcm-on-accent)}" +
+        ".btn.primary:hover{filter:brightness(1.08)}" +
+        ".btn.danger{background:color-mix(in srgb,var(--wcm-danger) 14%,transparent);color:var(--wcm-danger)}" +
+        ".btn.danger:hover{background:color-mix(in srgb,var(--wcm-danger) 22%,transparent)}" +
+        ".btn.warning{background:color-mix(in srgb,var(--wcm-peak) 20%,transparent)}" +
+        ".btn.warning:hover{background:color-mix(in srgb,var(--wcm-peak) 30%,transparent)}" +
+        ".btn.ghost{background:transparent;box-shadow:inset 0 0 0 1px var(--wcm-divider)}" +
+        ".btn.ghost:hover{background:var(--wcm-tonal)}" +
+        ".btn svg{width:18px;height:18px;flex:0 0 auto;fill:currentColor}" +
+        ".small-btn{height:32px;padding:0 12px;font-size:.84rem}" +
+        ".icon-btn{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:36px;height:36px;padding:0;border:none;border-radius:50%;background:transparent;color:inherit;font-size:1.5rem;line-height:1;cursor:pointer;transition:background-color .15s ease}" +
+        ".icon-btn:hover{background:var(--wcm-tonal)}" +
+        ".icon-btn svg{width:20px;height:20px;fill:currentColor}" +
+        ".btn:focus-visible,.icon-btn:focus-visible,.seg-btn:focus-visible,.slot:focus-visible{outline:2px solid var(--wcm-accent);outline-offset:2px}" +
+
+        /* Toolbar */
+        ".toolbar{flex:0 0 auto;display:grid;gap:10px;padding:10px;background:var(--wcm-surface);border:1px solid var(--wcm-border);border-radius:var(--wcm-radius);box-shadow:var(--ha-card-box-shadow,none)}" +
+        ".toolbar-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}" +
+        ".toolbar-spacer{flex:1 1 auto}" +
+        ".seg{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--wcm-tonal);max-width:100%;overflow-x:auto;scrollbar-width:none}" +
+        ".seg::-webkit-scrollbar{display:none}" +
+        ".seg-btn{border:none;background:transparent;color:var(--wcm-muted);font-size:.9rem;font-weight:500;height:34px;padding:0 16px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background-color .15s ease,color .15s ease}" +
+        ".seg-btn:hover{color:var(--wcm-text)}" +
+        ".seg-btn.active{background:var(--wcm-accent);color:var(--wcm-on-accent)}" +
+        ".filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}" +
+        ".search{position:relative;flex:1 1 260px;min-width:0;display:flex;align-items:center}" +
+        ".search svg{position:absolute;left:13px;width:18px;height:18px;fill:var(--wcm-muted);pointer-events:none}" +
+        ".search input{width:100%;height:40px;padding:0 14px 0 38px;border-radius:999px;border:1px solid transparent;background:var(--wcm-tonal);color:var(--wcm-text);font-size:.92rem;outline:none}" +
+        ".search input:focus{border-color:var(--wcm-accent);background:transparent}" +
+        ".select-wrap{position:relative;display:inline-flex;flex:0 1 auto;min-width:0;color:var(--wcm-text)}" +
+        ".select-wrap::after{content:'';position:absolute;right:15px;top:50%;width:6px;height:6px;margin-top:-5px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);pointer-events:none;opacity:.6}" +
+        ".select-wrap select{appearance:none;-webkit-appearance:none;width:100%;height:40px;max-width:220px;padding:0 36px 0 16px;border-radius:999px;border:1px solid transparent;background:var(--wcm-tonal);color:var(--wcm-text);font-size:.9rem;cursor:pointer;text-overflow:ellipsis;outline:none}" +
+        ".select-wrap select:focus-visible{border-color:var(--wcm-accent)}" +
+        ".select-wrap select.filter-active{background:color-mix(in srgb,var(--wcm-accent) 16%,transparent);border-color:var(--wcm-accent);font-weight:600}" +
+        "select option{background:var(--wcm-dialog);color:var(--wcm-text);font-weight:normal}" +
+        ".summary{display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;font-size:.84rem;color:var(--wcm-muted);padding:0 4px}" +
+        ".summary strong{color:var(--wcm-text);font-weight:600}" +
+        ".legend-item{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}" +
+        ".legend-dot{width:10px;height:10px;border-radius:50%;background:var(--status);flex:0 0 auto}" +
+        ".summary-match{padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--wcm-accent) 16%,transparent);color:var(--wcm-text);font-weight:500}" +
+        ".paste-banner{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:2px 2px 2px 12px;border-radius:999px;background:color-mix(in srgb,var(--wcm-accent) 16%,transparent);color:var(--wcm-text)}" +
+        ".paste-banner .icon-btn{width:28px;height:28px}" +
+        ".paste-banner .icon-btn svg{width:16px;height:16px}" +
+
+        /* Cellars: each one is drawn as a cabinet whose frame takes the cellar color */
+        ".cellars-grid{--slot-w:124px;--slot-h:188px;--slot-gap:10px;--tag-w:16px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:center}" +
+        ".cellars-grid.compact{--slot-w:28px;--slot-h:28px;--slot-gap:10px;--tag-w:0px;gap:16px}" +
+        ".cellar{min-width:220px;max-width:100%;display:flex;flex-direction:column;gap:12px;padding:14px;background:var(--wcm-surface);border:1px solid var(--wcm-border);border-radius:var(--wcm-radius);box-shadow:var(--ha-card-box-shadow,none)}" +
+        ".cellar-head{display:flex;align-items:center;gap:10px;min-width:0;padding-left:2px}" +
+        ".cellar-title{flex:1 1 auto;min-width:0}" +
+        ".cellar-title h3{margin:0;font-size:1.1rem;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".cellar-sub{display:flex;align-items:center;gap:8px;margin-top:5px;font-size:.8rem;color:var(--wcm-muted);font-variant-numeric:tabular-nums}" +
+        ".meter{width:64px;height:6px;border-radius:3px;background:var(--wcm-tonal-strong);overflow:hidden;flex:0 0 auto}" +
+        ".meter span{display:block;height:100%;border-radius:3px;background:var(--wcm-accent)}" +
+        ".cabinet{--frame:var(--cellar,color-mix(in srgb,var(--wcm-text) 18%,var(--wcm-surface)));padding:8px;border-radius:max(8px,calc(var(--wcm-radius) - 2px));background:linear-gradient(160deg,color-mix(in srgb,var(--frame) 80%,#fff),var(--frame) 45%,color-mix(in srgb,var(--frame) 78%,#000));box-shadow:inset 0 0 0 1px rgba(0,0,0,.14),0 2px 8px rgba(0,0,0,.18);max-width:100%}" +
+        ".interior{border-radius:max(4px,calc(var(--wcm-radius) - 8px));background:radial-gradient(120% 50% at 50% 0%,rgba(255,255,255,.07),transparent 70%),var(--wcm-interior);box-shadow:inset 0 2px 10px rgba(0,0,0,.3);overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}" +
+        ".shelves{display:grid;gap:6px;min-width:max-content;padding:10px 10px 8px}" +
+        ".shelf{--pitch:calc(var(--slot-w) + var(--slot-gap));display:grid;gap:6px;padding-top:4px}" +
+        ".shelf-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:0 calc(var(--tag-w) + 4px);font-size:.78rem;color:var(--wcm-muted);min-width:0}" +
+        ".shelf-name{position:sticky;left:12px;font-weight:600;color:var(--wcm-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}" +
+        ".shelf-count{position:sticky;right:12px;white-space:nowrap;font-variant-numeric:tabular-nums}" +
+        ".lane{display:grid;grid-template-columns:var(--tag-w) 1fr var(--tag-w);align-items:center}" +
+        ".lane-back{padding:8px 0 2px;border-radius:10px 10px 0 0;background:linear-gradient(color-mix(in srgb,var(--wcm-text) 8%,transparent),color-mix(in srgb,var(--wcm-text) 2%,transparent));box-shadow:inset 0 7px 10px -7px rgba(0,0,0,.4)}" +
+        ".lane-tag{writing-mode:vertical-rl;transform:rotate(180deg);justify-self:center;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wcm-muted);white-space:nowrap;user-select:none}" +
+        ".lane-row{grid-column:2;display:flex;justify-content:center;gap:var(--slot-gap)}" +
+        /* Front/back rows are centered as a pair. When both rows have the same
+           parity their slots would line up, so each is nudged a quarter pitch in
+           opposite directions: the back row then sits in the gaps of the front
+           row and the pair as a whole stays centered on the shelf. */
+        ".shelf.staggered .lane-row{padding:0 calc(var(--pitch) / 4)}" +
+        ".shelf.staggered .lane-back .lane-row{transform:translateX(calc(var(--pitch) / 4))}" +
+        ".shelf.staggered .lane-front .lane-row{transform:translateX(calc(var(--pitch) / -4))}" +
+        ".rail{height:8px;margin:0 -10px;border-radius:2px;background:linear-gradient(var(--wcm-rail-hi),var(--wcm-rail-lo));box-shadow:0 3px 5px -1px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.28)}" +
+
+        /* Bottle slots (detailed view) */
+        ".slot{position:relative;width:var(--slot-w);height:var(--slot-h);flex:0 0 var(--slot-w);border-radius:12px;display:flex;flex-direction:column;align-items:stretch;text-align:center;cursor:pointer;color:var(--wcm-text);overflow:hidden;outline:none;-webkit-tap-highlight-color:transparent;transition:box-shadow .15s ease,opacity .2s ease,filter .2s ease,border-color .15s ease,background-color .15s ease}" +
+        ".slot.filled{padding:10px 6px 7px;background:color-mix(in srgb,var(--type) 16%,var(--wcm-surface));border:1px solid color-mix(in srgb,var(--type) 45%,var(--wcm-divider));box-shadow:0 1px 2px rgba(0,0,0,.18),0 4px 10px -4px rgba(0,0,0,.35)}" +
+        ".slot.filled::before{content:'';position:absolute;left:0;right:0;top:0;height:5px;background:var(--type)}" +
+        ".slot.filled:hover{box-shadow:0 0 0 2px var(--wcm-accent),0 6px 14px -4px rgba(0,0,0,.45)}" +
+        ".lane-back .slot{transform:scale(.92)}" +
+        ".label-wrap{position:relative;height:80px;flex:0 0 80px;margin-bottom:6px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--type) 24%,var(--wcm-surface))}" +
+        ".label-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}" +
+        ".label-wrap .bottle-art{height:70px;width:auto}" +
+        ".bottle-glass{fill:var(--type);stroke:rgba(0,0,0,.25);stroke-width:1}" +
+        ".bottle-capsule{fill:rgba(0,0,0,.4)}" +
+        ".bottle-label{fill:rgba(255,255,255,.9)}" +
+        ".bottle-shine{fill:none;stroke:rgba(255,255,255,.35);stroke-width:2.5;stroke-linecap:round}" +
+        ".slot-window{position:absolute;left:4px;bottom:4px;padding:1px 7px;border-radius:999px;background:color-mix(in srgb,var(--status) 72%,#000);color:#fff;font-size:.66rem;font-weight:700;line-height:1.45;font-variant-numeric:tabular-nums;box-shadow:0 1px 3px rgba(0,0,0,.4)}" +
+        ".slot-name{font-size:.8rem;font-weight:600;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.4em;overflow-wrap:anywhere}" +
+        ".slot-meta{margin-top:3px;font-size:.7rem;line-height:1.25;color:var(--wcm-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".slot-rating{margin-top:auto;font-size:.74rem;letter-spacing:1px;color:var(--wcm-star);line-height:1}" +
+        ".slot-rating .off{color:var(--wcm-muted);opacity:.35}" +
+        ".slot.empty{align-items:center;justify-content:center;gap:4px;color:var(--wcm-muted);border:1.5px dashed color-mix(in srgb,var(--wcm-text) 22%,transparent);background:color-mix(in srgb,var(--wcm-text) 2%,transparent)}" +
+        ".slot.empty .bottle-ghost{height:78px;width:auto;opacity:.45}" +
+        ".bottle-ghost path{fill:none;stroke:currentColor;stroke-width:1.5;stroke-dasharray:3 3;vector-effect:non-scaling-stroke}" +
+        ".slot-pos{font-size:.72rem;font-variant-numeric:tabular-nums;opacity:.8}" +
+        ".slot.empty:hover,.slot.drag-over{border-color:var(--wcm-accent);border-style:solid;color:var(--wcm-accent);background:color-mix(in srgb,var(--wcm-accent) 8%,transparent)}" +
+        ".slot.empty.paste-ready{border-color:var(--wcm-accent);color:var(--wcm-accent);animation:wcm-breathe 1.8s ease-in-out infinite}" +
+        ".slot.filled.drag-over{box-shadow:0 0 0 3px var(--wcm-accent)}" +
+        ".slot.dimmed{opacity:.22;filter:grayscale(.7)}" +
+        ".slot.filled.match{box-shadow:0 0 0 2px var(--wcm-accent),0 0 16px -2px color-mix(in srgb,var(--wcm-accent) 70%,transparent)}" +
+        "@keyframes wcm-breathe{50%{background:color-mix(in srgb,var(--wcm-accent) 14%,transparent)}}" +
+
+        /* Compact view: the cabinet seen from the front, one glass bottle end per slot */
+        ".compact .cellar{padding:12px}" +
+        ".compact .shelves{gap:4px;padding:8px 10px 6px}" +
+        ".compact .shelf{gap:2px;padding-top:2px}" +
+        ".compact .shelf-head{padding:0 2px 2px;font-size:.7rem}" +
+        ".compact .shelf-name{font-weight:500;color:var(--wcm-muted);max-width:180px}" +
+        ".compact .shelf-count{display:none}" +
+        ".compact .lane-tag{display:none}" +
+        ".compact .lane-back{padding:0;background:none;box-shadow:none}" +
+        ".compact .lane + .lane{margin-top:2px}" +
+        ".compact .rail{height:6px;margin-top:4px}" +
+        ".compact .slot{border-radius:50%;overflow:visible}" +
+        ".compact .slot.filled{padding:0;border:none;background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.6),rgba(255,255,255,0) 32%),radial-gradient(circle,color-mix(in srgb,var(--type) 55%,#000) 0 20%,var(--type) 30% 62%,color-mix(in srgb,var(--type) 62%,#000) 100%);box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--status),0 3px 6px 1px rgba(0,0,0,.4)}" +
+        ".compact .slot.filled::before{display:none}" +
+        ".compact .slot.filled:hover{box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--wcm-accent),0 3px 8px 1px rgba(0,0,0,.45)}" +
+        ".compact .slot.filled.match{box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--status),0 3px 6px 1px rgba(0,0,0,.4)}" +
+        ".compact .slot.filled.drag-over{box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--wcm-accent)}" +
+        ".compact .lane-back .slot{transform:scale(.9)}" +
+        ".compact .lane-back .slot.filled{filter:brightness(.82)}" +
+        ".compact .lane-back .slot.filled.dimmed{filter:brightness(.82) grayscale(.7)}" +
+        ".compact .slot.empty{gap:0;border-width:1.5px;background:transparent}" +
+        ".compact .slot.empty::after{content:'';width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.5}" +
+
+        /* Location mini-map (bottle dialog) */
+        ".cabinet.mini{--slot-w:14px;--slot-gap:6px;--tag-w:0px;display:inline-block;padding:6px;border-radius:10px}" +
+        ".mini .interior{border-radius:5px}" +
+        ".mini .shelves{gap:3px;padding:8px 8px 4px}" +
+        ".mini .shelf{gap:3px;padding:3px 0 0;border-radius:4px}" +
+        ".mini .lane-back{padding:0;background:none;box-shadow:none}" +
+        ".mini .rail{height:4px;margin:0 -8px}" +
+        ".mini .shelf.current{background:color-mix(in srgb,var(--wcm-accent) 22%,transparent)}" +
+        ".mm-dot{width:var(--slot-w);height:var(--slot-w);flex:0 0 var(--slot-w);border-radius:50%;border:1.5px dashed color-mix(in srgb,var(--wcm-text) 25%,transparent)}" +
+        ".mm-dot.filled{border:none;background:var(--type);opacity:.5}" +
+        ".mini .lane-back .mm-dot{transform:scale(.88)}" +
+        ".mm-dot.target{opacity:1;transform:scale(1.3) !important;box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--wcm-accent);animation:wcm-ping 1.6s ease-out infinite}" +
+        "@keyframes wcm-ping{0%{box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--wcm-accent),0 0 0 4px color-mix(in srgb,var(--wcm-accent) 60%,transparent)}100%{box-shadow:0 0 0 2px var(--wcm-interior),0 0 0 4px var(--wcm-accent),0 0 0 14px transparent}}" +
+        "@media (prefers-reduced-motion:reduce){.mm-dot.target,.slot.empty.paste-ready{animation:none}}" +
+
+        /* All bottles table */
+        ".table-wrap{overflow:auto;background:var(--wcm-surface);border:1px solid var(--wcm-border);border-radius:var(--wcm-radius);box-shadow:var(--ha-card-box-shadow,none)}" +
+        ".table-wrap table{width:100%;border-collapse:collapse;font-size:.9rem}" +
+        ".table-wrap th,.table-wrap td{padding:10px 12px;border-bottom:1px solid var(--wcm-divider);text-align:left;vertical-align:middle}" +
+        ".table-wrap th{font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--wcm-muted);cursor:pointer;user-select:none;white-space:nowrap}" +
+        ".table-wrap th:hover{color:var(--wcm-text)}" +
+        ".table-wrap tr[data-edit-bottle]{cursor:pointer;transition:background-color .12s ease}" +
+        ".table-wrap tr[data-edit-bottle]:hover{background:var(--wcm-tonal)}" +
+        ".type-group-header{padding:16px 12px 8px !important;font-weight:700;font-size:.95rem}" +
+        ".type-chip{display:inline-flex;align-items:center;gap:8px}" +
+        ".type-dot{width:12px;height:12px;border-radius:4px;background:var(--type);box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);flex:0 0 auto}" +
+        ".group-count{color:var(--wcm-muted);font-weight:500}" +
+        ".age-text{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-variant-numeric:tabular-nums}" +
+        ".stars{color:var(--wcm-star);letter-spacing:1px;white-space:nowrap}" +
+        ".loc-main{font-weight:500;white-space:nowrap}" +
+        ".loc-sub{font-size:.78rem;color:var(--wcm-muted);white-space:nowrap}" +
+
+        /* Statistics */
+        ".stats-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:16px}" +
+        ".stats-card{background:var(--wcm-surface);border:1px solid var(--wcm-border);border-radius:var(--wcm-radius);padding:16px;text-align:center;box-shadow:var(--ha-card-box-shadow,none)}" +
+        ".stats-card-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--wcm-muted);margin-bottom:6px}" +
+        ".stats-card-value{font-size:1.6rem;font-weight:700;color:var(--wcm-text)}" +
+        ".stats-charts-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}" +
+        ".stats-panel{background:var(--wcm-surface);border:1px solid var(--wcm-border);border-radius:var(--wcm-radius);padding:16px;box-shadow:var(--ha-card-box-shadow,none)}" +
+        ".stats-panel h4{margin:0 0 14px 0;font-size:1.05rem;font-weight:600}" +
         ".chart-full-width{margin-bottom:10px}" +
         "@media (max-width:900px){.stats-charts-split{grid-template-columns:1fr}}" +
-        ".modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px;z-index:999}" +
-        ".modal{width:min(980px,100%);max-height:92vh;overflow:auto;background:var(--card-background-color);color:var(--primary-text-color);border-radius:22px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.35)}" +
+
+        /* Dialogs */
+        ".modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:16px;z-index:999}" +
+        ".modal{width:min(980px,100%);max-height:92vh;overflow:auto;background:var(--wcm-dialog);color:var(--wcm-text);border-radius:20px;padding:20px;box-shadow:0 24px 48px rgba(0,0,0,.35)}" +
         ".small-modal{width:min(760px,100%)}" +
-        ".modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}" +
-        ".modal-head h3{margin:0}" +
+        ".modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}" +
+        ".modal-head h3{margin:0;font-size:1.25rem;font-weight:600}" +
         ".modal-form{display:grid;gap:12px}" +
+        ".modal-form label{display:grid;gap:6px;font-size:.88rem;color:var(--wcm-muted)}" +
+        ".modal-form input,.modal-form select,.modal-form textarea{width:100%;background:var(--wcm-tonal);border:1px solid transparent;border-radius:10px;padding:10px 12px;color:var(--wcm-text);outline:none}" +
+        ".modal-form input:focus,.modal-form select:focus,.modal-form textarea:focus{border-color:var(--wcm-accent)}" +
         ".grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}" +
         ".grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}" +
         ".grid-location{display:grid;grid-template-columns:1.3fr 1fr auto;gap:12px;align-items:end}" +
         ".grid-location .position-field{display:none}" +
         ".grid-shelf{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px}" +
-        ".modal-form label{display:grid;gap:6px;font-size:.92rem}" +
         ".modal-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;grid-column:1 / -1;margin-top:8px}" +
-        ".left-actions{display:flex;gap:8px;justify-content:flex-start;margin-right:auto}" +
-        ".right-actions{display:flex;gap:8px;justify-content:flex-end}" +
-        ".image-preview img{max-width:100%;max-height:220px;border-radius:12px;border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent)}" +
-        ".form-error{margin-bottom:12px;padding:10px 12px;border-radius:12px;background:#a12d2f;color:#fff;font-size:.92rem;line-height:1.35}" +
-        ".action-message{margin-bottom:12px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--secondary-background-color) 80%, transparent);color:var(--primary-text-color);font-size:.92rem;line-height:1.35}" +
-        ".scanner-wrap{border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent);border-radius:14px;padding:10px;background:color-mix(in srgb,var(--secondary-background-color) 55%, transparent)}" +
-        ".scanner-box{overflow:hidden;border-radius:12px;background:#000;min-height:220px}" +
-        ".scanner-host{width:100%;min-height:220px}" +
-        ".duplicate-panel{border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent);border-radius:14px;padding:12px;background:color-mix(in srgb,var(--secondary-background-color) 60%, transparent)}" +
+        ".left-actions,.right-actions,.helper-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}" +
+        ".left-actions{justify-content:flex-start;margin-right:auto}" +
+        ".right-actions{justify-content:flex-end;margin-left:auto}" +
+        ".image-preview img{max-width:100%;max-height:220px;border-radius:12px;border:1px solid var(--wcm-divider)}" +
+        ".form-error{margin-bottom:12px;padding:10px 12px;border-radius:12px;background:var(--wcm-danger);color:#fff;font-size:.92rem;line-height:1.35}" +
+        ".action-message{margin-bottom:12px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--wcm-accent) 14%,transparent);color:var(--wcm-text);font-size:.92rem;line-height:1.35}" +
+        ".field-label{font-size:.88rem;color:var(--wcm-muted);margin-bottom:6px}" +
+        ".swatches{display:flex;flex-wrap:wrap;gap:8px}" +
+        ".modal-form label.swatch{position:relative;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:var(--wcm-tonal);color:var(--wcm-text);cursor:pointer;border:1px solid transparent}" +
+        ".modal-form label.swatch input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}" +
+        ".swatch-chip{width:20px;height:20px;border-radius:6px;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}" +
+        ".modal-form label.swatch:has(input:checked){border-color:var(--wcm-accent);background:color-mix(in srgb,var(--wcm-accent) 14%,transparent);font-weight:600}" +
+        ".modal-form label.swatch:has(input:focus-visible){outline:2px solid var(--wcm-accent);outline-offset:2px}" +
+        ".duplicate-panel{border:1px solid var(--wcm-divider);border-radius:14px;padding:12px;background:var(--wcm-tonal)}" +
         ".duplicate-panel h4{margin:0 0 10px 0}" +
-        ".duplicate-info{font-size:.88rem;color:var(--secondary-text-color);margin-bottom:10px}" +
-        ".duplicate-empty{font-size:.92rem;color:var(--secondary-text-color)}" +
+        ".duplicate-info{font-size:.88rem;color:var(--wcm-muted);margin-bottom:10px}" +
+        ".duplicate-empty{font-size:.92rem;color:var(--wcm-muted)}" +
         ".duplicate-list{display:grid;gap:10px}" +
-        ".duplicate-item{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px;border-radius:12px;background:color-mix(in srgb,var(--card-background-color) 60%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)}" +
+        ".duplicate-item{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px;border-radius:12px;background:var(--wcm-tonal);border:1px solid var(--wcm-divider)}" +
         ".duplicate-title{font-weight:700}" +
-        ".duplicate-sub{font-size:.84rem;color:var(--secondary-text-color)}" +
+        ".duplicate-sub{font-size:.84rem;color:var(--wcm-muted)}" +
         ".duplicate-actions{display:flex;gap:8px;flex-wrap:wrap}" +
-        ".wine-view-modal{padding:0;overflow:hidden;display:flex;flex-direction:column}" +
-        ".modal-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 16px;flex:0 0 auto;width:100%;max-width:100%;box-sizing:border-box;overflow:hidden}" +
-        ".modal-banner-title{font-size:1.55rem;font-weight:700;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
-        ".modal-banner-sub{margin-top:6px;font-size:.95rem;opacity:.88}" +
-        ".modal-close-light{color:inherit;opacity:.9}" +
-        ".view-shell{display:flex;flex-direction:column;min-height:0;max-height:calc(92vh - 88px)}" +
-        ".modal-body.split-view{display:grid;grid-template-columns:minmax(320px,1.05fr) minmax(280px,.95fr);gap:18px;padding:18px 20px 12px;overflow:auto;min-height:0;align-items:start}" +
-        ".detail-column{display:flex;flex-direction:column;gap:16px;min-width:0}" +
-        ".detail-hero-line{display:flex;flex-direction:column;gap:4px}" +
-        ".detail-vintage{font-size:1.65rem;font-weight:700;line-height:1}" +
-        ".detail-winery{font-size:1rem;color:var(--secondary-text-color)}" +
-        ".rating-row{display:flex;align-items:center;gap:10px}" +
-        ".stars-display{font-size:1.22rem;letter-spacing:.06em;color:#d4a017;font-weight:700}" +
-        ".detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}" +
-        ".detail-card{padding:14px;border-radius:16px;background:color-mix(in srgb,var(--secondary-background-color) 70%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)}" +
-        ".detail-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--secondary-text-color);margin-bottom:6px}" +
-        ".detail-value{font-size:1.05rem;font-weight:700}" +
-        ".detail-list{display:grid;gap:10px}" +
-        ".detail-line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)}" +
-        ".detail-line span{color:var(--secondary-text-color)}" +
-        ".detail-line strong{font-size:.98rem}" +
-        ".notes-box{padding:14px;border-radius:16px;background:color-mix(in srgb,var(--secondary-background-color) 62%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)}" +
-        ".notes-text{white-space:pre-wrap;line-height:1.5}" +
-        ".image-column{display:flex;min-width:0}" +
-        ".hero-image-frame{width:100%;min-height:260px;max-height:58vh;border-radius:20px;background:color-mix(in srgb,var(--secondary-background-color) 70%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 10%, transparent);overflow:hidden;display:flex;align-items:center;justify-content:center}" +
-        ".hero-image-frame.placeholder{color:var(--secondary-text-color);font-size:1rem}" +
-        ".hero-label-image{width:100%;height:100%;object-fit:contain;display:block;background:color-mix(in srgb,var(--secondary-background-color) 55%, transparent)}" +
-        ".view-actions{padding:12px 20px 20px}" +
-        ".sticky-footer{flex:0 0 auto;border-top:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);background:var(--card-background-color)}" +
-        ".shelf-editor{display:grid;gap:10px;padding:12px;border:1px solid color-mix(in srgb,var(--primary-text-color) 10%, transparent);border-radius:14px;background:color-mix(in srgb,var(--secondary-background-color) 55%, transparent)}" +
-        ".shelf-editor-head{display:flex;align-items:center;justify-content:space-between;gap:8px}" +
-        ".shelf-editor-row{display:grid;gap:8px;padding:10px;border-radius:12px;background:color-mix(in srgb,var(--card-background-color) 60%, transparent);border:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)}" +
-        ".shelf-row-actions{display:flex;justify-content:flex-end}" +
-        "@media (max-width:900px){.modal-body.split-view{grid-template-columns:1fr}.hero-image-frame{max-height:42vh}}" +
-        "@media (max-width:780px){.cellars-grid,.grid2,.grid3,.detail-grid,.grid-shelf,.grid-location{grid-template-columns:1fr}.wrap{padding:12px}.modal{padding:12px;max-height:94vh;overflow-y:auto}.wine-view-modal{padding:0;display:grid !important;grid-template-columns:1fr !important}.wine-view-modal .modal-body.split-view{grid-row:2 !important;padding:16px}.row-slots{gap:8px}.slot{width:116px;height:164px;flex-basis:116px}.duplicate-item{grid-template-columns:1fr}.modal-actions,.view-actions{flex-direction:column;align-items:stretch}.right-actions,.left-actions,.helper-actions{width:100%}.right-actions .btn,.left-actions .btn,.helper-actions .btn{flex:1}.modal-banner{padding:16px;grid-row:1 !important}.view-actions{padding:12px 16px 16px}.hero-image-frame{min-height:220px;max-height:34vh}.modal-banner-title{font-size:1.28rem}.nav-tabs-container .btn{font-size:0.84rem;padding:8px 10px;text-align:center;line-height:1.2;display:flex;align-items:center;justify-content:center}.nav-tabs-container{flex-wrap:wrap;gap:8px 6px}.nav-tabs-container [data-view]{order:2;flex:1 1 calc(25% - 6px)}.nav-tabs-container [data-open-cleanup-tool]{order:1;flex:1 1 calc(50% - 6px);margin-left:0 !important}.nav-tabs-container [data-add-cellar]{order:1;flex:1 1 calc(50% - 6px);margin-left:0 !important}.filters input,.toolbar-actions input{min-width:140px !important}}" +
-        "@media (max-width:780px) and (orientation: portrait){.cellar-panel{width:100% !important;max-width:100% !important}.shelf{width:100% !important}}" +
-        "@media (max-width:960px) and (orientation: landscape){.cellar-panel{width:100% !important;max-width:100% !important}.shelf{width:100% !important}}" +
-        "@media (max-width:780px){:host{position:static !important;height:auto !important}.wrap{height:auto !important;overflow:visible !important;border-radius:18px !important}.main-scroll-content{overflow-y:visible !important;height:auto !important}}" +
-        ".custom-autocomplete-item{padding:12px 14px;cursor:pointer;border-bottom:1px solid color-mix(in srgb,var(--primary-text-color) 8%,transparent);font-size:0.95rem;text-align:left;color:var(--primary-text-color)}" +
+        ".variant{display:block;height:auto;white-space:normal;padding:8px 12px;border-radius:10px;text-align:left;border:2px solid transparent;opacity:.8}" +
+        ".variant.selected{border-color:var(--wcm-accent);background:color-mix(in srgb,var(--wcm-accent) 12%,transparent);font-weight:700;opacity:1}" +
+        ".variant-count{font-size:.75rem;font-weight:400;color:var(--wcm-muted);margin-top:2px}" +
+        ".btn.square{width:42px;padding:0;border-radius:12px;font-size:1.2rem;font-weight:700}" +
+        ".btn.ok{background:color-mix(in srgb,var(--wcm-ready) 20%,transparent);color:var(--wcm-ready)}" +
+        ".section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--wcm-muted)}" +
+        ".custom-autocomplete-panel{display:none;position:absolute;top:100%;left:0;right:0;margin-top:4px;background:var(--wcm-dialog);border:1px solid var(--wcm-divider);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 8px 20px rgba(0,0,0,.3)}" +
+        ".custom-autocomplete-item{padding:12px 14px;cursor:pointer;border-bottom:1px solid var(--wcm-divider);font-size:.95rem;text-align:left;color:var(--wcm-text)}" +
         ".custom-autocomplete-item:last-child{border-bottom:none}" +
-        ".custom-autocomplete-item:hover{background:color-mix(in srgb,var(--secondary-background-color) 85%,var(--primary-text-color))}" +
-        ".main-scroll-content{flex:1 1 auto;overflow-y:auto;min-height:0;padding-right:4px}";
+        ".custom-autocomplete-item:hover{background:var(--wcm-tonal)}" +
+        ".shelf-editor{display:grid;gap:10px;padding:12px;border:1px solid var(--wcm-divider);border-radius:14px;background:color-mix(in srgb,var(--wcm-text) 3%,transparent)}" +
+        ".shelf-editor-head{display:flex;align-items:center;justify-content:space-between;gap:8px}" +
+
+        /* Bottle details dialog */
+        ".wine-view-modal{padding:0;overflow:hidden;display:flex;flex-direction:column}" +
+        ".modal-banner{display:flex;align-items:center;gap:12px;padding:16px 16px 16px 20px;flex:0 0 auto;background:var(--type);color:var(--type-ink)}" +
+        ".wine-badge{flex:0 0 auto;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--type-ink) 16%,transparent);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}" +
+        ".banner-text{flex:1 1 auto;min-width:0}" +
+        ".modal-banner-title{margin:0;font-size:1.35rem;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".modal-banner-sub{margin-top:2px;font-size:.82rem;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".modal-body.split-view{display:grid;grid-template-columns:minmax(300px,1fr) minmax(280px,1fr);gap:24px;padding:20px;overflow:auto;min-height:0;align-items:start}" +
+        ".info-column,.image-column{display:flex;flex-direction:column;gap:18px;min-width:0}" +
+        ".rating-row{display:flex;align-items:center;gap:4px;min-height:30px;font-size:1.5rem;letter-spacing:3px;line-height:1;color:var(--wcm-star)}" +
+        ".rating-row .off{color:var(--wcm-muted);opacity:.3}" +
+        ".rating-row .not-rated{font-size:1rem;letter-spacing:0;font-weight:600;color:var(--wcm-muted)}" +
+        ".detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}" +
+        ".meta-item strong{display:block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--wcm-muted);margin-bottom:3px}" +
+        ".meta-item div{font-size:.95rem;overflow-wrap:anywhere}" +
+        ".window-block{display:grid;gap:10px;padding-top:16px;border-top:1px solid var(--wcm-divider)}" +
+        ".window-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px}" +
+        ".window-years{font-size:1.05rem;font-weight:600;font-variant-numeric:tabular-nums}" +
+        ".window-status{display:inline-flex;align-items:center;gap:6px;margin-left:auto;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--status) 18%,transparent);font-size:.8rem;font-weight:600}" +
+        ".window-status i,.age-text i{width:9px;height:9px;border-radius:50%;background:var(--status);flex:0 0 auto}" +
+        ".window-track{position:relative;height:10px;border-radius:5px;background:var(--wcm-tonal-strong)}" +
+        ".window-span{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--status)}" +
+        ".window-now{position:absolute;top:-5px;bottom:-5px;width:3px;margin-left:-1.5px;border-radius:2px;background:var(--wcm-text);box-shadow:0 0 0 2px var(--wcm-dialog)}" +
+        ".window-scale{position:relative;display:flex;justify-content:space-between;font-size:.72rem;color:var(--wcm-muted);font-variant-numeric:tabular-nums}" +
+        ".window-scale b{position:absolute;top:0;transform:translateX(-50%);color:var(--wcm-text);font-weight:600}" +
+        ".notes-box{padding:14px;border-radius:14px;background:var(--wcm-tonal)}" +
+        ".notes-text{white-space:pre-wrap;line-height:1.5;margin-top:6px}" +
+        ".hero-image-frame{width:100%;min-height:220px;max-height:46vh;border-radius:16px;background:var(--wcm-tonal);overflow:hidden;display:flex;align-items:center;justify-content:center}" +
+        ".hero-image-frame.placeholder{color:var(--wcm-muted);font-size:1rem}" +
+        ".hero-label-image{width:100%;height:100%;max-height:46vh;object-fit:contain;display:block}" +
+        ".location-block{display:grid;gap:12px;padding:14px;border-radius:16px;background:var(--wcm-tonal)}" +
+        ".crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:.86rem}" +
+        ".crumb{padding:3px 10px;border-radius:999px;background:var(--wcm-tonal-strong);font-weight:500}" +
+        ".crumb.here{background:var(--wcm-accent);color:var(--wcm-on-accent)}" +
+        ".crumb-sep{color:var(--wcm-muted)}" +
+        ".location-map{display:flex;justify-content:center;overflow-x:auto}" +
+        ".view-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 20px;border-top:1px solid var(--wcm-divider)}" +
+        "@media (max-width:900px){.modal-body.split-view{grid-template-columns:1fr}}" +
+
+        /* Small screens */
+        "@media (max-width:780px){.wrap{padding:10px;gap:10px}.toolbar{padding:8px}.seg{width:100%;flex-wrap:wrap;border-radius:20px}.seg-btn{flex:1 1 auto;padding:0 10px;font-size:.84rem}.toolbar-spacer{display:none}.toolbar-row > .btn{flex:1 1 0}.search{flex-basis:100%}.select-wrap{flex:1 1 30%}.select-wrap select{max-width:none;padding-left:12px;padding-right:30px;font-size:.84rem}.cellars-grid{--slot-w:112px;--slot-h:180px;--slot-gap:8px;gap:14px}.cellars-grid.compact{--slot-w:26px;--slot-h:26px;--slot-gap:9px}.cellar{width:100%;padding:10px}.grid2,.grid3,.grid-shelf,.grid-location{grid-template-columns:1fr}.modal{padding:14px;max-height:94vh}.wine-view-modal{padding:0}.modal-body.split-view{padding:16px;gap:18px}.modal-banner{padding:14px 12px 14px 16px}.modal-banner-title{font-size:1.15rem}.detail-grid{gap:12px}.duplicate-item{grid-template-columns:1fr}.modal-actions,.view-actions{flex-direction:column;align-items:stretch}.left-actions,.right-actions,.helper-actions{width:100%;margin:0}.left-actions .btn,.right-actions .btn,.helper-actions .btn{flex:1}.view-actions .btn{width:100%}}" +
+        "@media (max-width:780px){:host{position:static !important;height:auto !important}.wrap{height:auto !important;overflow:visible !important}.main-scroll-content{overflow-y:visible !important;height:auto !important}}";
+
+// Inline icons, so the card does not depend on HA's icon set being loaded.
+const _WCM_ICONS = {
+  search: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3a6.5 6.5 0 0 1 5.2 10.4l5.4 5.4-1.4 1.4-5.4-5.4A6.5 6.5 0 1 1 9.5 3zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/></svg>',
+  pencil: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.1 5.5l4.4 4.4L8.4 20H4v-4.4L14.1 5.5zm1.4-1.4 1.8-1.8a1 1 0 0 1 1.4 0l3 3a1 1 0 0 1 0 1.4l-1.8 1.8-4.4-4.4z"/></svg>',
+  plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg>',
+  sparkle: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 6.3 6.3 2.2-6.3 2.2L12 19l-2.2-6.3-6.3-2.2 6.3-2.2zM19 15l1 2.6 2.6 1-2.6 1L19 22l-1-2.4-2.6-1 2.6-1z"/></svg>',
+  close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg>'
+};
+
+// Side view of a bottle (viewBox 0 0 40 100), used as the label placeholder
+// and, outlined, as the ghost in empty slots.
+const _WCM_BOTTLE_PATH = "M16 3h8v20c0 6 9 9 9 20v50a5 5 0 0 1-5 5H12a5 5 0 0 1-5-5V43c0-11 9-14 9-20z";
+const _WCM_BOTTLE_ART =
+  '<svg class="bottle-art" viewBox="0 0 40 100" aria-hidden="true">' +
+  '<path class="bottle-glass" d="' + _WCM_BOTTLE_PATH + '"/>' +
+  '<rect class="bottle-capsule" x="16" y="3" width="8" height="12" rx="1.5"/>' +
+  '<rect class="bottle-label" x="10.5" y="56" width="19" height="24" rx="2"/>' +
+  '<path class="bottle-shine" d="M11.5 47v38"/>' +
+  "</svg>";
+const _WCM_BOTTLE_GHOST =
+  '<svg class="bottle-ghost" viewBox="0 0 40 100" aria-hidden="true"><path d="' + _WCM_BOTTLE_PATH + '"/></svg>';
 
 class WineCellarCard extends HTMLElement {
   constructor() {
@@ -1787,60 +2012,27 @@ class WineCellarCard extends HTMLElement {
     this._updateSearchResultsPanel();
   }
 
-  _isDarkMode() {
-    var bg = getComputedStyle(this).getPropertyValue("--card-background-color").trim().toLowerCase();
-    if (!bg) return true;
-    if (bg.startsWith("#")) {
-      var hex = bg.replace("#", "");
-      if (hex.length === 3) {
-        hex = hex.split("").map(function (c) { return c + c; }).join("");
-      }
-      if (hex.length === 6) {
-        var r = parseInt(hex.slice(0, 2), 16);
-        var g = parseInt(hex.slice(2, 4), 16);
-        var b = parseInt(hex.slice(4, 6), 16);
-        var luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-        return luminance < 0.5;
-      }
-    }
-    return true;
-  }
-
+  // One palette for both themes: every swatch is drawn on a theme surface
+  // (never behind body text), so it does not need a light/dark variant.
   _wineSurfaceColor(type) {
-    var dark = this._isDarkMode();
-    if (dark) {
-      var darkColors = {
-        red: "#6f2233",
-        white: "#d8c88a",
-        "rosé": "#c97c90",
-        sparkling: "#f6eccbff",
-        orange: "#c98338",
-        sweet: "#f2f2ee",
-        other: "#D1E7FF",
-        unset: "#6f6a64" // Gris neutre d'origine pour le mode sombre
-      };
-      return darkColors[type] || darkColors.unset;
-    }
-
-    var lightColors = {
-      red: "#8b2d3f",
-      white: "#eadca6",
-      "rosé": "#d88fa0",
-      sparkling: "#f6eccbff",
-      orange: "#dd9950",
-      sweet: "#fcfcf8",
-      other: "#D1E7FF",
-      unset: "#b2aaa3" // Gris neutre d'origine pour le mode clair
+    var colors = {
+      red: "#7a1f35",
+      white: "#e2d08a",
+      "rosé": "#e39aab",
+      sparkling: "#f2e6bf",
+      orange: "#d7843a",
+      sweet: "#c9972f",
+      other: "#9db4d3",
+      unset: "#8d8a86"
     };
-    return lightColors[type] || lightColors.unset;
+    return colors[type] || colors.unset;
   }
 
+  // Ink for text drawn directly on a wine-type color (the bottle dialog banner).
   _wineTextColor(type) {
-    if (type === "white" || type === "sparkling" || type === "sweet" || type === "other" || type === "unset") {
-      return "#1f1f1f";
-    }
-    return "var(--primary-text-color)";
+    return type === "red" ? "#ffffff" : "#1f1f1f";
   }
+
   _agingStatus(bottle) {
     var currentYear = new Date().getFullYear();
     var rawStart = bottle.aging_start_year;
@@ -1861,16 +2053,39 @@ class WineCellarCard extends HTMLElement {
     return "none";
   }
 
-  _agingBorderColor(bottle) {
-    var status = this._agingStatus(bottle);
-    var colors = {
-      none: "#8a8f98",
-      young: "#3b82f6",
-      ready: "#22c55e",
-      peak: "#d4a017",
-      past: "#dc2626"
-    };
-    return colors[status] || colors.none;
+  _agingStatusLabel(status) {
+    return status === "none" ? "" : _T("status_" + status);
+  }
+
+  // Compact "2025–27" form of the drinking window, or "" when it is not set.
+  _formatWindowShort(bottle) {
+    if (this._agingStatus(bottle) === "none") return "";
+    var start = Number(bottle.aging_start_year);
+    var stop = Number(bottle.aging_end_year);
+    if (start === stop) return String(start);
+    var stopText = Math.floor(start / 100) === Math.floor(stop / 100) ? String(stop).slice(-2) : String(stop);
+    return start + "\u2013" + stopText;
+  }
+
+  // Cellar colors end up inside a style attribute, so only plain hex values
+  // are accepted.
+  _safeColor(value) {
+    var text = String(value == null ? "" : value).trim();
+    return /^#[0-9a-f]{3,8}$/i.test(text) ? text : "";
+  }
+
+  _hasActiveFilters() {
+    return !!((this._search || "").trim() || this._filterType || this._filterCountry || this._filterReady);
+  }
+
+  // A copied bottle is pasted by clicking an empty slot; it expires after
+  // 10 minutes so a stale copy cannot be pasted by accident.
+  _hasCopiedBottle() {
+    if (this._copiedBottleData && this._copyTimestamp && (Date.now() - this._copyTimestamp > 600000)) {
+      this._copiedBottleData = null;
+      this._copyTimestamp = null;
+    }
+    return !!this._copiedBottleData;
   }
 
   _normalizeCompareValue(value) {
@@ -2213,32 +2428,32 @@ class WineCellarCard extends HTMLElement {
       content = '<div class="empty-state" style="border: 1px dashed color-mix(in srgb,var(--primary-text-color) 12%, transparent); border-radius:12px; padding:30px">' + self._t("cleanup_welcome") + '</div>';
     } else if (!this._foundSyntaxDuplicates.length) {
       // Cas 2 : L'analyse s'est exécutée et la cave est parfaitement propre
-      content = '<div class="empty-state" style="color:#22c55e; font-weight:600">' + self._t("cleanup_no_duplicates") + '</div>';
+      content = '<div class="empty-state" style="color:var(--wcm-ready); font-weight:600">' + self._t("cleanup_no_duplicates") + '</div>';
     } else {
       content = [
         '<div style="display:grid; gap:14px; max-height:50vh; overflow-y:auto; padding-right:4px">',
         this._foundSyntaxDuplicates.map(function(item) {
           var label = fieldLabels[item.field] || item.field;
-          var styleA = item.selectedValue === item.valueA ? 'background:var(--primary-background-color); border:2px solid #2563eb; font-weight:700' : 'background:var(--secondary-background-color); border:1px solid transparent; opacity:0.8';
-          var styleB = item.selectedValue === item.valueB ? 'background:var(--primary-background-color); border:2px solid #2563eb; font-weight:700' : 'background:var(--secondary-background-color); border:1px solid transparent; opacity:0.8';
+          var selA = item.selectedValue === item.valueA ? " selected" : "";
+          var selB = item.selectedValue === item.valueB ? " selected" : "";
 
           return [
             '<div class="duplicate-item" style="grid-template-columns:1fr auto auto; gap:14px; padding:14px; align-items:center">',
             '  <div style="display:grid; gap:6px">',
-            '    <span style="font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--accent-color,#f59e0b); letter-spacing:0.05em">' + self._escape(label) + '</span>',
+            '    <span class="section-label">' + self._escape(label) + '</span>',
             '    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px">',
-            '      <button class="btn small-btn" data-select-variant-a="' + self._escape(item.id) + '" style="' + styleA + '; text-align:left; height:auto; padding:8px 12px; border-radius:8px; color:inherit" type="button">',
-            '        <div style="font-size:0.95rem">' + self._escape(item.valueA) + '</div>',
-            '        <div style="font-size:0.75rem; color:var(--secondary-text-color); margin-top:2px">' + item.bottlesA.length + ' ' + _T("bottle_s") + '</div>',
+            '      <button class="btn variant' + selA + '" data-select-variant-a="' + self._escape(item.id) + '" type="button">',
+            '        <div>' + self._escape(item.valueA) + '</div>',
+            '        <div class="variant-count">' + item.bottlesA.length + ' ' + _T("bottle_s") + '</div>',
             '      </button>',
-            '      <button class="btn small-btn" data-select-variant-b="' + self._escape(item.id) + '" style="' + styleB + '; text-align:left; height:auto; padding:8px 12px; border-radius:8px; color:inherit" type="button">',
-            '        <div style="font-size:0.95rem">' + self._escape(item.valueB) + '</div>',
-            '        <div style="font-size:0.75rem; color:var(--secondary-text-color); margin-top:2px">' + item.bottlesB.length + ' ' + _T("bottle_s") + '</div>',
+            '      <button class="btn variant' + selB + '" data-select-variant-b="' + self._escape(item.id) + '" type="button">',
+            '        <div>' + self._escape(item.valueB) + '</div>',
+            '        <div class="variant-count">' + item.bottlesB.length + ' ' + _T("bottle_s") + '</div>',
             '      </button>',
             '    </div>',
             '  </div>',
-            '  <button class="btn" data-accept-cleanup="' + self._escape(item.id) + '" style="background:#22c55e; color:#fff; border:none; width:42px; height:42px; padding:0; border-radius:10px; font-size:1.2rem; font-weight:bold" type="button">✓</button>',
-            '  <button class="btn" data-reject-cleanup="' + self._escape(item.id) + '" style="background:#dc2626; color:#fff; border:none; width:42px; height:42px; padding:0; border-radius:10px; font-size:1.2rem; font-weight:bold" type="button">✗</button>',
+            '  <button class="btn square ok" data-accept-cleanup="' + self._escape(item.id) + '" type="button">✓</button>',
+            '  <button class="btn square danger" data-reject-cleanup="' + self._escape(item.id) + '" type="button">✗</button>',
             '</div>'
           ].join("");
         }).join(""),
@@ -2251,15 +2466,15 @@ class WineCellarCard extends HTMLElement {
       '  <div class="modal small-modal" style="display:flex; flex-direction:column; gap:16px">',
       '    <div class="modal-head" style="margin:0">',
       '      <h3>' + self._t("cleanup_title") + '</h3>',
-      '      <button class="icon-btn" type="button" data-close-cleanup-btn>×</button>',
+      '      <button class="icon-btn" type="button" data-close-cleanup-btn aria-label="' + self._t("close") + '">' + _WCM_ICONS.close + '</button>',
       '    </div>',
       '    <div class="form-error"' + (this._formError ? '' : ' style="display:none"') + '>' + this._escape(this._formError || "") + '</div>',
       '    <div class="action-message"' + (this._actionMessage ? '' : ' style="display:none"') + '>' + this._escape(this._actionMessage || "") + '</div>',
-      '    <button class="btn" data-trigger-cleanup-search-btn style="background:#2563eb; color:#fff; font-weight:700; height:44px; width:100%">' + self._t("cleanup_search_btn") + '</button>',
+      '    <button class="btn primary" data-trigger-cleanup-search-btn style="width:100%">' + self._t("cleanup_search_btn") + '</button>',
       content,
       '    <div class="modal-actions" style="margin-top:auto; padding-top:12px; border-top:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent)">',
-      '      <button class="btn primary" data-cleanup-merge-all-btn ' + (this._foundSyntaxDuplicates.length ? '' : 'disabled') + ' style="background:#7b2130; color:#fff">' + self._t("cleanup_merge_all") + '</button>',
-      '      <button class="btn" data-close-cleanup-bottom style="border:1px solid color-mix(in srgb,var(--primary-text-color) 15%, transparent); background:var(--secondary-background-color)">' + self._t("close") + '</button>',
+      '      <button class="btn primary" data-cleanup-merge-all-btn ' + (this._foundSyntaxDuplicates.length ? '' : 'disabled') + '>' + self._t("cleanup_merge_all") + '</button>',
+      '      <button class="btn ghost" data-close-cleanup-bottom>' + self._t("close") + '</button>',
       '    </div>',
       '  </div>',
       '</div>'
@@ -3010,7 +3225,7 @@ class WineCellarCard extends HTMLElement {
       if (!name) {
         var nameEl = form.querySelector('[name="name"]');
         if (nameEl) {
-          nameEl.setCustomValidity_T("cellar_name_required");
+          nameEl.setCustomValidity(_T("cellar_name_required"));
           nameEl.reportValidity();
           nameEl.oninput = function () { nameEl.setCustomValidity(""); };
         }
@@ -3020,8 +3235,7 @@ class WineCellarCard extends HTMLElement {
 
       var shelves = this._parseShelvesFromForm(form);
 
-      var bgColorEl = form.querySelector('[name="bg_color"]');
-      var selectedBgColor = bgColorEl ? bgColorEl.value.trim() : "";
+      var selectedBgColor = String(fd.get("bg_color") || "").trim();
 
       await this._callWS({
         type: "wine_cellar_manager/save_cellar",
@@ -3072,7 +3286,7 @@ class WineCellarCard extends HTMLElement {
   _renderToolbar() {
     var self = this;
     var data = this._data || { bottles: [] };
-    
+
     // Extraction dynamique des pays uniques présents dans la cave
     var countriesSet = new Set();
     (data.bottles || []).forEach(function(b) {
@@ -3081,66 +3295,104 @@ class WineCellarCard extends HTMLElement {
     });
     var uniqueCountries = Array.from(countriesSet).sort();
 
-    // Détection de la langue pour la barre de recherche textuelle indicative
-    var searchPlaceholder = _T("search_placeholder");
+    var views = [
+      { key: "cellars", label: self._t("cellars") },
+      { key: "compact", label: self._t("compact") },
+      { key: "list", label: self._t("all_bottles") },
+      { key: "stats", label: self._t("stats") }
+    ];
+    var types = [
+      ["red", "red"], ["white", "white"], ["rosé", "rose"], ["sparkling", "sparkling"],
+      ["orange", "orange"], ["sweet", "sweet"], ["other", "other"]
+    ];
+
+    function select(attr, active, optionsHtml) {
+      return '<span class="select-wrap"><select ' + attr + (active ? ' class="filter-active"' : "") + ">" + optionsHtml + "</select></span>";
+    }
+
+    var searchPlaceholder = self._escape(_T("search_placeholder"));
+    var filters = this._view === "stats" ? "" : [
+      '<div class="filters">',
+      '  <label class="search">' + _WCM_ICONS.search + '<input type="search" data-search placeholder="' + searchPlaceholder + '" aria-label="' + searchPlaceholder + '" value="' + this._escape(this._search || "") + '"></label>',
+      select("data-age-filter", !!this._filterReady,
+        '<option value=""' + (!this._filterReady ? " selected" : "") + ">" + _T("all_ages") + "</option>" +
+        '<option value="ready"' + (this._filterReady === "ready" || this._filterReady === true ? " selected" : "") + ">" + self._t("ready_to_drink") + "</option>" +
+        '<option value="drink_now"' + (this._filterReady === "drink_now" ? " selected" : "") + ">" + _T("drink_now") + "</option>"),
+      select("data-type-filter", !!this._filterType,
+        '<option value="">' + self._t("all_types") + "</option>" +
+        types.map(function (t) {
+          return '<option value="' + t[0] + '"' + (self._filterType === t[0] ? " selected" : "") + ">" + _T(t[1]) + "</option>";
+        }).join("")),
+      select("data-country-filter", !!this._filterCountry,
+        '<option value="">' + self._t("all_countries") + "</option>" +
+        uniqueCountries.map(function (c) {
+          return '<option value="' + self._escape(c) + '"' + (self._filterCountry === c ? " selected" : "") + ">" + self._escape(c) + "</option>";
+        }).join("")),
+      "</div>"
+    ].join("");
+
+    var showSummary = this._view === "cellars" || this._view === "compact";
 
     return [
       '<div class="toolbar">',
-      
-      '  <!-- CONTENEUR DES ONGLETS STRUCTURAUX SEPARES AVEC BORDURE REECRITS VIA _T -->',
-      '  <div class="nav-tabs-container">',
-      '    <button class="btn' + (this._view === "cellars" ? " primary" : "") + '" type="button" data-view="cellars">' + self._t("cellars") + '</button>',
-      '    <button class="btn' + (this._view === "compact" ? " primary" : "") + '" type="button" data-view="compact">' + self._t("compact") + '</button>',
-      '    <button class="btn' + (this._view === "list" ? " primary" : "") + '" type="button" data-view="list">' + self._t("all_bottles") + '</button>',
-      '    <button class="btn' + (this._view === "stats" ? " primary" : "") + '" type="button" data-view="stats">' + self._t("stats") + '</button>',
-      '    <button class="btn" type="button" data-open-cleanup-tool style="margin-left:auto; background:#2563eb; color:#fff; font-weight:600">' + self._t("cleanup_btn") + '</button>',
-      '    <button class="btn primary" type="button" data-add-cellar style="margin-left:8px">' + _T("add_cellar_short") + '</button>',
-      '  </div>',
-      
-      '  <!-- ZONE DES FILTRES REECRITS VIA _T -->',
-      (this._view !== "stats" ? [
-        '  <div class="toolbar-actions" style="margin-top:4px">',
-        '    <input type="search" data-search placeholder="' + searchPlaceholder + '" value="' + this._escape(this._search || "") + '" style="flex:1; min-width:240px; background:var(--secondary-background-color); border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent); border-radius:12px; padding:10px; color:inherit; height:42px">',
-        '    <select data-age-filter class="' + (this._filterReady ? "filter-active" : "") + '">',
-        '      <option value=""' + (this._filterReady === "" || this._filterReady === false ? " selected" : "") + '>' + _T("all_ages") + '</option>',
-        '      <option value="ready"' + (this._filterReady === "ready" || this._filterReady === true ? " selected" : "") + '>' + self._t("ready_to_drink") + '</option>',
-        '      <option value="drink_now"' + (this._filterReady === "drink_now" ? " selected" : "") + '>' + _T("drink_now") + '</option>',
-        '    </select>',
-        '    <select data-type-filter class="' + (this._filterType ? "filter-active" : "") + '">',
-        '      <option value="">' + self._t("all_types") + '</option>',
-        '      <option value="red"' + (this._filterType === "red" ? " selected" : "") + '>' + _T("red") + '</option>',
-        '      <option value="white"' + (this._filterType === "white" ? " selected" : "") + '>' + _T("white") + '</option>',
-        '      <option value="rosé"' + (this._filterType === "rosé" ? " selected" : "") + '>' + _T("rose") + '</option>',
-        '      <option value="sparkling"' + (this._filterType === "sparkling" ? " selected" : "") + '>' + _T("sparkling") + '</option>',
-        '      <option value="orange"' + (this._filterType === "orange" ? " selected" : "") + '>' + _T("orange") + '</option>',
-        '      <option value="sweet"' + (this._filterType === "sweet" ? " selected" : "") + '>' + _T("sweet") + '</option>',
-        '      <option value="other"' + (this._filterType === "other" ? " selected" : "") + '>' + _T("other") + '</option>',
-        '    </select>',
-        '    <select data-country-filter class="' + (this._filterCountry ? "filter-active" : "") + '">',
-        '      <option value="">' + self._t("all_countries") + '</option>' +
-               uniqueCountries.map(function(c) {
-                 return '<option value="' + self._escape(c) + '"' + (self._filterCountry === c ? " selected" : "") + ">" + self._escape(c) + "</option>";
-               }).join("") +
-        '    </select>',
-        '  </div>'
-      ].join("") : ''),
+      '  <div class="toolbar-row">',
+      '    <div class="seg" role="tablist">' + views.map(function (v) {
+             var active = self._view === v.key;
+             return '<button class="seg-btn' + (active ? " active" : "") + '" type="button" role="tab" aria-selected="' + active + '" data-view="' + v.key + '">' + v.label + "</button>";
+           }).join("") + "</div>",
+      '    <span class="toolbar-spacer"></span>',
+      '    <button class="btn ghost" type="button" data-open-cleanup-tool>' + _WCM_ICONS.sparkle + "<span>" + self._t("cleanup_btn") + "</span></button>",
+      '    <button class="btn primary" type="button" data-add-cellar>' + _WCM_ICONS.plus + "<span>" + self._escape(_T("add_cellar_short").replace(/^\+\s*/, "")) + "</span></button>",
+      "  </div>",
+      filters,
+      showSummary ? this._renderSummary(data) : "",
       "</div>"
     ].join("");
   }
 
-  _renderBottleSlot(bottle, isDimmed) {
-    var textColor = this._wineTextColor(bottle.wine_type);
-    var borderColor = this._agingBorderColor(bottle);
-    var rating = Number.isFinite(Number(bottle.rating)) ? "★".repeat(Number(bottle.rating)) : "";
-    var normalizedImagePath = this._normalizeImagePath(bottle.image_path);
-    var imageHtml = normalizedImagePath
-      ? '<div class="label-wrap"><img class="label-image" src="' + this._escape(normalizedImagePath) + '" alt="' + this._escape(bottle.wine_name || "Wine label") + '" onerror="this.style.display=\'none\';this.parentElement.classList.add(\'placeholder\');this.parentElement.innerHTML=\'<span>Image missing</span>\';"></div>'
-      : '<div class="label-wrap placeholder"><span>Label</span></div>';
+  // Inventory line under the filters: totals plus a legend of the aging colors
+  // (with counts), so the rings and badges on the bottles explain themselves.
+  _renderSummary(data) {
+    var self = this;
+    var bottles = (data && data.bottles) || [];
+    var counts = { young: 0, ready: 0, peak: 0, past: 0 };
+    var matches = 0;
+    bottles.forEach(function (b) {
+      var status = self._agingStatus(b);
+      if (counts[status] !== undefined) counts[status]++;
+      if (self._bottleMatchesFilters(b)) matches++;
+    });
 
-    var countryClean = String(bottle.country || "").trim().toLowerCase();
-    var extraInfo = countryClean === "france" ? (bottle.region || "") : (bottle.varietal || "");
-    // Application de la méthode d'abréviation logique intelligente
-    var metaText = (extraInfo ? this._truncateMeta(extraInfo) + " " : "") + (bottle.vintage || "");
+    var capacity = 0;
+    ((data && data.cellars) || []).forEach(function (c) {
+      (c.shelves || []).forEach(function (s) {
+        capacity += Number(s.capacity_front || 0) + Number(s.capacity_back || 0);
+      });
+    });
+
+    var cancelLabel = self._escape(_T("cancel"));
+    return [
+      '<div class="summary">',
+      "<span>" + _T("bottles_count", { n: "<strong>" + bottles.length + "</strong>" }) + "</span>",
+      "<span>" + _T("free_slots", { n: "<strong>" + Math.max(0, capacity - bottles.length) + "</strong>" }) + "</span>",
+      ["young", "ready", "peak", "past"].map(function (status) {
+        return '<span class="legend-item" style="--status:var(--wcm-' + status + ')"><span class="legend-dot"></span>' +
+          self._escape(self._agingStatusLabel(status)) + " <strong>" + counts[status] + "</strong></span>";
+      }).join(""),
+      this._hasActiveFilters() ? '<span class="summary-match">' + self._escape(matches + _T("bottles_found_suffix")) + "</span>" : "",
+      this._hasCopiedBottle()
+        ? '<span class="paste-banner"><span>' + self._escape(_T("bottle_copied_to_memory")) + '</span><button class="icon-btn" type="button" data-cancel-paste title="' + cancelLabel + '" aria-label="' + cancelLabel + '">' + _WCM_ICONS.close + "</button></span>"
+        : "",
+      "</div>"
+    ].join("");
+  }
+
+  _renderBottleSlot(bottle, isDimmed, opts) {
+    opts = opts || {};
+    var status = this._agingStatus(bottle);
+    var name = bottle.wine_name || _T("unnamed_wine");
+    var summary = [name, bottle.vintage, this._agingStatusLabel(status)].filter(Boolean).join(" · ");
+    var classes = "slot filled" + (isDimmed ? " dimmed" : (opts.highlight ? " match" : ""));
 
     var dragMeta = JSON.stringify({
       bottle_id: bottle.id,
@@ -3150,14 +3402,55 @@ class WineCellarCard extends HTMLElement {
       position: Number(bottle.position)
     });
 
+    var content = "";
+    if (!opts.compact) {
+      var rating = Math.max(0, Math.min(5, Math.trunc(Number(bottle.rating) || 0)));
+      var stars = rating ? "★".repeat(rating) + '<span class="off">' + "★".repeat(5 - rating) + "</span>" : "";
+      var imagePath = this._normalizeImagePath(bottle.image_path);
+      var windowText = this._formatWindowShort(bottle);
+
+      var countryClean = String(bottle.country || "").trim().toLowerCase();
+      var extraInfo = countryClean === "france" ? (bottle.region || "") : (bottle.varietal || "");
+      // Application de la méthode d'abréviation logique intelligente
+      var metaText = [extraInfo ? this._truncateMeta(extraInfo) : "", bottle.vintage || ""].filter(Boolean).join(" · ");
+
+      // The drawn bottle sits under the photo, so a missing image simply
+      // removes itself and reveals it.
+      content =
+        '<div class="label-wrap">' + _WCM_BOTTLE_ART +
+        (imagePath ? '<img class="label-image" src="' + this._escape(imagePath) + '" alt="" loading="lazy" onerror="this.remove()">' : "") +
+        (windowText ? '<span class="slot-window">' + windowText + "</span>" : "") +
+        "</div>" +
+        '<span class="slot-name">' + this._escape(name) + "</span>" +
+        '<span class="slot-meta">' + this._escape(metaText) + "</span>" +
+        '<span class="slot-rating">' + stars + "</span>";
+    }
+
     return (
-      '<div class="slot filled' + (isDimmed ? " dimmed" : "") + '" data-edit-bottle="' + this._escape(bottle.id) + '"' +
+      '<div class="' + classes + '" role="button" tabindex="0" aria-label="' + this._escape(summary) + '"' +
+      (opts.compact ? ' title="' + this._escape(summary) + '"' : "") +
+      ' data-edit-bottle="' + this._escape(bottle.id) + '"' +
       ' draggable="true" data-drag-source="' + this._escape(dragMeta) + '"' +
-      ' style="background:' + this._wineSurfaceColor(bottle.wine_type) + ';border-color:' + borderColor + ';color:' + textColor + ';cursor:pointer;">' +
-      imageHtml +
-      '<span class="slot-name">' + this._escape(bottle.wine_name) + '</span>' +
-      '<span class="slot-meta">' + this._escape(metaText.trim() || "") + '</span>' +
-      '<span class="slot-rating">' + this._escape(rating || "—") + '</span>' +
+      ' style="--type:' + this._wineSurfaceColor(bottle.wine_type) + ";--status:var(--wcm-" + status + ')">' +
+      content +
+      "</div>"
+    );
+  }
+
+  _renderEmptySlot(cellar, shelf, lane, pos, opts) {
+    var label = this._escape(_T("empty_slots") + " · " + this._laneLabel(lane) + " · " + _T("position") + " " + pos);
+    return (
+      '<div class="slot empty' + (opts.pasteReady ? " paste-ready" : "") + '" role="button" tabindex="0" aria-label="' + label + '"' +
+      (opts.compact ? ' title="' + label + '"' : "") +
+      ' data-new-bottle="' + this._escape(JSON.stringify({
+        cellar_id: cellar.id,
+        shelf_id: shelf.id,
+        lane: lane,
+        position: pos,
+        wine_type: "unset",
+        rating: 0
+      })) + '">' +
+      (opts.compact ? "" : _WCM_BOTTLE_GHOST + '<span class="slot-pos">' + pos + "</span>") +
       "</div>"
     );
   }
@@ -3175,104 +3468,164 @@ class WineCellarCard extends HTMLElement {
     return index;
   }
 
-  _renderLaneSlots(cellar, shelf, lane, capacity, bottles, slotIndex) {
-    var self = this;
+  _countShelfBottles(shelf, slotIndex) {
+    var count = 0;
+    [["front", Number(shelf.capacity_front || 0)], ["back", Number(shelf.capacity_back || 0)]].forEach(function (lane) {
+      for (var pos = 1; pos <= lane[1]; pos++) {
+        if (slotIndex.has(String(shelf.id) + "|" + lane[0] + "|" + pos)) count++;
+      }
+    });
+    return count;
+  }
+
+  // With the same parity, centered front and back rows would put every back
+  // bottle directly behind a front one; those shelves get the quarter-pitch
+  // stagger from the stylesheet. Odd differences already interleave.
+  _isStaggered(shelf) {
+    var front = Number(shelf.capacity_front || 0);
+    var back = Number(shelf.capacity_back || 0);
+    return front > 0 && back > 0 && (front - back) % 2 === 0;
+  }
+
+  _renderLaneSlots(cellar, shelf, lane, capacity, slotIndex, opts) {
     var slotsHtml = [];
-    var index = slotIndex || this._buildSlotIndex(bottles);
 
     for (var pos = 1; pos <= capacity; pos++) {
-      var bottle =
-        index.get(String(shelf.id) + "|" + String(lane) + "|" + pos) || null;
+      var bottle = slotIndex.get(String(shelf.id) + "|" + lane + "|" + pos) || null;
 
       if (bottle) {
-        slotsHtml.push(self._renderBottleSlot(bottle, !self._bottleMatchesFilters(bottle)));
+        var matches = this._bottleMatchesFilters(bottle);
+        slotsHtml.push(this._renderBottleSlot(bottle, !matches, { compact: opts.compact, highlight: opts.filtering && matches }));
       } else {
-        slotsHtml.push(
-          '<div class="slot empty" data-new-bottle="' +
-          self._escape(JSON.stringify({
-            cellar_id: cellar.id,
-            shelf_id: shelf.id,
-            lane: lane,
-            position: pos,
-            wine_type: "unset",
-            rating: 0
-          })) +
-          '" style="cursor:pointer;">' + self._t("empty_slots") + '</div>'
-        );
+        slotsHtml.push(this._renderEmptySlot(cellar, shelf, lane, pos, opts));
       }
     }
 
-    var labelHtml = '<div class="lane-label">' + self._escape(self._laneLabel(lane)) + "</div>";
-    var content = [];
-
-    if (lane === "back") {
-      content.push(labelHtml);
-      content.push('<div class="row-slots">' + slotsHtml.join("") + '</div>');
-    } else {
-      content.push('<div class="row-slots">' + slotsHtml.join("") + '</div>');
-      content.push(labelHtml);
-    }
-
-    return [
-      '<div class="lane-block lane-' + self._escape(lane) + '">',
-      content.join(""),
+    return (
+      '<div class="lane lane-' + lane + '">' +
+      (opts.showTags && !opts.compact ? '<span class="lane-tag">' + this._escape(this._laneLabel(lane)) + "</span>" : "") +
+      '<div class="lane-row">' + slotsHtml.join("") + "</div>" +
       "</div>"
-    ].join("");
+    );
   }
-  _renderCellars(data) {
+
+  _renderShelf(cellar, shelf, index, slotIndex, opts) {
+    var front = Number(shelf.capacity_front || 0);
+    var back = Number(shelf.capacity_back || 0);
+    var laneOpts = Object.assign({}, opts, { showTags: back > 0 });
+    var lanes = "";
+
+    // The back row is drawn first (above, "behind") and the front row last,
+    // resting on the shelf rail.
+    if (back > 0) lanes += this._renderLaneSlots(cellar, shelf, "back", back, slotIndex, laneOpts);
+    if (front > 0) lanes += this._renderLaneSlots(cellar, shelf, "front", front, slotIndex, laneOpts);
+
+    return (
+      '<div class="shelf' + (this._isStaggered(shelf) ? " staggered" : "") + '">' +
+      '<div class="shelf-head">' +
+      '<span class="shelf-name">' + this._escape(shelf.name || (_T("shelf") + " " + (index + 1))) + "</span>" +
+      '<span class="shelf-count">' + this._countShelfBottles(shelf, slotIndex) + " / " + (front + back) + "</span>" +
+      "</div>" +
+      lanes +
+      '<div class="rail"></div>' +
+      "</div>"
+    );
+  }
+
+  _renderCabinet(cellar, shelvesHtml, extraClass) {
+    var color = this._safeColor(cellar && cellar.bg_color);
+    return (
+      '<div class="cabinet' + (extraClass ? " " + extraClass : "") + '"' + (color ? ' style="--cellar:' + color + '"' : "") + ">" +
+      '<div class="interior"><div class="shelves">' + shelvesHtml + "</div></div>" +
+      "</div>"
+    );
+  }
+
+  _renderCellars(data, mode) {
     var self = this;
+    var compact = mode === "compact";
     var cellars = (data.cellars || []).slice().sort(function (a, b) {
       return (a.display_order || 0) - (b.display_order || 0);
     });
 
     if (!cellars.length) {
-      return '<div class="empty-state">Add a first cellar to get started!</div>';
+      return '<div class="empty-state">' + this._escape(_T("add_first_cellar")) + "</div>";
     }
 
-    return '<div class="cellars-grid">' + cellars.map(function (cellar) {
+    var opts = {
+      compact: compact,
+      filtering: this._hasActiveFilters(),
+      pasteReady: this._hasCopiedBottle()
+    };
+
+    return '<div class="cellars-grid' + (compact ? " compact" : "") + '">' + cellars.map(function (cellar) {
       var cellarBottles = (data.bottles || []).filter(function (b) {
         return b.cellar_id === cellar.id;
       });
       // Built once per cellar and reused by every shelf/lane below.
       var slotIndex = self._buildSlotIndex(cellarBottles);
+      var shelves = self._getSortedShelves(cellar);
 
-      var shelfHtml = self._getSortedShelves(cellar).map(function (shelf, index) {
-        var frontCapacity = Number(shelf.capacity_front || 0);
-        var backCapacity = Number(shelf.capacity_back || 0);
-        var parts = [];
+      var capacity = 0;
+      var stored = 0;
+      shelves.forEach(function (shelf) {
+        capacity += Number(shelf.capacity_front || 0) + Number(shelf.capacity_back || 0);
+        stored += self._countShelfBottles(shelf, slotIndex);
+      });
+      var fill = capacity ? Math.round((stored / capacity) * 100) : 0;
 
-        if (backCapacity > 0) {
-          parts.push(self._renderLaneSlots(cellar, shelf, "back", backCapacity, cellarBottles, slotIndex));
-        }
-        if (frontCapacity > 0) {
-          parts.push(self._renderLaneSlots(cellar, shelf, "front", frontCapacity, cellarBottles, slotIndex));
-        }
-
-        return (
-          '<div class="shelf">' +
-          '<div class="shelf-head">' +
-          '<div class="row-label">' + self._escape(shelf.name || ("Shelf " + (index + 1))) + '</div>' +
-          "</div>" +
-          '<div class="shelf-lanes' + (backCapacity > 0 ? " has-back" : "") + '">' + parts.join("") + "</div>" +
-          "</div>"
-        );
+      var shelfHtml = shelves.map(function (shelf, index) {
+        return self._renderShelf(cellar, shelf, index, slotIndex, opts);
       }).join("");
 
+      var editLabel = self._escape(_T("edit_cellar"));
       return (
-        (function() {
-          // Utilise l'attribut bg_color persistant du stockage Python s'il existe
-          var customBg = cellar.bg_color || cellar.bg_color_custom || "";
-          if (!customBg) customBg = "var(--secondary-background-color)";
-          return '<section class="cellar-panel" style="background: color-mix(in srgb, ' + customBg + ' 85%, transparent) !important;">';
-        })() +
-        '<div class="cellar-head">' +
-        '<div><h3>' + self._escape(cellar.name) + "</h3></div>" +
-        '<button class="btn small-btn" type="button" data-edit-cellar="' + self._escape(cellar.id) + '">Edit</button>' +
+        '<section class="cellar">' +
+        '<header class="cellar-head">' +
+        '<div class="cellar-title">' +
+        "<h3>" + self._escape(cellar.name) + "</h3>" +
+        '<div class="cellar-sub"><span class="meter"><span style="width:' + fill + '%"></span></span><span>' + stored + " / " + capacity + "</span></div>" +
         "</div>" +
-        (shelfHtml || '<div class="empty-state">No shelves configured.</div>') +
+        '<button class="icon-btn" type="button" data-edit-cellar="' + self._escape(cellar.id) + '" title="' + editLabel + '" aria-label="' + editLabel + '">' + _WCM_ICONS.pencil + "</button>" +
+        "</header>" +
+        (shelfHtml ? self._renderCabinet(cellar, shelfHtml) : '<div class="empty-state">' + self._escape(_T("no_shelves")) + "</div>") +
         "</section>"
       );
     }).join("") + "</div>";
+  }
+
+  // Schematic of the bottle's cellar with its slot highlighted, shown in the
+  // bottle dialog so the physical location can be read at a glance.
+  _renderLocationMap(bottle) {
+    var self = this;
+    var cellars = (this._data && this._data.cellars) || [];
+    var cellar = cellars.find(function (c) { return c.id === bottle.cellar_id; });
+    if (!cellar) return "";
+
+    var slotIndex = this._buildSlotIndex(((this._data && this._data.bottles) || []).filter(function (b) {
+      return b.cellar_id === cellar.id;
+    }));
+
+    var shelvesHtml = this._getSortedShelves(cellar).map(function (shelf) {
+      var lanes = [["back", Number(shelf.capacity_back || 0)], ["front", Number(shelf.capacity_front || 0)]].map(function (lane) {
+        if (lane[1] <= 0) return "";
+        var dots = [];
+        for (var pos = 1; pos <= lane[1]; pos++) {
+          var occupant = slotIndex.get(String(shelf.id) + "|" + lane[0] + "|" + pos);
+          dots.push(occupant
+            ? '<span class="mm-dot filled' + (occupant.id === bottle.id ? " target" : "") + '" style="--type:' + self._wineSurfaceColor(occupant.wine_type) + '"></span>'
+            : '<span class="mm-dot"></span>');
+        }
+        return '<div class="lane lane-' + lane[0] + '"><div class="lane-row">' + dots.join("") + "</div></div>";
+      }).join("");
+
+      return (
+        '<div class="shelf' + (self._isStaggered(shelf) ? " staggered" : "") + (shelf.id === bottle.shelf_id ? " current" : "") + '">' +
+        lanes + '<div class="rail"></div></div>'
+      );
+    }).join("");
+
+    return this._renderCabinet(cellar, shelvesHtml, "mini");
   }
 
   _renderList(data) {
@@ -3297,6 +3650,22 @@ class WineCellarCard extends HTMLElement {
       groups[t].push(b);
     });
 
+    // Physical order (cellar, shelf, back/front, position) for the Location
+    // column, so sorting by it walks the cellars the way they are displayed.
+    var cellarInfo = {};
+    var shelfOrder = {};
+    (data.cellars || []).slice().sort(function (a, b) {
+      return (a.display_order || 0) - (b.display_order || 0);
+    }).forEach(function (cellar, ci) {
+      cellarInfo[cellar.id] = { order: ci, name: cellar.name || _T("cellar") };
+      self._getSortedShelves(cellar).forEach(function (shelf, si) { shelfOrder[shelf.id] = si; });
+    });
+    function pad(n) { return String(n == null ? 999 : n).padStart(3, "0"); }
+    function locationKey(b) {
+      var c = cellarInfo[b.cellar_id];
+      return pad(c ? c.order : null) + pad(shelfOrder[b.shelf_id]) + (b.lane === "back" ? "0" : "1") + pad(Number(b.position) || 0);
+    }
+
     // 4. Déterminer la clé de tri selon la colonne active
     var col = this._sortColumn || "wine_name";
     var order = this._sortOrder === "desc" ? -1 : 1;
@@ -3317,6 +3686,9 @@ class WineCellarCard extends HTMLElement {
         } else if (col === "price") {
           valA = a.price != null ? Number(a.price) : 0;
           valB = b.price != null ? Number(b.price) : 0;
+        } else if (col === "location") {
+          valA = locationKey(a);
+          valB = locationKey(b);
         } else if (col === "aging") {
           valA = (a.aging_start_year || 0) + "-" + (a.aging_end_year || 0);
           valB = (b.aging_start_year || 0) + "-" + (b.aging_end_year || 0);
@@ -3359,6 +3731,7 @@ class WineCellarCard extends HTMLElement {
     html.push('<div class="table-wrap"><table>');
     html.push('<thead><tr>');
     html.push('<th data-sort="wine_name">' + _T("wine") + sortIndicator("wine_name") + '</th>');
+    html.push('<th data-sort="location">' + _T("location") + sortIndicator("location") + '</th>');
     html.push('<th data-sort="producer">' + self._t("producer") + sortIndicator("producer") + '</th>');
     html.push('<th data-sort="vintage">' + self._t("vintage") + sortIndicator("vintage") + '</th>');
     html.push('<th data-sort="region_varietal">' + _T("region_varietal") + sortIndicator("region_varietal") + '</th>');
@@ -3372,30 +3745,36 @@ class WineCellarCard extends HTMLElement {
       var groupBottles = groups[t];
       if (!groupBottles.length) return;
 
-      var bgColor = self._wineSurfaceColor(t);
-      var textColor = self._wineTextColor(t);
       var labelText = typeLabels[t] || t;
 
       // Ligne d'entête du groupe de type traduit
-      html.push('<tr><td colspan="7" class="type-group-header" style="background:' + bgColor + ';color:' + textColor + ';">' + labelText + ' (' + groupBottles.length + ')</td></tr>');
+      html.push('<tr><td colspan="8" class="type-group-header"><span class="type-chip" style="--type:' + self._wineSurfaceColor(t) + '"><span class="type-dot"></span>' + self._escape(labelText) + ' <span class="group-count">' + groupBottles.length + '</span></span></td></tr>');
 
       // Lignes de bouteilles pour ce groupe
       groupBottles.forEach(function(b) {
         var countryClean = String(b.country || "").trim().toLowerCase();
         var regionVarietal = countryClean === "france" ? (b.region || "—") : (b.varietal || "—");
-        var stars = Number.isFinite(Number(b.rating)) ? "★".repeat(Number(b.rating)) : "—";
+        var stars = Number(b.rating) > 0 ? "★".repeat(Math.min(5, Math.trunc(Number(b.rating)))) : "—";
         
         // Détermination de la couleur d'âge
         var ageStatus = self._agingStatus(b);
         var ageRange = (b.aging_start_year || "-") + " → " + (b.aging_end_year || "-");
 
         html.push('<tr data-edit-bottle="' + self._escape(b.id) + '">');
+        var cellar = cellarInfo[b.cellar_id];
+        var place = [
+          self._getShelfName(b.cellar_id, b.shelf_id),
+          self._laneLabel(b.lane),
+          "#" + (b.position || "—")
+        ].filter(Boolean).join(" · ");
+
         html.push('<td>' + self._escape(b.wine_name) + '</td>');
+        html.push('<td><div class="loc-main">' + self._escape(cellar ? cellar.name : _T("unknown_cellar")) + '</div><div class="loc-sub">' + self._escape(place) + '</div></td>');
         html.push('<td>' + self._escape(b.producer || "—") + '</td>');
         html.push('<td>' + self._escape(b.vintage || "—") + '</td>');
         html.push('<td>' + self._escape(regionVarietal) + '</td>');
-        html.push('<td>' + self._escape(stars) + '</td>');
-        html.push('<td><span class="age-text ' + ageStatus + '">' + self._escape(ageRange) + '</span></td>');
+        html.push('<td>' + (Number(b.rating) > 0 ? '<span class="stars">' + self._escape(stars) + '</span>' : stars) + '</td>');
+        html.push('<td><span class="age-text" style="--status:var(--wcm-' + ageStatus + ')" title="' + self._escape(self._agingStatusLabel(ageStatus)) + '"><i></i>' + self._escape(ageRange) + '</span></td>');
         html.push('<td>' + self._escape(self._formatPrice(b.price)) + '</td>');
         html.push('</tr>');
       });
@@ -3494,8 +3873,8 @@ class WineCellarCard extends HTMLElement {
         '    <span>' + self._escape(c.country) + '</span>',
         '    <span style="margin-left:auto;color:var(--secondary-text-color)">' + c.count + '</span>',
         '  </div>',
-        '  <div style="width:100%;height:10px;background:var(--secondary-background-color);border-radius:4px;overflow:hidden">',
-        '    <div style="width:' + barPct + '%;height:100%;background:#7b2130;border-radius:4px"></div>',
+        '  <div style="width:100%;height:10px;background:var(--wcm-tonal-strong);border-radius:5px;overflow:hidden">',
+        '    <div style="width:' + barPct + '%;height:100%;background:var(--wcm-accent);border-radius:5px"></div>',
         '  </div>',
         '</div>'
       ].join("");
@@ -3581,7 +3960,7 @@ class WineCellarCard extends HTMLElement {
       '    <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding:10px 0">',
       '      <svg width="160" height="160" viewBox="0 0 160 160">',
                donutSegmentsHtml.join(""),
-      '        <circle cx="80" cy="80" r="34" fill="var(--card-background-color)"></circle>',
+      '        <circle cx="80" cy="80" r="34" fill="var(--wcm-surface)"></circle>',
       '        <text x="80" y="86" text-anchor="middle" font-weight="bold" font-size="14" fill="var(--primary-text-color)">' + (st.total_bottles || 0) + '</text>',
       '      </svg>',
       '      <div style="display:flex;flex-direction:column;justify-content:center">',
@@ -3650,13 +4029,46 @@ class WineCellarCard extends HTMLElement {
       '</div>'
     ].join("");
   }
+  // Drinking window as a small timeline: the window in its aging color, and a
+  // marker for the current year.
+  _renderDrinkingWindow(bottle) {
+    var status = this._agingStatus(bottle);
+    var label = '<div class="section-label">' + _T("drinking_window") + "</div>";
+
+    if (status === "none") {
+      return '<div class="window-block">' + label + '<div class="duplicate-empty">' + _T("no_data") + "</div></div>";
+    }
+
+    var start = Number(bottle.aging_start_year);
+    var stop = Number(bottle.aging_end_year);
+    var now = new Date().getFullYear();
+    var lo = Math.min(start, now) - 1;
+    var hi = Math.max(stop, now) + 1;
+    var years = hi - lo + 1;
+    function pct(offset) { return ((offset / years) * 100).toFixed(2) + "%"; }
+
+    return [
+      '<div class="window-block" style="--status:var(--wcm-' + status + ')">',
+      label,
+      '  <div class="window-head">',
+      '    <span class="window-years">' + start + " → " + stop + "</span>",
+      '    <span class="window-status"><i></i>' + this._escape(this._agingStatusLabel(status)) + "</span>",
+      "  </div>",
+      '  <div class="window-track">',
+      '    <span class="window-span" style="left:' + pct(start - lo) + ";width:" + pct(stop - start + 1) + '"></span>',
+      '    <span class="window-now" style="left:' + pct(now - lo + 0.5) + '"></span>',
+      "  </div>",
+      '  <div class="window-scale"><span>' + lo + "</span><span>" + hi + '</span><b style="left:' + pct(now - lo + 0.5) + '">' + now + "</b></div>",
+      "</div>"
+    ].join("");
+  }
+
   _renderBottleViewModal(data) {
     var bottle = (this._modal && this._modal.bottle) || {};
     var self = this;
 
     var imagePath = bottle.image_path ? this._normalizeImagePath(bottle.image_path) : "";
-    var bgColor = this._wineSurfaceColor(bottle.wine_type);
-    var textColor = this._wineTextColor(bottle.wine_type);
+    var type = bottle.wine_type || "unset";
 
     var typeLabels = {
       "unset": _T("not_specified"),
@@ -3664,7 +4076,7 @@ class WineCellarCard extends HTMLElement {
       "white": _T("white"),
       "rosé": _T("rose"),
       "sparkling": _T("sparkling"),
-      "orange": "Orange",
+      "orange": _T("orange"),
       "sweet": _T("sweet"),
       "other": _T("other")
     };
@@ -3672,13 +4084,10 @@ class WineCellarCard extends HTMLElement {
     var formattedRawType = rawType ? rawType.charAt(0).toUpperCase() + rawType.slice(1) : "";
     var wineTypeLabel = typeLabels[bottle.wine_type || "other"] || formattedRawType;
 
-    var ratingHtml = "";
-    if (bottle.rating && Number(bottle.rating) > 0) {
-      var r = Math.max(0, Math.min(5, Number(bottle.rating)));
-      ratingHtml = '<span style="color:var(--accent-color, #f59e0b);font-size:1.6rem;letter-spacing:4px;line-height:1">' + "★".repeat(r) + '<span style="color:var(--secondary-text-color);opacity:0.25">' + "★".repeat(5 - r) + "</span></span>";
-    } else {
-      ratingHtml = '<span style="color:var(--accent-color, #2563eb);font-size:1.25rem;font-weight:700;line-height:1">' + _T("not_rated") + '</span>';
-    }
+    var rating = Math.max(0, Math.min(5, Math.trunc(Number(bottle.rating) || 0)));
+    var ratingHtml = rating
+      ? "★".repeat(rating) + '<span class="off">' + "★".repeat(5 - rating) + "</span>"
+      : '<span class="not-rated">' + _T("not_rated") + "</span>";
 
     // Calcul dynamique du nombre de bouteilles semblables en stock
     var similarCount = this._countSimilarBottles(bottle);
@@ -3686,80 +4095,75 @@ class WineCellarCard extends HTMLElement {
       ? _T("similar_bottles_total", { n: similarCount })
       : _T("only_bottle_of_kind");
 
+    function meta(label, value) {
+      return '<div class="meta-item"><strong>' + label + "</strong><div>" + self._escape(value) + "</div></div>";
+    }
+    var hasPrice = bottle.price !== null && bottle.price !== undefined && bottle.price !== "";
+
+    var cellar = ((data && data.cellars) || []).find(function (c) { return c.id === bottle.cellar_id; });
+    var crumbs = [
+      cellar ? (cellar.name || _T("cellar")) : _T("unknown_cellar"),
+      this._getShelfName(bottle.cellar_id, bottle.shelf_id) || _T("shelf"),
+      this._laneLabel(bottle.lane),
+      _T("position") + " " + (bottle.position || "—")
+    ].map(function (part, i, all) {
+      return '<span class="crumb' + (i === all.length - 1 ? " here" : "") + '">' + self._escape(part) + "</span>";
+    }).join('<span class="crumb-sep">›</span>');
+
     return [
       '<div class="modal-backdrop" data-close-modal>',
       '  <div class="modal wine-view-modal" role="dialog" aria-modal="true" aria-label="' + _T("wine_details") + '">',
-      
-      '    <div class="modal-banner" style="background:' + bgColor + ';color:' + textColor + ';display:flex;align-items:center;justify-content:flex-start;padding:16px 20px;border-top-left-radius:14px;border-top-right-radius:14px;gap:12px;text-align:left">',
-      '      <span class="wine-badge" style="background:rgba(255,255,255,0.25);color:' + textColor + ';padding:4px 10px;border-radius:20px;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;border:none">' + wineTypeLabel + '</span>',
-      '      <div style="flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; text-align:left">',
-      '        <h2 class="modal-banner-title" style="margin:0;font-size:1.35rem;font-weight:700;color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%">' + this._escape(bottle.wine_name || _T("unnamed_wine")) + '</h2>',
-      '        <div class="modal-banner-sub" style="margin-top:2px;font-size:0.82rem;opacity:0.85;color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%">' + this._escape(similarText) + '</div>',
-      '      </div>',
-      '      <button class="icon-btn" type="button" data-close-modal style="color:' + textColor + ';font-size:1.6rem;background:none;border:none;cursor:pointer;margin-left:12px;flex-shrink:0;align-self:center">×</button>',
-      '    </div>',
-      
-      '    <div class="modal-body split-view" style="padding:20px">',
-      '      <div class="info-column">',
-      '        <div class="rating-row" style="margin-bottom:18px;display:flex;align-items:center;gap:4px;min-height:30px">',
-                 ratingHtml,
-      '        </div>',
+      '    <div class="modal-banner" style="--type:' + this._wineSurfaceColor(type) + ";--type-ink:" + this._wineTextColor(type) + '">',
+      '      <span class="wine-badge">' + this._escape(wineTypeLabel) + "</span>",
+      '      <div class="banner-text">',
+      '        <h2 class="modal-banner-title">' + this._escape(bottle.wine_name || _T("unnamed_wine")) + "</h2>",
+      '        <div class="modal-banner-sub">' + this._escape(similarText) + "</div>",
+      "      </div>",
+      '      <button class="icon-btn" type="button" data-close-modal aria-label="' + this._escape(_T("close")) + '">' + _WCM_ICONS.close + "</button>",
+      "    </div>",
 
+      '    <div class="modal-body split-view">',
+      '      <div class="info-column">',
+      '        <div class="rating-row">' + ratingHtml + "</div>",
       '        <div class="detail-grid">',
-      '          <div class="meta-item"><strong>' + self._t("producer") + '</strong><div>' + this._escape(bottle.producer || "—") + '</div></div>',
-      '          <div class="meta-item"><strong>' + self._t("varietal") + '</strong><div>' + this._escape(bottle.varietal || "—") + '</div></div>',
-      '          <div class="meta-item"><strong>' + _T("region") + '</strong><div>' + this._escape(bottle.region || "—") + '</div></div>',
-      '          <div class="meta-item"><strong>' + self._t("country") + '</strong><div>' + this._escape(bottle.country || "—") + '</div></div>',
-          '          <div class="meta-item"><strong>' + self._t("vintage") + '</strong><div>' + (bottle.vintage || _T("not_available")) + '</div></div>',
-          '          <div class="meta-item"><strong>' + _T("price") + '</strong><div>' + this._formatPrice(bottle.price || 0) + '</div></div>',
-          '          <div class="meta-item"><strong>' + self._t("serving_temp") + '</strong><div>' + (bottle.serving_temp != null ? bottle.serving_temp + " °C" : "—") + '</div></div>',
-          '          <div class="meta-item"><strong>' + self._t("alcohol_pct") + '</strong><div>' + (bottle.alcohol_pct != null ? bottle.alcohol_pct + " %" : "—") + '</div></div>',
-          '        </div>',
-          '        <div class="detail-grid" style="margin-top:14px;border-top:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);padding-top:14px">',
-      '          <div class="meta-item" style="grid-column:span 2"><strong>' + _T("drinking_window") + '</strong><div style="font-size:0.95rem;margin-top:2px">' + 
-                  ((bottle.aging_start_year && bottle.aging_end_year) 
-                    ? _T("from_prefix") + bottle.aging_start_year + _T("to_infix") + bottle.aging_end_year 
-                    : '<span style="color:var(--secondary-text-color);font-size:0.88rem">' + _T("no_data") + '</span>') + 
-      '          </div></div>',
-      '        </div>',
-      bottle.notes ? '        <div class="notes-box" style="margin-top:14px"><div class="detail-label"><strong>' + self._t("notes") + '</strong></div><div class="notes-text" style="margin-top:4px">' + this._escape(bottle.notes) + '</div></div>' : '',
-      
-      /* BOUTON SAQ RECALIBRÉ COMPACT ET EMPLACEMENT DE LA BOUTEILLE */
-      [
-        (this._safeUrl(bottle.saq_url) ? [
-          '        <div style="margin-top:14px">',
-          '          <a href="' + this._escape(this._safeUrl(bottle.saq_url)) + '" target="_blank" rel="noopener noreferrer" class="btn" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:700;height:34px;padding:0 12px;font-size:0.85rem;border-radius:10px;border:1px solid color-mix(in srgb,var(--primary-text-color) 12%, transparent);background:var(--secondary-background-color);color:var(--primary-text-color)">',
-          '            <span>Lien SAQ</span><span style="font-size:1rem;line-height:1">↗</span>',
-          '          </a>',
-          '        </div>'
-        ].join("") : ""),
-        '        <div style="margin-top:14px;font-size:0.88rem;color:var(--secondary-text-color);display:flex;flex-direction:column;gap:4px">',
-        '          <span style="font-size:0.75rem;text-transform:uppercase;font-weight:700;color:var(--accent-color,#f59e0b);letter-spacing:0.05em">' + _T("physical_location") + '</span>',
-        '          <div style="font-weight:600;color:var(--primary-text-color);background:color-mix(in srgb,var(--secondary-background-color) 40%,transparent);padding:8px 12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--primary-text-color) 6%,transparent);line-height:1.4">' + this._escape(this._formatBottleLocation(bottle).replace(/ • /g, " → ")) + '</div>',
-        '        </div>'
-      ].join(""),
-      '      </div>',
+      meta(self._t("producer"), bottle.producer || "—"),
+      meta(self._t("varietal"), bottle.varietal || "—"),
+      meta(_T("region"), bottle.region || "—"),
+      meta(self._t("country"), bottle.country || "—"),
+      meta(self._t("vintage"), bottle.vintage || _T("not_available")),
+      meta(_T("price"), hasPrice ? this._formatPrice(bottle.price) : "—"),
+      meta(self._t("serving_temp"), bottle.serving_temp != null ? bottle.serving_temp + " °C" : "—"),
+      meta(self._t("alcohol_pct"), bottle.alcohol_pct != null ? bottle.alcohol_pct + " %" : "—"),
+      "        </div>",
+      this._renderDrinkingWindow(bottle),
+      bottle.notes ? '        <div class="notes-box"><div class="section-label">' + self._t("notes") + '</div><div class="notes-text">' + this._escape(bottle.notes) + "</div></div>" : "",
+      this._safeUrl(bottle.saq_url)
+        ? '        <div><a href="' + this._escape(this._safeUrl(bottle.saq_url)) + '" target="_blank" rel="noopener noreferrer" class="btn ghost small-btn"><span>Lien SAQ</span><span aria-hidden="true">↗</span></a></div>'
+        : "",
+      "      </div>",
+
       '      <div class="image-column">',
       imagePath
         ? '        <div class="hero-image-frame"><img src="' + this._escape(imagePath) + '" alt="' + this._escape(bottle.wine_name || "Wine label") + '" class="hero-label-image" onerror="this.style.display=\'none\';this.parentElement.classList.add(\'placeholder\');this.parentElement.innerHTML=\'<span>' + _T("no_label_image") + '</span>\';"></div>'
-        : '        <div class="hero-image-frame placeholder"><span>' + _T("no_label_image") + '</span></div>',
-      '      </div>',
-      '    </div>',
-      
-      '    <!-- SUPPRESSION DE L\'ATTRIBUT CONFLICTUEL DATA-EDIT-BOTTLE POUR RETROUVER LES COULEURS BLEUES -->',
-      '    <div class="view-actions modal-actions" style="padding:16px 20px;border-top:1px solid color-mix(in srgb,var(--primary-text-color) 8%, transparent);display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%">',
-      '      <div class="left-actions" style="display:flex;gap:8px">',
-      '        <button class="btn warning" type="button" data-consume-bottle="' + this._escape(bottle.id) + '">' + _T("consume") + '</button>',
-      '        <button class="btn danger" type="button" data-delete-bottle="' + this._escape(bottle.id) + '">' + _T("delete") + '</button>',
-      '      </div>',
-      '      <div class="right-actions" style="display:flex;gap:8px;margin-left:auto;align-items:center">',
-      '        <button class="btn primary" type="button" data-copy-memory-btn style="border:none !important;background:#2563eb !important;color:#ffffff !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + _T("copy") + '</button>',
-      '        <button class="btn primary" type="button" data-enter-edit style="border:none !important;background:#7b2130 !important;color:#ffffff !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + _T("edit") + '</button>',
-      '        <button class="btn" type="button" data-close-modal style="border:1px solid color-mix(in srgb,var(--primary-text-color) 15%, transparent) !important;background:var(--secondary-background-color) !important;color:var(--primary-text-color) !important;padding:0 16px !important;border-radius:12px !important;cursor:pointer !important;height:42px !important;font-weight:600 !important;display:inline-block !important">' + _T("close") + '</button>',
-      '      </div>',
-     '    </div>',
-      '  </div>',
-      '</div>'
+        : '        <div class="hero-image-frame placeholder"><span>' + _T("no_label_image") + "</span></div>",
+      '        <div class="location-block">',
+      '          <div class="section-label">' + _T("physical_location") + "</div>",
+      '          <div class="crumbs">' + crumbs + "</div>",
+      '          <div class="location-map">' + this._renderLocationMap(bottle) + "</div>",
+      "        </div>",
+      "      </div>",
+      "    </div>",
+
+      '    <div class="view-actions">',
+      '      <button class="btn warning" type="button" data-consume-bottle="' + this._escape(bottle.id) + '">' + _T("consume") + "</button>",
+      '      <button class="btn danger" type="button" data-delete-bottle="' + this._escape(bottle.id) + '">' + _T("delete") + "</button>",
+      '      <span class="toolbar-spacer"></span>',
+      '      <button class="btn" type="button" data-copy-memory-btn>' + _T("copy") + "</button>",
+      '      <button class="btn primary" type="button" data-enter-edit>' + _T("edit") + "</button>",
+      '      <button class="btn ghost" type="button" data-close-modal>' + _T("close") + "</button>",
+      "    </div>",
+      "  </div>",
+      "</div>"
     ].join("");
   }
 
@@ -3815,7 +4219,7 @@ class WineCellarCard extends HTMLElement {
       '  <div class="modal" role="dialog" aria-modal="true" aria-label="' + _T("bottle_editor") + '">',
       '    <div class="modal-head">',
       "      <h3>" + (bottle.id ? self._t("edit_bottle") : self._t("add_bottle")) + "</h3>",
-      '      <button class="icon-btn" type="button" data-close-modal>×</button>',
+      '      <button class="icon-btn" type="button" data-close-modal aria-label="' + _T("close") + '">' + _WCM_ICONS.close + '</button>',
       "    </div>",
       '<div class="form-error"' + (this._formError ? '' : ' style="display:none"') + ' role="alert">' + this._escape(this._formError || "") + '</div>',
       '<div class="action-message"' + (this._actionMessage ? '' : ' style="display:none"') + '>' + this._escape(this._actionMessage || "") + '</div>',
@@ -3845,14 +4249,14 @@ class WineCellarCard extends HTMLElement {
       '      <label style="margin-top:8px">' + self._t("search_history") + '<input name="history_search" type="search" placeholder="' + _T("search_history_placeholder") + '" value="' + self._escape(this._historySearchValue || "") + '"></label>',
       '      <div data-history-results>' + this._renderSearchResultsMarkup() + '</div>',
       
-      '      <label style="position:relative">' + self._t("wine_name") + '<input name="wine_name" value="' + self._escape(v("wine_name", "")) + '" autocomplete="off" required><div class="custom-autocomplete-panel" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper-dialog-background-color,var(--card-background-color));border:1px solid color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);margin-top:4px"></div></label>',
+      '      <label style="position:relative">' + self._t("wine_name") + '<input name="wine_name" value="' + self._escape(v("wine_name", "")) + '" autocomplete="off" required><div class="custom-autocomplete-panel" style="display:none"></div></label>',
       '      <div class="grid2">',
-      '        <label style="position:relative">' + self._t("producer") + '<input name="producer" value="' + self._escape(v("producer", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper-dialog-background-color,var(--card-background-color));border:1px solid color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);margin-top:4px"></div></label>',
-      '        <label style="position:relative">' + self._t("varietal") + '<input name="varietal" value="' + self._escape(v("varietal", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper-dialog-background-color,var(--card-background-color));border:1px solid color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);margin-top:4px"></div></label>',
+      '        <label style="position:relative">' + self._t("producer") + '<input name="producer" value="' + self._escape(v("producer", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none"></div></label>',
+      '        <label style="position:relative">' + self._t("varietal") + '<input name="varietal" value="' + self._escape(v("varietal", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none"></div></label>',
       '      </div>',
       '      <div class="grid2">',
-      '        <label style="position:relative">' + self._t("region") + '<input name="region" value="' + self._escape(v("region", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper-dialog-background-color,var(--card-background-color));border:1px solid color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);margin-top:4px"></div></label>',
-      '        <label style="position:relative">' + self._t("country") + '<input name="country" value="' + self._escape(v("country", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper-dialog-background-color,var(--card-background-color));border:1px solid color-mix(in srgb,var(--primary-text-color) 20%,transparent);border-radius:12px;max-height:200px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);margin-top:4px"></div></label>',
+      '        <label style="position:relative">' + self._t("region") + '<input name="region" value="' + self._escape(v("region", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none"></div></label>',
+      '        <label style="position:relative">' + self._t("country") + '<input name="country" value="' + self._escape(v("country", "")) + '" autocomplete="off"><div class="custom-autocomplete-panel" style="display:none"></div></label>',
       '      </div>',
       '      <div class="grid2">',
       '        <label>' + self._t("vintage") + '<input name="vintage" type="number" value="' + self._escape(v("vintage", "")) + '"></label>',
@@ -3964,14 +4368,14 @@ class WineCellarCard extends HTMLElement {
       '  <div class="modal small-modal" role="dialog" aria-modal="true" aria-label="' + _T("cellar_editor") + '">',
       '    <div class="modal-head">',
       "      <h3>" + (cellar.id ? _T("edit_cellar") : _T("add_cellar")) + "</h3>",
-      '      <button class="icon-btn" type="button" data-close-modal>×</button>',
+      '      <button class="icon-btn" type="button" data-close-modal aria-label="' + _T("close") + '">' + _WCM_ICONS.close + '</button>',
       "    </div>",
       '<div class="form-error"' + (this._formError ? '' : ' style="display:none"') + ' role="alert">' + this._escape(this._formError || "") + '</div>',
       '    <form class="modal-form" data-save-cellar>',
       '      <input type="hidden" name="cellar_id" value="' + self._escape(v("id", "")) + '">',
       '      <label>' + _T("cellar_name") + '<input name="name" value="' + self._escape(v("name", "")) + '" required></label>',
       '      <label>' + _T("display_order") + '<input name="display_order" type="number" min="0" value="' + self._escape(v("display_order", nextDisplayOrder)) + '"></label>',
-      '      <label>' + _T("background_color") + '<select name="bg_color">' +
+      '      <div><div class="field-label">' + _T("background_color") + '</div><div class="swatches" role="radiogroup">' +
                [
                  { value: "", label: _T("default_ha_theme") },
                  { value: "#7b2130", label: _T("bordeaux_red") },
@@ -3981,9 +4385,10 @@ class WineCellarCard extends HTMLElement {
                  { value: "#374151", label: _T("slate_gray") },
                  { value: "#fbfbfbff", label: _T("off_white") }
                ].map(function(opt) {
-                 return '<option value="' + opt.value + '"' + (currentBgColor === opt.value ? " selected" : "") + '>' + opt.label + '</option>';
+                 var chip = opt.value || "color-mix(in srgb,var(--wcm-text) 18%,var(--wcm-surface))";
+                 return '<label class="swatch"><input type="radio" name="bg_color" value="' + opt.value + '"' + (currentBgColor === opt.value ? " checked" : "") + '><span class="swatch-chip" style="--sw:' + chip + '"></span>' + opt.label + '</label>';
                }).join("") +
-      '      </select></label>',
+      '      </div></div>',
       '      <div class="shelf-editor">',
 
       '        <div class="shelf-editor-head">',
@@ -4116,6 +4521,7 @@ class WineCellarCard extends HTMLElement {
         foundSyntaxDuplicates: this._foundSyntaxDuplicates,
         duplicateManagerSearching: this._duplicateManagerSearching,
         duplicateManagerHasSearched: this._duplicateManagerHasSearched,
+        copiedBottle: this._hasCopiedBottle(),
         data: data
       });
 
@@ -4134,7 +4540,7 @@ class WineCellarCard extends HTMLElement {
       if (view === "cellars") {
         body = this._renderCellars(data);
       } else if (view === "compact") {
-        body = '<div class="compact-grid">' + this._renderCellars(data) + '</div>';
+        body = this._renderCellars(data, "compact");
       } else if (view === "stats") {
         body = this._renderStats ? this._renderStats(data) : '<div class="empty-state">Stats loading...</div>';
       } else {
@@ -4146,7 +4552,7 @@ class WineCellarCard extends HTMLElement {
 
       this.shadowRoot.innerHTML =
         "<style>" + _WCM_STYLES + "</style>" +
-        '<ha-card><div class="wrap">' + this._renderToolbar() + '<div class="main-scroll-content">' + body + "</div>" + modal + comparisonModal + cleanupModal + "</div></ha-card>";
+        '<ha-card><div class="wrap' + (this.config && this.config.background === "wood" ? " wood" : "") + '">' + this._renderToolbar() + '<div class="main-scroll-content">' + body + "</div>" + modal + comparisonModal + cleanupModal + "</div></ha-card>";
       
       var self = this;
       var root = this.shadowRoot;
@@ -4156,6 +4562,14 @@ class WineCellarCard extends HTMLElement {
       this._ensureWindowClickHandler();
 
       // Récupération et application asynchrone pour laisser le DOM se dessiner
+      // A cabinet wider than the screen scrolls sideways; start it centered,
+      // where the rows are, rather than at its (often empty) left edge.
+      root.querySelectorAll(".cellar .interior").forEach(function (interior) {
+        if (interior.scrollWidth > interior.clientWidth) {
+          interior.scrollLeft = (interior.scrollWidth - interior.clientWidth) / 2;
+        }
+      });
+
       var savedScroll = window.sessionStorage.getItem("wine_cellar_scroll_top");
       if (savedScroll !== null) {
         setTimeout(function() {
@@ -4164,6 +4578,28 @@ class WineCellarCard extends HTMLElement {
             newScrollContainer.scrollTop = Number(savedScroll);
           }
         }, 10);
+      }
+
+      // Bottle slots are divs with role="button"; let the keyboard open them too.
+      var scrollContent = root.querySelector(".main-scroll-content");
+      if (scrollContent) {
+        scrollContent.addEventListener("keydown", function (e) {
+          if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("slot")) {
+            e.preventDefault();
+            e.target.click();
+          }
+        });
+      }
+
+      var cancelPaste = root.querySelector("[data-cancel-paste]");
+      if (cancelPaste) {
+        cancelPaste.onclick = function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          self._copiedBottleData = null;
+          self._copyTimestamp = null;
+          self.render(false);
+        };
       }
 
       root.querySelectorAll("[data-view]").forEach(function (el) {
@@ -4359,11 +4795,17 @@ class WineCellarCard extends HTMLElement {
 
         el.addEventListener("dragenter", function (e) {
           e.preventDefault();
+          el.classList.add("drag-over");
+        });
+
+        el.addEventListener("dragleave", function (e) {
+          if (!el.contains(e.relatedTarget)) el.classList.remove("drag-over");
         });
 
         el.addEventListener("drop", async function (e) {
           e.preventDefault();
           e.stopPropagation();
+          el.classList.remove("drag-over");
 
           try {
             var rawSource = e.dataTransfer.getData("text/plain");
@@ -4806,7 +5248,7 @@ class WineCellarCard extends HTMLElement {
 
           var isAnalyzed = bottleForm.querySelector('[name="analyzed_flag"]').value === "true";
           if (isAnalyzed) {
-            if (!confirm_T("confirm_reanalyze")) {
+            if (!confirm(_T("confirm_reanalyze"))) {
               return;
             }
           }
@@ -5013,7 +5455,7 @@ class WineCellarCard extends HTMLElement {
         if (mergeAllBtn) {
           mergeAllBtn.onclick = async function(e) {
             e.preventDefault(); e.stopPropagation();
-            if (confirm_T("confirm_merge_all")) {
+            if (confirm(_T("confirm_merge_all"))) {
               await self._executeMergeAllSyntax();
             }
           };

@@ -41,6 +41,13 @@ type: custom:wine-cellar-card
 
 Save and Wine Cellar Manager will be ready for you!
 
+The card follows your Home Assistant theme, light or dark. To use the wood texture background instead, add `background: wood`:
+
+```yaml
+type: custom:wine-cellar-card
+background: wood
+```
+
 ### Obtaining a Gemini API Key
 
 A Gemini API key can be used regardless of the model selected, but some may require payment information. Using `gemini-3.6-flash` is free but has daily limits. It's sufficient for Wine Cellar Manager and, as such, I did not implement any other AI option. Note that `gemini-3.6-flash`, like any AI, is far from perfect and can hallucinate or pull erroneous information. For most things it's reliable, but use with caution.
@@ -93,14 +100,17 @@ This is the default view. It shows a visual representation of all the cellars wi
 
 Each shelf is represented in the order they have been set within a cellar (can be modified). Shelves with front and back rows are shown together, with the back row offset (representing how a physical shelf is actually configured).
 
-The bottles are shown as cards. Each card is colored according to the type of wine and displays the label image (if available), the name, the varietal (or region if the country is France), and the rating.
+Each cellar is drawn as a cabinet whose frame takes the cellar's color, with a rail under every shelf. The back row sits above the front row, slightly smaller and staggered into the gaps between the front bottles, and both rows are centered on the shelf.
 
-Each card also has a colored frame showing the aging status:
+The bottles are shown as cards. Each card is tinted and capped with the color of the wine type and displays the label image (or a drawn bottle when there is none), the name, the varietal (or region if the country is France), the vintage, and the rating.
+
+A badge on the label shows the drinking window (for example `2025–27`), colored by aging status:
 - **Blue**: too young
 - **Green**: ready to drink
 - **Orange**: peak (current year = last year of aging period)
 - **Red**: past peak
-- **Gray**: not set
+
+No badge means the aging period is not set. A legend under the filters repeats these colors with the number of bottles in each state.
 
 ![Drag and drop](images/drag_drop.png)
 
@@ -108,7 +118,7 @@ Individual cards can be dragged and dropped at will. Bottles can be moved to an 
 
 ![Bottle View](images/bottle.png)
 
-Clicking on a card opens the Bottle View. This shows detailed information about this particular bottle. This is where the URL link appears. The physical location of the bottle (cellar, shelf, row, position) is also shown. There are buttons to Delete (all information removed from memory) or Consume (the bottle is removed from the cellar, but information remains for future use if a similar bottle is later added). There is an Edit button (see below) and a Copy button, which temporarily puts the bottle data in memory and closes the view. Clicking on an empty spot automatically copies all the fields into this new slot, making it quick to add a second similar bottle.
+Clicking on a card opens the Bottle View. This shows detailed information about this particular bottle. This is where the URL link appears. The physical location of the bottle (cellar, shelf, row, position) is also shown, along with a small map of the cellar that highlights the bottle's slot, and a timeline of its drinking window. There are buttons to Delete (all information removed from memory) or Consume (the bottle is removed from the cellar, but information remains for future use if a similar bottle is later added). There is an Edit button (see below) and a Copy button, which temporarily puts the bottle data in memory and closes the view. Clicking on an empty spot automatically copies all the fields into this new slot, making it quick to add a second similar bottle.
 
 ![Edit View](images/edit_bottle.png)
 
@@ -128,7 +138,7 @@ The compact view entirely duplicates the features of the Cellar view. The only d
 
 ![All Bottles](images/all_bottles.png)
 
-This view is essentially a table view of all current bottles, grouped by type. It allows sorting in ascending or descending order for any column. Clicking a line brings up the same Bottle view as with the Cellar and Compact views.
+This view is essentially a table view of all current bottles, grouped by type, including where each bottle is stored. It allows sorting in ascending or descending order for any column. Clicking a line brings up the same Bottle view as with the Cellar and Compact views.
 
 ## Statistics
 
@@ -163,7 +173,7 @@ There are also two drop-down boxes letting the user filter by wine type or count
 - **Smart Column Balancing**: Automatically centers shorter shelves within the cellar volume to provide a clean, symmetrical layout.
 - **Dynamic Mobile Adaptability**: Cellars scale beautifully to 100% of the screen width in portrait mode, while individual shelves retain fluid horizontal touch scrolling to maximize space.
 - **Responsive Landscape Flow**: Automatically displays multiple cellars side-by-side on mobile landscape orientation, tablets, or wider PC monitors if screen real estate allows.
-- **Theme Native**: Fully adapted and tested for both Home Assistant Light and Dark themes with automated text and border contrast shifting.
+- **Theme Native**: All surfaces, text and accents come from the active Home Assistant theme, so the card follows Light and Dark mode and custom themes.
 - **Optimized Real Estate**: Keeps the header section anchored on larger screens but hides structural padding on smaller phone viewports to preserve usability.
 - **State Persistence**: Remembers your scroll position inside the dashboard even after minor interface refreshes.
 
