@@ -2118,12 +2118,16 @@ class WineCellarCard extends HTMLElement {
     }).length;
   }
 
+  _currency() {
+    return (this._hass && this._hass.config && this._hass.config.currency) || "CAD";
+  }
+
   _formatPrice(value) {
     var num = Number(value);
     if (!Number.isFinite(num)) return "—";
     return new Intl.NumberFormat(undefined, {
       style: "currency",
-      currency: "CAD",
+      currency: this._currency(),
       maximumFractionDigits: 2
     }).format(num);
   }
@@ -4269,7 +4273,7 @@ class WineCellarCard extends HTMLElement {
       "</select></label>",
       '      </div>',
       '      <div class="grid2">',
-      '        <label>' + self._t("price") + ' (CAD)<input name="price" type="number" step="0.01" min="0" value="' + self._escape(v("price", "")) + '"></label>',
+      '        <label>' + self._t("price") + ' (' + self._escape(self._currency()) + ')<input name="price" type="number" step="0.01" min="0" value="' + self._escape(v("price", "")) + '"></label>',
       '        <label>' + self._t("rating") + '<select name="rating">' +
         [0, 1, 2, 3, 4, 5].map(function (n) {
           return '<option value="' + n + '"' + (Number(v("rating", 0)) === n ? " selected" : "") + ">" + (n === 0 ? "—" : "★".repeat(n)) + "</option>";

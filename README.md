@@ -179,7 +179,8 @@ There are also two drop-down boxes letting the user filter by wine type or count
 ## Notes
 1. Large parts of the code were debugged, optimized, and refactored using advanced AI collaborative engines.
 2. This integration was built primarily in French and translated during development. The card and the config flow follow your Home Assistant language and ship with English, French, German, Spanish, Italian, Dutch, Portuguese, and Polish. Other languages fall back to English. Some language quirks may remain.
-3. This integration was built primarily for personal use. As such, some references relate to Québec (Canada), such as automatic CAD pricing conversions and native lookups on the state-owned alcohol monopoly "SAQ.com".
+3. This integration was built primarily for personal use. As such, some references relate to Québec (Canada), such as native lookups on the state-owned alcohol monopoly "SAQ.com".
+4. Prices are shown in the currency set in Home Assistant (Settings > System > General), and Gemini is asked for prices in that currency. Prices you already saved are not converted.
 
 ## Releases
 

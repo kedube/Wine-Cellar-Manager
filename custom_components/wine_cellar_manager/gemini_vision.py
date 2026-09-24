@@ -22,7 +22,7 @@ class WineAnalysisSchema(BaseModel):
     varietal: str | None = Field(None, description="The grape variety or varieties (e.g., Cabernet-Sauvignon, or Chardonnay).")
     vintage: int | None = Field(None, description="Year of harvest as an integer.")
     wine_type: str | None = Field(None, description='Must be exactly one of these strings: "red", "white", "rosé", "sparkling", "orange", "sweet", or "other".')
-    price: float | None = Field(None, description="The official market price or SAQ price in CAD as a float number (e.g., 24.95).")
+    price: float | None = Field(None, description="The current retail price, in the currency given in the instructions, as a float number (e.g., 24.95).")
     serving_temp: float | None = Field(None, description="Recommended serving temperature in Celsius as a float or integer, if guessable.")
     alcohol_pct: float | None = Field(None, description="The explicit alcohol level percentage extracted from the label as a float number (e.g., 13.5).")
     aging_start_year: int | None = Field(None, description="Estimated starting year when this specific vintage enters its optimal drinking window.")
@@ -39,8 +39,13 @@ You are an expert sommelier and wine label scanner. Carefully analyze this image
 CRITICAL DIRECTIONS:
 1. Do NOT confuse the 'producer' (the company, chateau, winery, estate, or maison who made it) with the 'wine_name' (the specific cuvée, brand name, or grape designation). 
 2. Look closely at the fine print on the neck, back, or bottom edges of the label to find the alcohol level percentage.
-3. If this wine is sold in Canada/Quebec, search your knowledge base to provide its official SAQ.com product page URL in 'saq_url' and its current SAQ price in CAD in 'price'.
+3. If this wine is sold in Canada/Quebec, search your knowledge base to provide its official SAQ.com product page URL in 'saq_url'.
+4. Provide its current retail price in {currency} in 'price'. If the currency is CAD and the wine is sold at the SAQ, use the SAQ price.
 """
+
+
+def _label_prompt(hass: HomeAssistant) -> str:
+    return PROMPT_LABEL_ANALYSIS.format(currency=hass.config.currency or "CAD")
 
 PROMPT_BARCODE_EXTRACTION = """
 Analyze this image. Find the barcode on the bottle (especially look for a 14-digit SAQ barcode if applicable).
@@ -97,7 +102,7 @@ async def async_analyze_wine_with_gemini(
             from google.genai import types
             response = client.models.generate_content(
                 model=model_name,
-                contents=f"Provide detailed sommelier data for wine with barcode: {barcode}. Instructions: {PROMPT_LABEL_ANALYSIS}",
+                contents=f"Provide detailed sommelier data for wine with barcode: {barcode}. Instructions: {_label_prompt(hass)}",
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
                     response_schema=WineAnalysisSchema,
@@ -121,7 +126,7 @@ async def async_analyze_wine_with_gemini(
         
         response = client.models.generate_content(
             model=model_name,
-            contents=[image_part, PROMPT_LABEL_ANALYSIS],
+            contents=[image_part, _label_prompt(hass)],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema=WineAnalysisSchema,
