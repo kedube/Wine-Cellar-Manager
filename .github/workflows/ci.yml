@@ -22,7 +22,7 @@ jobs:
     name: Hassfest
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: home-assistant/actions/hassfest@master
 
   hacs:
@@ -40,7 +40,7 @@ jobs:
     name: Python lint
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
@@ -55,7 +55,7 @@ jobs:
     name: Dashboard card
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: JavaScript syntax
         run: node --check custom_components/wine_cellar_manager/frontend/wine-cellar-card.js
       # dist/ is a published copy of the card served from the integration.
