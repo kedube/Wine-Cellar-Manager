@@ -1,7 +1,7 @@
 {
   "services": {
     "rebuild_ready": {
-      "icon": "mdi:glass-wine"
+      "service": "mdi:glass-wine"
     }
   }
 }
